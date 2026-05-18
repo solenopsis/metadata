@@ -40,18 +40,18 @@
         <org.codehaus.mojo_versions-maven-plugin>2.17.1</org.codehaus.mojo_versions-maven-plugin>
 
         <org.apache.httpcomponents_httpclient>4.5.14</org.apache.httpcomponents_httpclient>
-        <commons-io_commons-io>2.16.1</commons-io_commons-io>
+        <commons-io_commons-io>2.22.0</commons-io_commons-io>
 
         <org.solenopsis_session>1.16</org.solenopsis_session>
         <org.solenopsis_soap>1.11</org.solenopsis_soap>
         <org.flossware_jcommons>1.14</org.flossware_jcommons>
 
         <jakarta.xml.bind_jakarta.xml.bind-api>4.0.2</jakarta.xml.bind_jakarta.xml.bind-api>
-        <org.glassfish.jaxb_jaxb-runtime>4.0.5</org.glassfish.jaxb_jaxb-runtime>
+        <org.glassfish.jaxb_jaxb-runtime>4.0.8</org.glassfish.jaxb_jaxb-runtime>
 
         <org.junit.jupiter_junit-jupiter>5.10.2</org.junit.jupiter_junit-jupiter>
-        <org.mockito_mockito-core>5.14.2</org.mockito_mockito-core>
-        <org.mockito_mockito-junit-jupiter>5.14.2</org.mockito_mockito-junit-jupiter>
+        <org.mockito_mockito-core>5.23.0</org.mockito_mockito-core>
+        <org.mockito_mockito-junit-jupiter>5.23.0</org.mockito_mockito-junit-jupiter>
 
         <github.global.server>github</github.global.server>
         <message>Automated Version Bump ${project.version} [ci skip]</message>

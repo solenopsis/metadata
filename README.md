@@ -138,6 +138,10 @@ mvn clean install
 5. Ensure all tests pass: `mvn test`
 6. Submit a pull request
 
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for detailed version history and release notes.
+
 ## License
 
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.

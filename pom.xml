@@ -226,7 +226,13 @@
             <artifactId>httpclient</artifactId>
             <version>${org.apache.httpcomponents_httpclient}</version>
         </dependency>
-        
+
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.17.2</version>
+        </dependency>
+
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>

@@ -20,8 +20,12 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import org.apache.commons.io.IOUtils;
@@ -49,6 +53,56 @@ import org.solenopsis.metadata.WsdlSubUrlEnum;
  * @author Scot P. Floess
  */
 public class RetrieveWsdls {
+
+    /**
+     * Logger for this class.
+     */
+    private static final Logger LOGGER = Logger.getLogger(RetrieveWsdls.class.getName());
+
+    /**
+     * Default buffer size for reading zip entries (8KB).
+     */
+    private static final int BUFFER_SIZE = 8192;
+
+    /**
+     * Pattern to match single-line comments (//).
+     */
+    private static final Pattern SINGLE_LINE_COMMENT_PATTERN = Pattern.compile(
+        "//.*?$",
+        Pattern.MULTILINE
+    );
+
+    /**
+     * Pattern to match multi-line comments (/* ... *\/).
+     */
+    private static final Pattern MULTI_LINE_COMMENT_PATTERN = Pattern.compile(
+        "/\\*.*?\\*/",
+        Pattern.DOTALL
+    );
+
+    /**
+     * Pattern to match string literals (both single and double quotes).
+     * Handles basic escaped quotes.
+     */
+    private static final Pattern STRING_LITERAL_PATTERN = Pattern.compile(
+        "'(?:[^'\\\\]|\\\\.)*'|\"(?:[^\"\\\\]|\\\\.)*\"",
+        Pattern.DOTALL
+    );
+
+    /**
+     * Pattern to match the 'webservice' keyword in Apex method declarations.
+     * Matches case-insensitively and requires it to be followed by method signature:
+     * - Simple types: webservice static String method()
+     * - Void: WebService void method()
+     * - Complex types: webservice static List<String> method()
+     * - Nested generics: webservice static Map<String, List<Integer>> method()
+     * - Arrays: webservice static String[] method()
+     * Must be followed by return type and method name with opening parenthesis.
+     */
+    private static final Pattern WEBSERVICE_PATTERN = Pattern.compile(
+        "\\bwebservice\\s+(?:static\\s+)?\\S+.*?\\w+\\s*\\(",
+        Pattern.CASE_INSENSITIVE | Pattern.DOTALL
+    );
 
     static RetrieveRequest createRetrieveRequest(final String apiVersion) throws Exception {
         final RetrieveRequest retrieveRequest = new RetrieveRequest();
@@ -90,48 +144,84 @@ public class RetrieveWsdls {
         return ensureRetrieveSuccess(result).getZipFile();
     }
 
+    /**
+     * Finds all custom web service classes in the Salesforce org.
+     * Retrieves all Apex classes and scans them for the 'webservice' keyword
+     * in method declarations.
+     *
+     * @param context the context containing credentials and connection info
+     * @return list of class names that contain web service methods
+     * @throws Exception if retrieval or parsing fails
+     */
     static List<String> findCustomWsdls(final Context context) throws Exception {
+        LOGGER.info("Retrieving Custom WSDLs...");
         System.out.println("Retrieving Custom WSDLs...");
 
-        final List<String> retVal = new ArrayList<>();
+        final List<String> webServiceClasses = new ArrayList<>();
+        final byte[] zipData = retrieveApexClasses(context.port, context.credentials.version());
 
-        final ZipInputStream zis = new ZipInputStream(new ByteArrayInputStream(retrieveApexClasses(context.port, context.credentials.version())));
+        try (ZipInputStream zis = new ZipInputStream(new ByteArrayInputStream(zipData))) {
+            ZipEntry zipEntry;
+            final byte[] buffer = new byte[BUFFER_SIZE];
 
-        ZipEntry zipEntry = null;
-
-        final byte[] rawData = new byte[2048000];
-
-        do {
-            zipEntry = zis.getNextEntry();
-
-            if (null == zipEntry || zipEntry.isDirectory() || !zipEntry.getName().endsWith(".cls")) {
-                continue;
-            }
-
-            int len;
-
-            final ByteArrayOutputStream baos = new ByteArrayOutputStream();
-
-            do {
-                len = zis.read(rawData);
-
-                if (len < 1) {
+            while ((zipEntry = zis.getNextEntry()) != null) {
+                // Skip directories and non-.cls files
+                if (zipEntry.isDirectory() || !zipEntry.getName().endsWith(".cls")) {
                     continue;
                 }
 
-                baos.write(rawData, 0, len);
+                // Read the class file content
+                final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                int len;
+                while ((len = zis.read(buffer)) > 0) {
+                    baos.write(buffer, 0, len);
+                }
 
-            } while (len > 0);
+                // Convert to string with explicit UTF-8 encoding
+                final String classContent = baos.toString(StandardCharsets.UTF_8.name());
 
-            final String str = new String(baos.toByteArray());
+                // Check if this class contains webservice methods
+                if (isWebServiceClass(classContent)) {
+                    // Extract class name from file path (e.g., "classes/MyClass.cls" -> "MyClass")
+                    final String className = new File(zipEntry.getName())
+                        .getName()
+                        .replaceFirst("\\.cls$", "");
 
-            if (str.contains("WebService")) {
-                retVal.add(new File(zipEntry.getName()).getName().split("\\.")[0]);
+                    webServiceClasses.add(className);
+                    LOGGER.info("  Found web service: " + className);
+                    System.out.println("  Found web service: " + className);
+                }
             }
+        }
 
-        } while (null != zipEntry);
+        LOGGER.info("Found " + webServiceClasses.size() + " web service class(es)");
+        System.out.println("Found " + webServiceClasses.size() + " web service class(es)");
 
-        return retVal;
+        return webServiceClasses;
+    }
+
+    /**
+     * Determines if an Apex class contains web service methods by looking for
+     * the 'webservice' keyword in method declarations. Removes comments and
+     * string literals first to avoid false positives, and requires the keyword
+     * to be followed by a method signature.
+     *
+     * @param classContent the Apex class source code
+     * @return true if the class contains web service methods, false otherwise
+     */
+    static boolean isWebServiceClass(final String classContent) {
+        if (classContent == null || classContent.isEmpty()) {
+            return false;
+        }
+
+        // Remove comments and string literals to avoid false positives
+        String cleaned = SINGLE_LINE_COMMENT_PATTERN.matcher(classContent).replaceAll("");
+        cleaned = MULTI_LINE_COMMENT_PATTERN.matcher(cleaned).replaceAll("");
+        cleaned = STRING_LITERAL_PATTERN.matcher(cleaned).replaceAll("");
+
+        // Check for webservice keyword followed by method signature
+        final Matcher matcher = WEBSERVICE_PATTERN.matcher(cleaned);
+        return matcher.find();
     }
 
     static void retrieveWsdl(final Context context, final HttpGet httpGet, final String wsdlFileName) throws Exception {

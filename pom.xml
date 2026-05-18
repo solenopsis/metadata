@@ -3,13 +3,13 @@
 
     <groupId>org.solenopsis</groupId>
     <artifactId>metadata</artifactId>
-    <version>1.0.0</version>
-    <url>https://github.com/solenopsis/Metadata</url>
+    <version>2.0</version>
+    <url>https://github.com/solenopsis/metadata</url>
 
     <packaging>jar</packaging>
 
-    <name>Metadata Application Library</name>
-    <description>Provides useful metata applications.</description>
+    <name>metadata</name>
+    <description>Solenopsis metadata - A Java 17 library for Salesforce metadata operations.</description>
 
     <licenses>
         <license>
@@ -22,29 +22,47 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <java>1.8</java>
+        <java>17</java>
 
         <com.github.github_site-maven-plugin>0.12</com.github.github_site-maven-plugin>
-        <org.apache.maven.plugins_maven-compiler-plugin>3.6.1</org.apache.maven.plugins_maven-compiler-plugin>
-        <org.apache.maven.plugins_maven-surefire-plugin>2.19.1</org.apache.maven.plugins_maven-surefire-plugin>
-        <org.apache.maven.plugins_maven-project-info-reports-plugin>2.9</org.apache.maven.plugins_maven-project-info-reports-plugin>
-        <org.apache.maven.plugins_maven-javadoc-plugin>2.10.4</org.apache.maven.plugins_maven-javadoc-plugin>
-        <org.apache.maven.plugins_maven-surefire-report-plugin>2.19.1</org.apache.maven.plugins_maven-surefire-report-plugin>
-        <org.codehaus.mojo_cobertura-maven-plugin>2.7</org.codehaus.mojo_cobertura-maven-plugin>
-        <org.apache.maven.plugins_maven-pmd-plugin>3.7</org.apache.maven.plugins_maven-pmd-plugin>
-        <org.apache.maven.plugins_maven-jxr-plugin>2.5</org.apache.maven.plugins_maven-jxr-plugin>
-        <org.codehaus.mojo_findbugs-maven-plugin>3.0.4</org.codehaus.mojo_findbugs-maven-plugin>
-        <net.sourceforge.cobertura_cobertura>2.1.1</net.sourceforge.cobertura_cobertura>
+        <org.apache.maven.plugins_maven-compiler-plugin>3.13.0</org.apache.maven.plugins_maven-compiler-plugin>
+        <org.apache.maven.plugins_maven-surefire-plugin>3.2.5</org.apache.maven.plugins_maven-surefire-plugin>
+        <org.apache.maven.plugins_maven-project-info-reports-plugin>3.6.2</org.apache.maven.plugins_maven-project-info-reports-plugin>
+        <org.apache.maven.plugins_maven-javadoc-plugin>3.6.3</org.apache.maven.plugins_maven-javadoc-plugin>
+        <org.apache.maven.plugins_maven-surefire-report-plugin>3.2.5</org.apache.maven.plugins_maven-surefire-report-plugin>
+        <org.jacoco_jacoco-maven-plugin>0.8.12</org.jacoco_jacoco-maven-plugin>
+        <org.apache.maven.plugins_maven-pmd-plugin>3.21.2</org.apache.maven.plugins_maven-pmd-plugin>
+        <org.apache.maven.plugins_maven-jxr-plugin>3.3.2</org.apache.maven.plugins_maven-jxr-plugin>
+        <com.github.spotbugs_spotbugs-maven-plugin>4.8.3.1</com.github.spotbugs_spotbugs-maven-plugin>
+        <org.apache.maven.plugins_maven-enforcer-plugin>3.5.0</org.apache.maven.plugins_maven-enforcer-plugin>
+        <org.apache.maven.plugins_maven-scm-plugin>2.0.1</org.apache.maven.plugins_maven-scm-plugin>
+        <org.codehaus.mojo_build-helper-maven-plugin>3.6.0</org.codehaus.mojo_build-helper-maven-plugin>
+        <org.codehaus.mojo_versions-maven-plugin>2.17.1</org.codehaus.mojo_versions-maven-plugin>
 
-        <org.apache.httpcomponents_httpclient>4.5.13</org.apache.httpcomponents_httpclient>
-        <commons-io_commons-io>2.7</commons-io_commons-io>
+        <org.apache.httpcomponents_httpclient>4.5.14</org.apache.httpcomponents_httpclient>
+        <commons-io_commons-io>2.16.1</commons-io_commons-io>
 
-        <org.solenopsis_keraiai>3.0.8</org.solenopsis_keraiai>
+        <org.solenopsis_session>1.16</org.solenopsis_session>
+        <org.solenopsis_soap>1.11</org.solenopsis_soap>
+        <org.flossware_jcommons>1.14</org.flossware_jcommons>
 
-        <junit_junit>4.12</junit_junit>
+        <jakarta.xml.bind_jakarta.xml.bind-api>4.0.2</jakarta.xml.bind_jakarta.xml.bind-api>
+        <org.glassfish.jaxb_jaxb-runtime>4.0.5</org.glassfish.jaxb_jaxb-runtime>
+
+        <org.junit.jupiter_junit-jupiter>5.10.2</org.junit.jupiter_junit-jupiter>
+        <org.mockito_mockito-core>5.14.2</org.mockito_mockito-core>
+        <org.mockito_mockito-junit-jupiter>5.14.2</org.mockito_mockito-junit-jupiter>
 
         <github.global.server>github</github.global.server>
+        <message>Automated Version Bump ${project.version} [ci skip]</message>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 
     <developers>
         <developer>
@@ -58,6 +76,20 @@
             <timezone>-4</timezone>
         </developer>
     </developers>
+
+    <scm>
+        <connection>scm:git:https://github.com/solenopsis/metadata.git</connection>
+        <developerConnection>scm:git:https://github.com/solenopsis/metadata.git</developerConnection>
+        <url>https://github.com/solenopsis/metadata</url>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>packagecloud-sfloess</id>
+            <name>packagecloud-sfloess</name>
+            <url>https://packagecloud.io/sfloess/solenopsis/maven2/</url>
+        </repository>
+    </distributionManagement>
 
     <build>
         <plugins>
@@ -108,53 +140,82 @@
             </plugin>
 
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>cobertura-maven-plugin</artifactId>
-                <version>${org.codehaus.mojo_cobertura-maven-plugin}</version>
-                <!--
-                <configuration>
-                    <instrumentation>
-                        <excludes>
-                            <exclude>org/flossware/jcore/**/*.class</exclude>
-                            <exclude>org/solenopsis/keraiai/**/*.class</exclude>
-                        </excludes>
-                    </instrumentation>
-
-                    <check>
-                        <branchRate>50</branchRate>
-                        <lineRate>50</lineRate>
-                        <haltOnFailure>false</haltOnFailure>
-                        <totalBranchRate>50</totalBranchRate>
-                        <totalLineRate>50</totalLineRate>
-                        <packageLineRate>50</packageLineRate>
-                        <packageBranchRate>50</packageBranchRate>
-
-                        <regexes>
-                            <regex>
-                                <pattern>org.solenopsis.keraiai.*</pattern>
-                                <branchRate>90</branchRate>
-                                <lineRate>80</lineRate>
-                            </regex>
-                        </regexes>
-                    </check>
-                </configuration>
-
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${org.jacoco_jacoco-maven-plugin}</version>
                 <executions>
                     <execution>
-                        <id>instrument</id>
-                        <phase>site</phase>
+                        <id>prepare-agent</id>
                         <goals>
-                            <goal>instrument</goal>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
                         </goals>
                     </execution>
                 </executions>
-                -->
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>${org.apache.maven.plugins_maven-pmd-plugin}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>${org.codehaus.mojo_build-helper-maven-plugin}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>${org.codehaus.mojo_versions-maven-plugin}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>${org.apache.maven.plugins_maven-enforcer-plugin}</version>
+                <executions>
+                    <execution>
+                        <id>enforce-release-rules</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireReleaseDeps/>
+                                <requireReleaseVersion/>
+                                <evaluateBeanshell>
+                                    <condition>
+                                        String v = "${project.version}";
+                                        v.matches("^\\d+\\.\\d+$")
+                                    </condition>
+                                    <message>VERSION ERROR: Version must be X.Y format and NOT a SNAPSHOT.</message>
+                                </evaluateBeanshell>
+                            </rules>
+                            <fail>true</fail>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-plugin</artifactId>
+                <version>${org.apache.maven.plugins_maven-scm-plugin}</version>
+                <configuration>
+                    <providerImplementations>
+                        <git>git</git>
+                    </providerImplementations>
+                    <tag>${project.version}</tag>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -171,23 +232,56 @@
             <artifactId>commons-io</artifactId>
             <version>${commons-io_commons-io}</version>
         </dependency>
-        
+
         <dependency>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>cobertura-maven-plugin</artifactId>
-            <version>${org.codehaus.mojo_cobertura-maven-plugin}</version>
+            <groupId>org.solenopsis</groupId>
+            <artifactId>session</artifactId>
+            <version>${org.solenopsis_session}</version>
         </dependency>
 
         <dependency>
             <groupId>org.solenopsis</groupId>
-            <artifactId>keraiai</artifactId>
-            <version>${org.solenopsis_keraiai}</version>
+            <artifactId>soap</artifactId>
+            <version>${org.solenopsis_soap}</version>
         </dependency>
 
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit_junit}</version>
+            <groupId>org.flossware</groupId>
+            <artifactId>jcommons</artifactId>
+            <version>${org.flossware_jcommons}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>${jakarta.xml.bind_jakarta.xml.bind-api}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>${org.glassfish.jaxb_jaxb-runtime}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${org.junit.jupiter_junit-jupiter}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${org.mockito_mockito-core}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>${org.mockito_mockito-junit-jupiter}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

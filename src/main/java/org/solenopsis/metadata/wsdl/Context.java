@@ -17,12 +17,16 @@
 package org.solenopsis.metadata.wsdl;
 
 import java.io.File;
-import org.flossware.jcore.utils.StringUtils;
-import org.solenopsis.keraiai.Credentials;
-import org.solenopsis.keraiai.LoginContext;
-import org.solenopsis.keraiai.credentials.FilePropertiesCredentials;
-import org.solenopsis.keraiai.soap.port.ApiWebServiceEnum;
-import org.solenopsis.keraiai.wsdl.metadata.MetadataPortType;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import org.flossware.jcommons.util.StringUtil;
+import org.solenopsis.session.Credentials;
+import org.solenopsis.session.SessionContext;
+import org.solenopsis.session.credentials.CredentialsUtil;
+import org.solenopsis.session.soap.PortEnum;
+import org.solenopsis.session.soap.login.LoginServiceEnum;
+import org.solenopsis.soap.metadata.MetadataService;
+import org.solenopsis.soap.metadata.MetadataPortType;
 
 /**
  * Context for command line options.
@@ -38,16 +42,17 @@ final class Context {
 
     MetadataPortType port;
 
-    LoginContext loginContext;
+    SessionContext sessionContext;
 
     void setCredentials(final String fileName) {
-        credentials = new FilePropertiesCredentials(fileName);
-        port = ApiWebServiceEnum.METADATA_SERVICE.createProxyPort(credentials);
-        loginContext = (LoginContext) port;
+        credentials = CredentialsUtil.fromFile(fileName);
+        sessionContext = LoginServiceEnum.DEFAULT_LOGIN_SERVICE.getLoginService().login(credentials);
+        port = PortEnum.METADATA.createPortForService(MetadataService.class, sessionContext);
     }
 
     void setSolenopsisCredentials(final String env) {
-        setCredentials(StringUtils.concatWithSeparator(true, System.getProperty("file.separator"), System.getProperty("user.home"), ".solenopsis", "credentials", env + ".properties"));
+        final Path credPath = Paths.get(System.getProperty("user.home"), ".solenopsis", "credentials", env + ".properties");
+        setCredentials(credPath.toString());
     }
 
     void ensureCredentials() {

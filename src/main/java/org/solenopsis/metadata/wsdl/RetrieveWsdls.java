@@ -28,21 +28,18 @@ import org.apache.commons.io.IOUtils;
 import org.apache.http.client.CookieStore;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.protocol.ClientContext;
+import org.apache.http.client.protocol.HttpClientContext;
 import org.apache.http.cookie.ClientCookie;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.cookie.BasicClientCookie;
-import org.apache.http.protocol.BasicHttpContext;
-import org.apache.http.protocol.HttpContext;
-import org.flossware.jcore.utils.StringUtils;
-import org.solenopsis.keraiai.wsdl.metadata.AsyncResult;
-import org.solenopsis.keraiai.wsdl.metadata.MetadataPortType;
-import org.solenopsis.keraiai.wsdl.metadata.Package;
-import org.solenopsis.keraiai.wsdl.metadata.PackageTypeMembers;
-import org.solenopsis.keraiai.wsdl.metadata.RetrieveRequest;
-import org.solenopsis.keraiai.wsdl.metadata.RetrieveResult;
-import org.solenopsis.metadata.WildcardEnum;
+import org.flossware.jcommons.util.StringUtil;
+import org.solenopsis.soap.metadata.AsyncResult;
+import org.solenopsis.soap.metadata.MetadataPortType;
+import org.solenopsis.soap.metadata.Package;
+import org.solenopsis.soap.metadata.PackageTypeMembers;
+import org.solenopsis.soap.metadata.RetrieveRequest;
+import org.solenopsis.soap.metadata.RetrieveResult;
 import org.solenopsis.metadata.WsdlSubUrlEnum;
 
 /**
@@ -58,7 +55,7 @@ public class RetrieveWsdls {
         retrieveRequest.setApiVersion(Double.parseDouble(apiVersion));
 
         final PackageTypeMembers types = new PackageTypeMembers();
-        types.setName(WildcardEnum.APEX_CLASS.getMetadataType());
+        types.setName("ApexClass");
         types.getMembers().add("*");
 
         final Package pack = new Package();
@@ -98,7 +95,7 @@ public class RetrieveWsdls {
 
         final List<String> retVal = new ArrayList<>();
 
-        final ZipInputStream zis = new ZipInputStream(new ByteArrayInputStream(retrieveApexClasses(context.port, context.credentials.getApiVersion())));
+        final ZipInputStream zis = new ZipInputStream(new ByteArrayInputStream(retrieveApexClasses(context.port, context.credentials.version())));
 
         ZipEntry zipEntry = null;
 
@@ -138,17 +135,17 @@ public class RetrieveWsdls {
     }
 
     static void retrieveWsdl(final Context context, final HttpGet httpGet, final String wsdlFileName) throws Exception {
-        final BasicClientCookie cookie = new BasicClientCookie("sid", context.loginContext.getSessionId());
+        final BasicClientCookie cookie = new BasicClientCookie("sid", context.sessionContext.sessionId());
         cookie.setDomain(".salesforce.com");
         cookie.setAttribute(ClientCookie.DOMAIN_ATTR, "true");
 
         CookieStore cookieStore = new BasicCookieStore();
         cookieStore.addCookie(cookie);
 
-        HttpContext localContext = new BasicHttpContext();
-        localContext.setAttribute(ClientContext.COOKIE_STORE, cookieStore);
+        HttpClientContext localContext = HttpClientContext.create();
+        localContext.setCookieStore(cookieStore);
 
-        final String outputFile = StringUtils.concatWithSeparator(false, System.getProperty("file.separator"), context.outputDir, context.prefix + wsdlFileName);
+        final String outputFile = StringUtil.concatWithSeparator(false, System.getProperty("file.separator"), context.outputDir, context.prefix + wsdlFileName);
 
         System.out.println("Retreiving [" + outputFile + "]");
 
@@ -165,14 +162,14 @@ public class RetrieveWsdls {
     }
 
     static void retrieveWsdls(final Context context, final List<String> customWsdls) throws Exception {
-        retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.APEX.computeUrl(context.loginContext.getBaseServerUrl())), "apex.wsdl");
-        retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.ENTERPRISE.computeUrl(context.loginContext.getBaseServerUrl())), "enterprise.wsdl");
-        retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.METADATA.computeUrl(context.loginContext.getBaseServerUrl())), "metadata.wsdl");
-        retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.PARNTER.computeUrl(context.loginContext.getBaseServerUrl())), "partner.wsdl");
-//        retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.TOOLING.computeUrl(context.loginContext.getBaseServerUrl())), "tooling.wsdl");
+        retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.APEX.computeUrl(context.sessionContext.serverUrl())), "apex.wsdl");
+        retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.ENTERPRISE.computeUrl(context.sessionContext.serverUrl())), "enterprise.wsdl");
+        retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.METADATA.computeUrl(context.sessionContext.serverUrl())), "metadata.wsdl");
+        retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.PARNTER.computeUrl(context.sessionContext.serverUrl())), "partner.wsdl");
+//        retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.TOOLING.computeUrl(context.sessionContext.serverUrl())), "tooling.wsdl");
 
         for (final String wsdl : customWsdls) {
-            retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.CUSTOM.computeUrl(context.loginContext.getBaseServerUrl()) + "/" + wsdl), wsdl + ".wsdl");
+            retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.CUSTOM.computeUrl(context.sessionContext.serverUrl()) + "/" + wsdl), wsdl + ".wsdl");
         }
     }
 

@@ -1,0 +1,1 @@
+mvn clean install exec:java -Dexec.mainClass=org.solenopsis.metadata.wsdl.RetrieveWsdls -Dexec.args="--solenopsis qa --prefix sfdeasy- --dir /home/sfloess/Development/redhat/scm/gitlab/cee/customer-platform/sfdeasy/src/main/resources/wsdl"

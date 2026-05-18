@@ -1,8 +1,8 @@
 package org.solenopsis.metadata;
 
 import java.util.logging.Logger;
-import org.solenopsis.keraiai.wsdl.metadata.DescribeMetadataResult;
-import org.solenopsis.keraiai.wsdl.metadata.MetadataPortType;
+import org.solenopsis.soap.metadata.DescribeMetadataResult;
+import org.solenopsis.soap.metadata.MetadataPortType;
 
 /**
  * Can retrieve metadata in it's entirety or condensed (meaning

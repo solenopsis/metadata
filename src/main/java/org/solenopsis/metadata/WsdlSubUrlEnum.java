@@ -16,7 +16,7 @@
  */
 package org.solenopsis.metadata;
 
-import org.flossware.jcore.utils.StringUtils;
+import org.flossware.jcommons.util.StringUtil;
 
 /**
  * The sub URL to use when gathering WSDLs.
@@ -42,6 +42,6 @@ public enum WsdlSubUrlEnum {
     }
 
     public String computeUrl(final String baseUrl) {
-        return StringUtils.concatWithSeparator(false, "/", baseUrl, getSubUrl());
+        return StringUtil.concatWithSeparator(false, "/", baseUrl, getSubUrl());
     }
 }

@@ -18,11 +18,11 @@ package org.solenopsis.metadata.xml;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import org.solenopsis.keraiai.wsdl.metadata.DescribeMetadataObject;
-import org.solenopsis.keraiai.wsdl.metadata.DescribeMetadataResult;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
+import org.solenopsis.soap.metadata.DescribeMetadataObject;
+import org.solenopsis.soap.metadata.DescribeMetadataResult;
 
 /**
  * The package root element.

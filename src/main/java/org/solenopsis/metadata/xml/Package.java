@@ -36,33 +36,68 @@ public class Package {
 
     private String version;
 
+    /**
+     * Default constructor. Initializes an empty types list.
+     */
     public Package() {
         this.typesList = new ArrayList<>();
     }
 
+    /**
+     * Constructs a package from a list of metadata objects.
+     *
+     * @param metadataList list of Salesforce metadata objects
+     * @param version the Salesforce API version
+     */
     public Package(final List<DescribeMetadataObject> metadataList, final String version) {
         this.typesList = Types.createTypes(metadataList);
         this.version = version;
     }
 
+    /**
+     * Constructs a package from describe metadata result.
+     *
+     * @param describeMetadataResult the Salesforce metadata description
+     * @param version the Salesforce API version
+     */
     public Package(final DescribeMetadataResult describeMetadataResult, final String version) {
         this(describeMetadataResult.getMetadataObjects(), version);
     }
 
+    /**
+     * Sets the types list for XML binding.
+     *
+     * @param typesList list of metadata types
+     */
     @XmlElement(name = "types")
     public void setTypes(final List<Types> typesList) {
         this.typesList = typesList;
     }
 
+    /**
+     * Returns the types list.
+     *
+     * @return list of metadata types
+     */
     public List<Types> getTypes() {
         return typesList;
     }
 
+    /**
+     * Sets the Salesforce API version for XML binding.
+     *
+     * @param version the API version
+     */
     @XmlElement(name = "version")
     public void setVersion(final String version) {
         this.version = version;
     }
 
+    /**
+     * Returns the Salesforce API version.
+     *
+     * @return the API version
+     */
     public String getVersion() {
         return version;
     }

@@ -3,7 +3,7 @@
 
     <groupId>org.solenopsis</groupId>
     <artifactId>metadata</artifactId>
-    <version>2.0</version>
+    <version>2.1</version>
     <url>https://github.com/solenopsis/metadata</url>
 
     <packaging>jar</packaging>
@@ -52,6 +52,11 @@
         <org.junit.jupiter_junit-jupiter>5.10.2</org.junit.jupiter_junit-jupiter>
         <org.mockito_mockito-core>5.23.0</org.mockito_mockito-core>
         <org.mockito_mockito-junit-jupiter>5.23.0</org.mockito_mockito-junit-jupiter>
+
+        <org.slf4j_slf4j-api>2.0.9</org.slf4j_slf4j-api>
+        <ch.qos.logback_logback-classic>1.4.14</ch.qos.logback_logback-classic>
+        <org.yaml_snakeyaml>2.2</org.yaml_snakeyaml>
+        <com.google.code.gson_gson>2.10.1</com.google.code.gson_gson>
 
         <github.global.server>github</github.global.server>
         <message>Automated Version Bump ${project.version} [ci skip]</message>
@@ -374,6 +379,30 @@
             <artifactId>jaxb-runtime</artifactId>
             <version>${org.glassfish.jaxb_jaxb-runtime}</version>
             <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${org.slf4j_slf4j-api}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${ch.qos.logback_logback-classic}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>${org.yaml_snakeyaml}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${com.google.code.gson_gson}</version>
         </dependency>
 
         <dependency>

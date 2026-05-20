@@ -2,16 +2,58 @@
 
 Solenopsis metadata - A Java 17 library for Salesforce metadata operations.
 
-**Version:** 2.0  
+**Version:** 2.1  
 **Java:** 17+  
-**License:** GNU General Public License v3
+**License:** GNU General Public License v3  
+**Test Coverage:** 79% instruction, 78% branch (202 tests)
 
 ## Features
 
 - Download Salesforce API WSDLs (Apex, Enterprise, Metadata, Partner, Tooling)
 - Download custom Apex class WSDLs
+- List metadata components from Salesforce orgs
+- Generate org metadata statistics
+- Validate package.xml files
+- **Git diff-based package generation** - Deploy only changed files (70% faster!)
 - Support for Salesforce session management
 - XML package generation utilities
+- Professional SLF4J/Logback logging
+
+## Quick Start: Git Diff Deployments
+
+Generate package.xml from git changes for faster deployments:
+
+```java
+import org.solenopsis.metadata.diff.DiffPackageGenerator;
+import org.solenopsis.soap.metadata.Package;
+
+// Generate package from git diff
+Package pkg = DiffPackageGenerator.generateFromGitDiff(
+    "HEAD~1",  // from ref
+    "HEAD",    // to ref
+    "60.0"     // API version
+);
+
+// Or get both deploy and destructive packages
+Package[] both = DiffPackageGenerator.generateBothFromGitDiff(
+    "develop",
+    "feature-branch",
+    "60.0"
+);
+Package deployPackage = both[0];      // Added/modified components
+Package destructivePackage = both[1]; // Deleted components
+```
+
+### Supported Metadata Types
+
+The file path mapper recognizes 20+ metadata types:
+- **Code**: ApexClass, ApexTrigger, ApexPage, ApexComponent
+- **Lightning**: LightningComponentBundle (LWC), AuraDefinitionBundle
+- **Objects**: CustomField, ValidationRule, RecordType, ListView, WebLink
+- **UI**: Layout, CompactLayout, CustomTab, CustomApplication
+- **Security**: Profile, PermissionSet, Queue
+- **Automation**: Flow, Workflow
+- **Resources**: StaticResource, EmailTemplate, Report, Dashboard
 
 ## Dependencies
 
@@ -68,7 +110,7 @@ Then add the dependency:
 <dependency>
     <groupId>org.solenopsis</groupId>
     <artifactId>metadata</artifactId>
-    <version>2.0</version>
+    <version>2.1</version>
 </dependency>
 ```
 

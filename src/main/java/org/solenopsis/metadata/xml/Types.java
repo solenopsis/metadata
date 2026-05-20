@@ -24,6 +24,7 @@ import jakarta.xml.bind.annotation.XmlType;
 import org.solenopsis.soap.metadata.DescribeMetadataObject;
 
 /**
+ * Represents metadata types in a Salesforce package.xml file.
  *
  * @author Scot P. Floess
  */
@@ -34,6 +35,12 @@ public class Types {
 
     private List<String> membersList;
 
+    /**
+     * Creates a list of Types from Salesforce metadata objects.
+     *
+     * @param metadataList list of Salesforce metadata objects
+     * @return list of Types objects
+     */
     static List<Types> createTypes(final List<DescribeMetadataObject> metadataList) {
         final List<Types> retVal = new ArrayList<>(metadataList.size());
 
@@ -44,30 +51,58 @@ public class Types {
         return retVal;
     }
 
+    /**
+     * Default constructor. Initializes an empty members list.
+     */
     public Types() {
         this.membersList = new ArrayList<>();
     }
 
+    /**
+     * Constructs a Types object from a Salesforce metadata object.
+     *
+     * @param describeMetadataObject the metadata object to convert
+     */
     public Types(final DescribeMetadataObject describeMetadataObject) {
         this.name = describeMetadataObject.getXmlName();
         this.membersList = new ArrayList<>(describeMetadataObject.getChildXmlNames().size());
         this.membersList.addAll(describeMetadataObject.getChildXmlNames());
     }
 
+    /**
+     * Sets the metadata type name for XML binding.
+     *
+     * @param name the metadata type name
+     */
     @XmlElement(name = "name")
     public void setName(final String name) {
         this.name = name;
     }
 
+    /**
+     * Returns the metadata type name.
+     *
+     * @return the metadata type name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Sets the members list for XML binding.
+     *
+     * @param membersList list of member names
+     */
     @XmlElement(name = "members")
     public void setMembers(final List<String> membersList) {
         this.membersList = membersList;
     }
 
+    /**
+     * Returns the members list.
+     *
+     * @return list of member names
+     */
     public List<String> getMembers() {
         return membersList;
     }

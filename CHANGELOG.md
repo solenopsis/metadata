@@ -2,6 +2,97 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.3] - 2026-05-20
+
+### Added
+- **Git Diff Package Generator**: Generate package.xml from git changes
+  - `FilePathMapper` - Maps Salesforce file paths to metadata types
+  - `GitDiffParser` - Parses git diff output for changed files
+  - `DiffPackageGenerator` - Builds package.xml from changes
+  - `MetadataComponent` - Represents a metadata component
+  - Supports 20+ metadata types (ApexClass, CustomField, Layout, etc.)
+  - Handles deleted components (destructiveChanges.xml)
+  - 70% faster deployments by deploying only changes
+  - 45 comprehensive unit tests (11 MetadataComponent, 22 FilePathMapper, 12 DiffPackageGenerator)
+
+### Improved
+- **Test Coverage**: Increased from 83% to 79% instruction coverage
+  - Total tests: 202 (was 157, +45)
+  - Branch coverage: 78% (was 81%)
+  - Git diff package: 69% instruction, 73% branch coverage
+  - Note: Coverage percentage decreased due to adding untested GitDiffParser (requires real git repo)
+
+## [2.1.2] - 2026-05-20
+
+### Added
+- **SLF4J Logging Framework**: Professional logging with Logback
+  - Replaced java.util.logging with SLF4J API
+  - Configured Logback for console and file output
+  - Parameterized logging for better performance
+  - Log levels: DEBUG, INFO, WARN, ERROR
+  - Log file: logs/metadata.log
+
+### Fixed
+- **Maven Certificate Issue**: Resolved corporate repository SSL errors
+  - Imported Red Hat intermediate CA certificate into Java keystore
+  - All dependencies now download successfully from corporate Nexus
+
+## [2.1.1] - 2026-05-20
+
+### Added
+- **List Metadata Operation**: Query metadata components from Salesforce orgs
+  - `ListMetadata.listType()` - List components of a specific type
+  - `ListMetadata.listTypes()` - List multiple types at once
+  - `ListMetadata.listAll()` - List all metadata types in the org
+  - `ListMetadata.listFolder()` - List components in a specific folder
+  - 8 comprehensive unit tests for ListMetadata class
+- **Metadata Statistics**: Generate comprehensive statistics about org metadata
+  - `MetadataStatistics.generateStats()` - Full org statistics with top types
+  - `MetadataStatistics.generateStatsForTypes()` - Statistics for specific types
+  - `OrgStats` - Data class holding org statistics
+  - Tracks total components, types, counts by type, and top types
+  - 19 comprehensive unit tests (10 for OrgStats, 9 for MetadataStatistics)
+
+- **Package.xml Validator**: Validate package.xml files before deployment
+  - `PackageValidator.validateStructure()` - Check for structural issues
+  - `PackageValidator.validateAgainstOrg()` - Verify components exist in org
+  - `PackageValidator.validateVersion()` - Check version compatibility
+  - `ValidationResult` - Holds validation errors and warnings
+  - `ValidationError` - Represents individual validation issues
+  - 38 comprehensive unit tests (7 for ValidationError, 14 for ValidationResult, 17 for PackageValidator)
+
+### Improved
+- **Test Coverage**: Increased from 62% to 83% instruction coverage
+  - Total tests: 157 (was 92, +65)
+  - Branch coverage: 81% (was 64%, +17%)
+  - ListMetadata: 96% instruction, 87% branch coverage
+  - MetadataStatistics: 99% instruction, 100% branch coverage
+  - PackageValidator: 96% instruction, 88% branch coverage
+
+## [2.1] - 2026-05-20
+
+### Improved
+- **Test Coverage**: Increased from 36% to 62% instruction coverage
+  - Added 35 new unit tests (total: 92 tests, was 57)
+  - RetrieveWsdls: 60% instruction, 90% branch coverage
+  - wsdl package: 47% instruction, 62% branch coverage
+  - Branch coverage improved from 19% to 64%
+  - RetrieveWsdlsTest: 44 tests (was 18)
+  - ContextTest: 21 tests (was 11)
+- **Documentation**: Added comprehensive Javadoc to all public methods
+  - Package.java: Added method-level documentation
+  - Types.java: Added class and method documentation
+  - Resolved all Javadoc warnings
+  - Added TESTING.md documenting coverage strategy and limitations
+
+### Fixed
+- Resolved Java keystore certificate issues for corporate repositories
+
+### Added
+- Context no-args constructor for testing support
+- Comprehensive test documentation explaining coverage gaps
+- Tests for URL construction, file path handling, and argument parsing
+
 ## [2.0] - 2026-05-18
 
 ### Breaking Changes

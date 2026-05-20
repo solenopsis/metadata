@@ -44,6 +44,12 @@ final class Context {
 
     SessionContext sessionContext;
 
+    /**
+     * Package-private no-args constructor for testing.
+     */
+    Context() {
+    }
+
     void setCredentials(final String fileName) {
         credentials = CredentialsUtil.fromFile(fileName);
         sessionContext = LoginServiceEnum.DEFAULT_LOGIN_SERVICE.getLoginService().login(credentials);

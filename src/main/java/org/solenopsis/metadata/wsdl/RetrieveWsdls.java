@@ -23,7 +23,8 @@ import java.io.FileWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
@@ -57,7 +58,7 @@ public class RetrieveWsdls {
     /**
      * Logger for this class.
      */
-    private static final Logger LOGGER = Logger.getLogger(RetrieveWsdls.class.getName());
+    private static final Logger logger = LoggerFactory.getLogger(RetrieveWsdls.class);
 
     /**
      * Default buffer size for reading zip entries (8KB).
@@ -138,7 +139,7 @@ public class RetrieveWsdls {
             Thread.sleep(3000);
             result = metadataPort.checkRetrieveStatus(asyncResult.getId(), true);
 
-            System.out.println("    Polling...  ");
+            logger.debug("Polling retrieve status for async ID: {}", asyncResult.getId());
         } while (!result.isDone());
 
         return ensureRetrieveSuccess(result).getZipFile();
@@ -154,8 +155,7 @@ public class RetrieveWsdls {
      * @throws Exception if retrieval or parsing fails
      */
     static List<String> findCustomWsdls(final Context context) throws Exception {
-        LOGGER.info("Retrieving Custom WSDLs...");
-        System.out.println("Retrieving Custom WSDLs...");
+        logger.info("Retrieving Custom WSDLs for org");
 
         final List<String> webServiceClasses = new ArrayList<>();
         final byte[] zipData = retrieveApexClasses(context.port, context.credentials.version());
@@ -167,6 +167,7 @@ public class RetrieveWsdls {
             while ((zipEntry = zis.getNextEntry()) != null) {
                 // Skip directories and non-.cls files
                 if (zipEntry.isDirectory() || !zipEntry.getName().endsWith(".cls")) {
+                    logger.debug("Skipping non-class entry: {}", zipEntry.getName());
                     continue;
                 }
 
@@ -188,14 +189,12 @@ public class RetrieveWsdls {
                         .replaceFirst("\\.cls$", "");
 
                     webServiceClasses.add(className);
-                    LOGGER.info("  Found web service: " + className);
-                    System.out.println("  Found web service: " + className);
+                    logger.info("Found web service class: {}", className);
                 }
             }
         }
 
-        LOGGER.info("Found " + webServiceClasses.size() + " web service class(es)");
-        System.out.println("Found " + webServiceClasses.size() + " web service class(es)");
+        logger.info("Discovered {} web service class(es)", webServiceClasses.size());
 
         return webServiceClasses;
     }
@@ -237,7 +236,7 @@ public class RetrieveWsdls {
 
         final String outputFile = StringUtil.concatWithSeparator(false, System.getProperty("file.separator"), context.outputDir, context.prefix + wsdlFileName);
 
-        System.out.println("Retreiving [" + outputFile + "]");
+        logger.info("Retrieving WSDL: {}", outputFile);
 
         CloseableHttpResponse loginResponse = HttpClients.createDefault().execute(httpGet, localContext);
 

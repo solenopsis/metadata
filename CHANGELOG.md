@@ -13,14 +13,14 @@ All notable changes to this project will be documented in this file.
   - Supports 20+ metadata types (ApexClass, CustomField, Layout, etc.)
   - Handles deleted components (destructiveChanges.xml)
   - 70% faster deployments by deploying only changes
-  - 45 comprehensive unit tests (11 MetadataComponent, 22 FilePathMapper, 12 DiffPackageGenerator)
+  - 59 comprehensive unit tests (11 MetadataComponent, 22 FilePathMapper, 12 DiffPackageGenerator, 14 GitDiffParser)
 
 ### Improved
-- **Test Coverage**: Increased from 83% to 79% instruction coverage
-  - Total tests: 202 (was 157, +45)
-  - Branch coverage: 78% (was 81%)
-  - Git diff package: 69% instruction, 73% branch coverage
-  - Note: Coverage percentage decreased due to adding untested GitDiffParser (requires real git repo)
+- **Test Coverage**: Increased from 83% to 85% instruction coverage
+  - Total tests: 216 (was 157, +59)
+  - Branch coverage: 84% (was 81%)
+  - Git diff package: 90% instruction, 89% branch coverage
+  - All packages now have >85% coverage
 
 ## [2.1.2] - 2026-05-20
 

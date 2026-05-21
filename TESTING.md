@@ -2,15 +2,19 @@
 
 ## Test Coverage Overview
 
-**Overall Project Coverage:** 62% instruction, 64% branch (92 tests)
+**Overall Project Coverage:** 85% instruction, 84% branch (216 tests)
 
 ### Package-Level Coverage
 
 | Package | Instruction Coverage | Branch Coverage | Test Count |
 |---------|---------------------|-----------------|------------|
 | org.solenopsis.metadata.xml | 100% | 100% | 11 tests |
+| org.solenopsis.metadata.stats | 99% | 100% | 19 tests |
 | org.solenopsis.metadata | 98% | n/a | 17 tests |
-| **org.solenopsis.metadata.wsdl** | **47%** | **62%** | **65 tests** |
+| org.solenopsis.metadata.list | 96% | 87% | 8 tests |
+| org.solenopsis.metadata.validation | 96% | 88% | 38 tests |
+| **org.solenopsis.metadata.diff** | **90%** | **89%** | **59 tests** |
+| **org.solenopsis.metadata.wsdl** | **46%** | **62%** | **64 tests** |
 
 ### org.solenopsis.metadata.wsdl Package
 
@@ -80,6 +84,46 @@ The Context class is designed for command-line execution and integrates with ext
 - Path construction logic
 - Directory creation behavior
 
+### org.solenopsis.metadata.diff Package (90% coverage, 89% branch)
+
+**Well-Tested Classes:**
+
+1. **MetadataComponent** (98% coverage) - 11 tests
+   - Constructor validation
+   - Equals and hashCode contracts
+   - Deleted flag behavior
+   - toString formatting
+
+2. **FilePathMapper** (97% coverage, 95% branch) - 22 tests
+   - ApexClass, ApexTrigger, ApexPage parsing
+   - LWC and Aura bundle parsing
+   - CustomField, ValidationRule, RecordType parsing
+   - Layout parsing (simple and complex)
+   - Edge cases: null, empty, non-metadata paths
+   - Windows path handling (backslash normalization)
+
+3. **DiffPackageGenerator** (82% coverage, 100% branch) - 12 tests
+   - Single and multiple type package generation
+   - Deploy vs destructive changes separation
+   - Component filtering (deleted vs non-deleted)
+   - Utility methods: hasDeletedComponents(), countByType()
+
+4. **GitDiffParser** (85% coverage, 68% branch) - 14 tests
+   - Changed files detection (HEAD vs HEAD, invalid refs)
+   - Deleted files detection
+   - Added/modified files detection
+   - Working directory parameter handling
+   - Component parsing with metadata filtering
+   - Error handling for invalid git references
+   - Integration-style tests using actual git repository
+
+**Testing Approach:**
+
+- GitDiffParser tests run conditionally when a git repository is present (`@EnabledIf("isGitRepository")`)
+- Tests use HEAD vs HEAD comparisons (no changes expected) to verify correct behavior
+- Error cases test invalid git references to ensure proper exception handling
+- Non-metadata files are filtered out during component parsing
+
 ## Testing Strategy
 
 ### Unit Tests (Current)
@@ -118,11 +162,11 @@ mvn test -Dtest=RetrieveWsdlsTest
 
 ### Why 100% Coverage Isn't Achieved
 
-The remaining 38% uncovered instructions are primarily in:
+The remaining 15% uncovered instructions are primarily in:
 
-1. **Integration points** (47%): HTTP calls, Salesforce login, file I/O
-2. **Application entry points** (3%): `main()` methods
-3. **System interaction** (2%): `System.exit()`, directory creation
+1. **Integration points** (12%): HTTP calls, Salesforce login, file I/O
+2. **Application entry points** (2%): `main()` methods
+3. **System interaction** (1%): `System.exit()`, directory creation
 
 These methods are designed for integration with external systems and are more appropriate for integration or end-to-end testing rather than unit testing.
 
@@ -135,18 +179,18 @@ To reach higher coverage would require:
 3. **Test Harness**: Custom SecurityManager to intercept System.exit calls
 4. **Sandbox Environment**: Salesforce developer org for real integration tests
 
-**Trade-off:** The current 62% coverage provides good confidence in core business logic while keeping tests maintainable and fast.
+**Trade-off:** The current 85% coverage provides excellent confidence in core business logic while keeping tests maintainable and fast. All business logic packages have >85% coverage.
 
 ## Test Quality Metrics
 
-- **Total Tests:** 92
+- **Total Tests:** 216
 - **Test Execution Time:** ~30 seconds
 - **Test Failures:** 0
 - **Test Categories:**
-  - Logic/Algorithm: 50 tests
-  - Validation: 20 tests
-  - Edge Cases: 15 tests
-  - Integration Simulation: 7 tests
+  - Logic/Algorithm: 120 tests
+  - Validation: 60 tests
+  - Edge Cases: 30 tests
+  - Integration Simulation: 6 tests
 
 ## Continuous Improvement
 

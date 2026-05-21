@@ -5,7 +5,7 @@ Solenopsis metadata - A Java 17 library for Salesforce metadata operations.
 **Version:** 2.1  
 **Java:** 17+  
 **License:** GNU General Public License v3  
-**Test Coverage:** 79% instruction, 78% branch (202 tests)
+**Test Coverage:** 85% instruction, 84% branch (216 tests)
 
 ## Features
 

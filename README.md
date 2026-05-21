@@ -58,12 +58,13 @@ The file path mapper recognizes 20+ metadata types:
 ## Dependencies
 
 This project uses:
-- **org.solenopsis:session** (1.16) - Salesforce session management
-- **org.solenopsis:soap** (1.11) - Salesforce SOAP API interfaces
+- **org.solenopsis:session** (1.21) - Salesforce session management
+- **org.solenopsis:soap** (1.16) - Salesforce SOAP API interfaces
 - **org.flossware:jcommons** (1.14) - Common utilities
 - **org.apache.httpcomponents:httpclient** (4.5.14) - HTTP client
 - **commons-io:commons-io** (2.16.1) - I/O utilities
 - **jakarta.xml.bind** (4.0.2) - XML binding for Java 17
+- **org.yaml:snakeyaml** (2.6) - YAML parsing
 
 ## Installation
 

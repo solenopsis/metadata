@@ -66,6 +66,13 @@ All notable changes to this project will be documented in this file.
   - Resolved all Javadoc warnings
   - Added TESTING.md documenting coverage strategy and limitations
 
+### Updated
+- **Solenopsis Dependencies**: Updated to latest versions
+  - org.solenopsis:session: 1.16 → 1.21
+  - org.solenopsis:soap: 1.11 → 1.16
+  - org.yaml:snakeyaml: 2.2 → 2.6
+  - All 216 tests passing with updated dependencies
+
 ### Fixed
 - **Maven Certificate Issue**: Resolved corporate repository SSL errors
   - Imported Red Hat intermediate CA certificate into Java keystore

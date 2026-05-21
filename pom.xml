@@ -42,8 +42,8 @@
         <org.apache.httpcomponents_httpclient>4.5.14</org.apache.httpcomponents_httpclient>
         <commons-io_commons-io>2.22.0</commons-io_commons-io>
 
-        <org.solenopsis_session>1.16</org.solenopsis_session>
-        <org.solenopsis_soap>1.11</org.solenopsis_soap>
+        <org.solenopsis_session>1.21</org.solenopsis_session>
+        <org.solenopsis_soap>1.16</org.solenopsis_soap>
         <org.flossware_jcommons>1.14</org.flossware_jcommons>
 
         <jakarta.xml.bind_jakarta.xml.bind-api>4.0.2</jakarta.xml.bind_jakarta.xml.bind-api>
@@ -55,7 +55,7 @@
 
         <org.slf4j_slf4j-api>2.0.9</org.slf4j_slf4j-api>
         <ch.qos.logback_logback-classic>1.4.14</ch.qos.logback_logback-classic>
-        <org.yaml_snakeyaml>2.2</org.yaml_snakeyaml>
+        <org.yaml_snakeyaml>2.6</org.yaml_snakeyaml>
         <com.google.code.gson_gson>2.10.1</com.google.code.gson_gson>
 
         <github.global.server>github</github.global.server>

@@ -262,6 +262,14 @@ public class RetrieveWsdls {
         }
     }
 
+    /**
+     * Main entry point for WSDL retrieval utility.
+     * Retrieves all standard Salesforce WSDLs (Apex, Enterprise, Metadata, Partner)
+     * and custom Apex class WSDLs from the org.
+     *
+     * @param args command-line arguments (--solenopsis, --creds, --prefix, --dir)
+     * @throws Exception if WSDL retrieval fails
+     */
     public static void main(final String[] args) throws Exception {
         final Context context = new Context(args);
 

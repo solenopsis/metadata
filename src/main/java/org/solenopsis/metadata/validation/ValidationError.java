@@ -27,7 +27,9 @@ public class ValidationError {
      * Severity levels for validation errors.
      */
     public enum Severity {
+        /** Critical error that prevents deployment. */
         ERROR,
+        /** Warning that should be addressed but doesn't prevent deployment. */
         WARNING
     }
 

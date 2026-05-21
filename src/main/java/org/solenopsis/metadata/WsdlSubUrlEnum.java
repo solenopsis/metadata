@@ -24,11 +24,17 @@ import org.flossware.jcommons.util.StringUtil;
  * @author Scot P. Floess
  */
 public enum WsdlSubUrlEnum {
+    /** Apex WSDL service endpoint. */
     APEX("/services/wsdl/apex"),
+    /** Custom Apex class WSDL service endpoint. */
     CUSTOM("/services/wsdl/class/"),
+    /** Enterprise WSDL service endpoint. */
     ENTERPRISE("/soap/wsdl.jsp?type=*"),
+    /** Metadata WSDL service endpoint. */
     METADATA("/services/wsdl/metadata"),
+    /** Partner WSDL service endpoint. */
     PARNTER("/soap/wsdl.jsp"),
+    /** Tooling WSDL service endpoint. */
     TOOLING("/services/wsdl/tooling");
 
     private final String subUrl;
@@ -37,10 +43,21 @@ public enum WsdlSubUrlEnum {
         this.subUrl = subUrl;
     }
 
+    /**
+     * Returns the sub-URL path for this WSDL type.
+     *
+     * @return the sub-URL path
+     */
     public String getSubUrl() {
         return subUrl;
     }
 
+    /**
+     * Computes the full WSDL URL by combining the base URL with the sub-URL.
+     *
+     * @param baseUrl the Salesforce server base URL
+     * @return the complete WSDL URL
+     */
     public String computeUrl(final String baseUrl) {
         return StringUtil.concatWithSeparator(false, "/", baseUrl, getSubUrl());
     }

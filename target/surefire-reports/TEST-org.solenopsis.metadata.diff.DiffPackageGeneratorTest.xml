@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.solenopsis.metadata.diff.DiffPackageGeneratorTest" time="0.433" tests="12" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/sfloess/Development/github/solenopsis/metadata/target/test-classes:/home/sfloess/Development/github/solenopsis/metadata/target/classes:/home/sfloess/.m2/repository/org/apache/httpcomponents/httpclient/4.5.14/httpclient-4.5.14.jar:/home/sfloess/.m2/repository/org/apache/httpcomponents/httpcore/4.4.16/httpcore-4.4.16.jar:/home/sfloess/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/home/sfloess/.m2/repository/commons-codec/commons-codec/1.17.2/commons-codec-1.17.2.jar:/home/sfloess/.m2/repository/commons-io/commons-io/2.22.0/commons-io-2.22.0.jar:/home/sfloess/.m2/repository/org/solenopsis/session/1.21/session-1.21.jar:/home/sfloess/.m2/repository/com/sun/xml/messaging/saaj/saaj-impl/3.0.5/saaj-impl-3.0.5.jar:/home/sfloess/.m2/repository/jakarta/xml/soap/jakarta.xml.soap-api/3.0.2/jakarta.xml.soap-api-3.0.2.jar:/home/sfloess/.m2/repository/org/jvnet/staxex/stax-ex/2.1.0/stax-ex-2.1.0.jar:/home/sfloess/.m2/repository/org/eclipse/angus/angus-activation/2.0.3/angus-activation-2.0.3.jar:/home/sfloess/.m2/repository/org/apache/commons/commons-lang3/3.20.0/commons-lang3-3.20.0.jar:/home/sfloess/.m2/repository/org/solenopsis/soap/1.16/soap-1.16.jar:/home/sfloess/.m2/repository/org/apache/cxf/cxf-rt-frontend-jaxws/4.0.11/cxf-rt-frontend-jaxws-4.0.11.jar:/home/sfloess/.m2/repository/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.jar:/home/sfloess/.m2/repository/org/ow2/asm/asm/9.9.1/asm-9.9.1.jar:/home/sfloess/.m2/repository/org/apache/cxf/cxf-rt-bindings-soap/4.0.11/cxf-rt-bindings-soap-4.0.11.jar:/home/sfloess/.m2/repository/jakarta/jws/jakarta.jws-api/3.0.0/jakarta.jws-api-3.0.0.jar:/home/sfloess/.m2/repository/jakarta/xml/ws/jakarta.xml.ws-api/3.0.1/jakarta.xml.ws-api-3.0.1.jar:/home/sfloess/.m2/repository/org/apache/cxf/cxf-rt-wsdl/4.0.11/cxf-rt-wsdl-4.0.11.jar:/home/sfloess/.m2/repository/wsdl4j/wsdl4j/1.6.3/wsdl4j-1.6.3.jar:/home/sfloess/.m2/repository/org/apache/cxf/cxf-rt-databinding-jaxb/4.0.11/cxf-rt-databinding-jaxb-4.0.11.jar:/home/sfloess/.m2/repository/org/apache/cxf/cxf-rt-bindings-xml/4.0.11/cxf-rt-bindings-xml-4.0.11.jar:/home/sfloess/.m2/repository/org/apache/cxf/cxf-rt-frontend-simple/4.0.11/cxf-rt-frontend-simple-4.0.11.jar:/home/sfloess/.m2/repository/org/eclipse/angus/angus-mail/2.0.5/angus-mail-2.0.5.jar:/home/sfloess/.m2/repository/jakarta/mail/jakarta.mail-api/2.1.3/jakarta.mail-api-2.1.3.jar:/home/sfloess/.m2/repository/org/apache/cxf/cxf-rt-ws-addr/4.0.11/cxf-rt-ws-addr-4.0.11.jar:/home/sfloess/.m2/repository/org/apache/cxf/cxf-rt-ws-policy/4.0.11/cxf-rt-ws-policy-4.0.11.jar:/home/sfloess/.m2/repository/org/apache/neethi/neethi/3.2.1/neethi-3.2.1.jar:/home/sfloess/.m2/repository/org/apache/cxf/cxf-rt-transports-http/4.0.11/cxf-rt-transports-http-4.0.11.jar:/home/sfloess/.m2/repository/org/apache/cxf/cxf-rt-transports-http-jetty/4.0.11/cxf-rt-transports-http-jetty-4.0.11.jar:/home/sfloess/.m2/repository/org/eclipse/jetty/jetty-server/11.0.26/jetty-server-11.0.26.jar:/home/sfloess/.m2/repository/org/eclipse/jetty/toolchain/jetty-jakarta-servlet-api/5.0.2/jetty-jakarta-servlet-api-5.0.2.jar:/home/sfloess/.m2/repository/org/eclipse/jetty/jetty-util/11.0.26/jetty-util-11.0.26.jar:/home/sfloess/.m2/repository/org/eclipse/jetty/jetty-io/11.0.26/jetty-io-11.0.26.jar:/home/sfloess/.m2/repository/org/eclipse/jetty/jetty-security/11.0.26/jetty-security-11.0.26.jar:/home/sfloess/.m2/repository/org/eclipse/jetty/jetty-http/11.0.26/jetty-http-11.0.26.jar:/home/sfloess/.m2/repository/org/flossware/jcommons/1.14/jcommons-1.14.jar:/home/sfloess/.m2/repository/org/apache/cxf/cxf-core/4.0.11/cxf-core-4.0.11.jar:/home/sfloess/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/home/sfloess/.m2/repository/com/fasterxml/woodstox/woodstox-core/6.7.0/woodstox-core-6.7.0.jar:/home/sfloess/.m2/repository/org/codehaus/woodstox/stax2-api/4.2.2/stax2-api-4.2.2.jar:/home/sfloess/.m2/repository/org/apache/ws/xmlschema/xmlschema-core/2.3.2/xmlschema-core-2.3.2.jar:/home/sfloess/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar:/home/sfloess/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar:/home/sfloess/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.8/jaxb-runtime-4.0.8.jar:/home/sfloess/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.8/jaxb-core-4.0.8.jar:/home/sfloess/.m2/repository/org/glassfish/jaxb/txw2/4.0.8/txw2-4.0.8.jar:/home/sfloess/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar:/home/sfloess/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/home/sfloess/.m2/repository/ch/qos/logback/logback-classic/1.4.14/logback-classic-1.4.14.jar:/home/sfloess/.m2/repository/ch/qos/logback/logback-core/1.4.14/logback-core-1.4.14.jar:/home/sfloess/.m2/repository/org/yaml/snakeyaml/2.6/snakeyaml-2.6.jar:/home/sfloess/.m2/repository/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.2/junit-jupiter-5.10.2.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.2/junit-jupiter-api-5.10.2.jar:/home/sfloess/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/sfloess/.m2/repository/org/junit/platform/junit-platform-commons/1.10.2/junit-platform-commons-1.10.2.jar:/home/sfloess/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.2/junit-jupiter-params-5.10.2.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.2/junit-jupiter-engine-5.10.2.jar:/home/sfloess/.m2/repository/org/junit/platform/junit-platform-engine/1.10.2/junit-platform-engine-1.10.2.jar:/home/sfloess/.m2/repository/org/mockito/mockito-core/5.23.0/mockito-core-5.23.0.jar:/home/sfloess/.m2/repository/net/bytebuddy/byte-buddy/1.17.7/byte-buddy-1.17.7.jar:/home/sfloess/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.7/byte-buddy-agent-1.17.7.jar:/home/sfloess/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/home/sfloess/.m2/repository/org/mockito/mockito-junit-jupiter/5.23.0/mockito-junit-jupiter-5.23.0.jar:"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="EST"/>
+    <property name="os.name" value="Linux"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="/home/sfloess/.sdkman/candidates/java/17.0.19-tem/lib"/>
+    <property name="sun.java.command" value="/home/sfloess/Development/github/solenopsis/metadata/target/surefire/surefirebooter-20260521143629589_3.jar /home/sfloess/Development/github/solenopsis/metadata/target/surefire 2026-05-21T14-36-29_493-jvmRun1 surefire-20260521143629589_1tmp surefire_0-20260521143629589_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/home/sfloess/Development/github/solenopsis/metadata/target/test-classes:/home/sfloess/Development/github/solenopsis/metadata/target/classes:/home/sfloess/.m2/repository/org/apache/httpcomponents/httpclient/4.5.14/httpclient-4.5.14.jar:/home/sfloess/.m2/repository/org/apache/httpcomponents/httpcore/4.4.16/httpcore-4.4.16.jar:/home/sfloess/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/home/sfloess/.m2/repository/commons-codec/commons-codec/1.17.2/commons-codec-1.17.2.jar:/home/sfloess/.m2/repository/commons-io/commons-io/2.22.0/commons-io-2.22.0.jar:/home/sfloess/.m2/repository/org/solenopsis/session/1.21/session-1.21.jar:/home/sfloess/.m2/repository/com/sun/xml/messaging/saaj/saaj-impl/3.0.5/saaj-impl-3.0.5.jar:/home/sfloess/.m2/repository/jakarta/xml/soap/jakarta.xml.soap-api/3.0.2/jakarta.xml.soap-api-3.0.2.jar:/home/sfloess/.m2/repository/org/jvnet/staxex/stax-ex/2.1.0/stax-ex-2.1.0.jar:/home/sfloess/.m2/repository/org/eclipse/angus/angus-activation/2.0.3/angus-activation-2.0.3.jar:/home/sfloess/.m2/repository/org/apache/commons/commons-lang3/3.20.0/commons-lang3-3.20.0.jar:/home/sfloess/.m2/repository/org/solenopsis/soap/1.16/soap-1.16.jar:/home/sfloess/.m2/repository/org/apache/cxf/cxf-rt-frontend-jaxws/4.0.11/cxf-rt-frontend-jaxws-4.0.11.jar:/home/sfloess/.m2/repository/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.jar:/home/sfloess/.m2/repository/org/ow2/asm/asm/9.9.1/asm-9.9.1.jar:/home/sfloess/.m2/repository/org/apache/cxf/cxf-rt-bindings-soap/4.0.11/cxf-rt-bindings-soap-4.0.11.jar:/home/sfloess/.m2/repository/jakarta/jws/jakarta.jws-api/3.0.0/jakarta.jws-api-3.0.0.jar:/home/sfloess/.m2/repository/jakarta/xml/ws/jakarta.xml.ws-api/3.0.1/jakarta.xml.ws-api-3.0.1.jar:/home/sfloess/.m2/repository/org/apache/cxf/cxf-rt-wsdl/4.0.11/cxf-rt-wsdl-4.0.11.jar:/home/sfloess/.m2/repository/wsdl4j/wsdl4j/1.6.3/wsdl4j-1.6.3.jar:/home/sfloess/.m2/repository/org/apache/cxf/cxf-rt-databinding-jaxb/4.0.11/cxf-rt-databinding-jaxb-4.0.11.jar:/home/sfloess/.m2/repository/org/apache/cxf/cxf-rt-bindings-xml/4.0.11/cxf-rt-bindings-xml-4.0.11.jar:/home/sfloess/.m2/repository/org/apache/cxf/cxf-rt-frontend-simple/4.0.11/cxf-rt-frontend-simple-4.0.11.jar:/home/sfloess/.m2/repository/org/eclipse/angus/angus-mail/2.0.5/angus-mail-2.0.5.jar:/home/sfloess/.m2/repository/jakarta/mail/jakarta.mail-api/2.1.3/jakarta.mail-api-2.1.3.jar:/home/sfloess/.m2/repository/org/apache/cxf/cxf-rt-ws-addr/4.0.11/cxf-rt-ws-addr-4.0.11.jar:/home/sfloess/.m2/repository/org/apache/cxf/cxf-rt-ws-policy/4.0.11/cxf-rt-ws-policy-4.0.11.jar:/home/sfloess/.m2/repository/org/apache/neethi/neethi/3.2.1/neethi-3.2.1.jar:/home/sfloess/.m2/repository/org/apache/cxf/cxf-rt-transports-http/4.0.11/cxf-rt-transports-http-4.0.11.jar:/home/sfloess/.m2/repository/org/apache/cxf/cxf-rt-transports-http-jetty/4.0.11/cxf-rt-transports-http-jetty-4.0.11.jar:/home/sfloess/.m2/repository/org/eclipse/jetty/jetty-server/11.0.26/jetty-server-11.0.26.jar:/home/sfloess/.m2/repository/org/eclipse/jetty/toolchain/jetty-jakarta-servlet-api/5.0.2/jetty-jakarta-servlet-api-5.0.2.jar:/home/sfloess/.m2/repository/org/eclipse/jetty/jetty-util/11.0.26/jetty-util-11.0.26.jar:/home/sfloess/.m2/repository/org/eclipse/jetty/jetty-io/11.0.26/jetty-io-11.0.26.jar:/home/sfloess/.m2/repository/org/eclipse/jetty/jetty-security/11.0.26/jetty-security-11.0.26.jar:/home/sfloess/.m2/repository/org/eclipse/jetty/jetty-http/11.0.26/jetty-http-11.0.26.jar:/home/sfloess/.m2/repository/org/flossware/jcommons/1.14/jcommons-1.14.jar:/home/sfloess/.m2/repository/org/apache/cxf/cxf-core/4.0.11/cxf-core-4.0.11.jar:/home/sfloess/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/home/sfloess/.m2/repository/com/fasterxml/woodstox/woodstox-core/6.7.0/woodstox-core-6.7.0.jar:/home/sfloess/.m2/repository/org/codehaus/woodstox/stax2-api/4.2.2/stax2-api-4.2.2.jar:/home/sfloess/.m2/repository/org/apache/ws/xmlschema/xmlschema-core/2.3.2/xmlschema-core-2.3.2.jar:/home/sfloess/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar:/home/sfloess/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar:/home/sfloess/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.8/jaxb-runtime-4.0.8.jar:/home/sfloess/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.8/jaxb-core-4.0.8.jar:/home/sfloess/.m2/repository/org/glassfish/jaxb/txw2/4.0.8/txw2-4.0.8.jar:/home/sfloess/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar:/home/sfloess/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/home/sfloess/.m2/repository/ch/qos/logback/logback-classic/1.4.14/logback-classic-1.4.14.jar:/home/sfloess/.m2/repository/ch/qos/logback/logback-core/1.4.14/logback-core-1.4.14.jar:/home/sfloess/.m2/repository/org/yaml/snakeyaml/2.6/snakeyaml-2.6.jar:/home/sfloess/.m2/repository/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.2/junit-jupiter-5.10.2.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.2/junit-jupiter-api-5.10.2.jar:/home/sfloess/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/sfloess/.m2/repository/org/junit/platform/junit-platform-commons/1.10.2/junit-platform-commons-1.10.2.jar:/home/sfloess/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.2/junit-jupiter-params-5.10.2.jar:/home/sfloess/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.2/junit-jupiter-engine-5.10.2.jar:/home/sfloess/.m2/repository/org/junit/platform/junit-platform-engine/1.10.2/junit-platform-engine-1.10.2.jar:/home/sfloess/.m2/repository/org/mockito/mockito-core/5.23.0/mockito-core-5.23.0.jar:/home/sfloess/.m2/repository/net/bytebuddy/byte-buddy/1.17.7/byte-buddy-1.17.7.jar:/home/sfloess/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.7/byte-buddy-agent-1.17.7.jar:/home/sfloess/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/home/sfloess/.m2/repository/org/mockito/mockito-junit-jupiter/5.23.0/mockito-junit-jupiter-5.23.0.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/sfloess"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2026-04-21"/>
+    <property name="java.home" value="/home/sfloess/.sdkman/candidates/java/17.0.19-tem"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/home/sfloess/Development/github/solenopsis/metadata"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="surefire.real.class.path" value="/home/sfloess/Development/github/solenopsis/metadata/target/surefire/surefirebooter-20260521143629589_3.jar"/>
+    <property name="java.util.logging.config.file" value="src/test/resources/logging.properties"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="17.0.19+10"/>
+    <property name="user.name" value="sfloess"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="7.0.8-200.fc44.x86_64"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-17.0.19+10"/>
+    <property name="localRepository" value="/home/sfloess/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="17.0.19"/>
+    <property name="user.dir" value="/home/sfloess/Development/github/solenopsis/metadata"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="17.0.19+10"/>
+    <property name="java.specification.maintenance.version" value="1"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
+  </properties>
+  <testcase name="testHasDeletedComponents_True" classname="org.solenopsis.metadata.diff.DiffPackageGeneratorTest" time="0.392">
+    <system-out><![CDATA[14:36:31,881 |-INFO in ch.qos.logback.classic.LoggerContext[default] - This is logback-classic version 1.4.14
+14:36:31,884 |-INFO in ch.qos.logback.classic.util.ContextInitializer@76dc36e5 - No custom configurators were discovered as a service.
+14:36:31,884 |-INFO in ch.qos.logback.classic.util.ContextInitializer@76dc36e5 - Trying to configure with ch.qos.logback.classic.joran.SerializedModelConfigurator
+14:36:31,887 |-INFO in ch.qos.logback.classic.util.ContextInitializer@76dc36e5 - Constructed configurator of type class ch.qos.logback.classic.joran.SerializedModelConfigurator
+14:36:31,893 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.scmo]
+14:36:31,893 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.scmo]
+14:36:31,901 |-INFO in ch.qos.logback.classic.util.ContextInitializer@76dc36e5 - ch.qos.logback.classic.joran.SerializedModelConfigurator.configure() call lasted 7 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+14:36:31,901 |-INFO in ch.qos.logback.classic.util.ContextInitializer@76dc36e5 - Trying to configure with ch.qos.logback.classic.util.DefaultJoranConfigurator
+14:36:31,903 |-INFO in ch.qos.logback.classic.util.ContextInitializer@76dc36e5 - Constructed configurator of type class ch.qos.logback.classic.util.DefaultJoranConfigurator
+14:36:31,903 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+14:36:31,906 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/home/sfloess/Development/github/solenopsis/metadata/target/classes/logback.xml]
+14:36:31,907 |-WARN in ch.qos.logback.classic.util.DefaultJoranConfigurator@2a54c92e - Resource [logback.xml] occurs multiple times on the classpath.
+14:36:31,907 |-WARN in ch.qos.logback.classic.util.DefaultJoranConfigurator@2a54c92e - Resource [logback.xml] occurs at [file:/home/sfloess/Development/github/solenopsis/metadata/target/classes/logback.xml]
+14:36:31,907 |-WARN in ch.qos.logback.classic.util.DefaultJoranConfigurator@2a54c92e - Resource [logback.xml] occurs at [jar:file:/home/sfloess/.m2/repository/org/solenopsis/session/1.21/session-1.21.jar!/logback.xml]
+14:36:31,907 |-WARN in ch.qos.logback.classic.util.DefaultJoranConfigurator@2a54c92e - Resource [logback.xml] occurs at [jar:file:/home/sfloess/.m2/repository/org/solenopsis/soap/1.16/soap-1.16.jar!/logback.xml]
+14:36:32,108 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [CONSOLE]
+14:36:32,108 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+14:36:32,124 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+14:36:32,175 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [FILE]
+14:36:32,175 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.FileAppender]
+14:36:32,181 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+14:36:32,182 |-INFO in ch.qos.logback.core.FileAppender[FILE] - File property is set to [logs/metadata.log]
+14:36:32,186 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.solenopsis.metadata] to INFO
+14:36:32,186 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to WARN
+14:36:32,186 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [CONSOLE] to Logger[ROOT]
+14:36:32,188 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [FILE] to Logger[ROOT]
+14:36:32,188 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@31533eb1 - End of configuration.
+14:36:32,190 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@1fb71788 - Registering current configuration as safe fallback point
+14:36:32,190 |-INFO in ch.qos.logback.classic.util.ContextInitializer@76dc36e5 - ch.qos.logback.classic.util.DefaultJoranConfigurator.configure() call lasted 287 milliseconds. ExecutionStatus=DO_NOT_INVOKE_NEXT_IF_ANY
+
+]]></system-out>
+  </testcase>
+  <testcase name="testGeneratePackage_EmptyComponents" classname="org.solenopsis.metadata.diff.DiffPackageGeneratorTest" time="0.012">
+    <system-out><![CDATA[14:36:32.204 [main] INFO  o.s.m.diff.DiffPackageGenerator - Generating package from 0 components (API 60.0)
+14:36:32.211 [main] INFO  o.s.m.diff.DiffPackageGenerator - Generated package with 0 types
+]]></system-out>
+  </testcase>
+  <testcase name="testHasDeletedComponents_Empty" classname="org.solenopsis.metadata.diff.DiffPackageGeneratorTest" time="0.003"/>
+  <testcase name="testHasDeletedComponents_False" classname="org.solenopsis.metadata.diff.DiffPackageGeneratorTest" time="0.001"/>
+  <testcase name="testGeneratePackage_OnlyDeleted" classname="org.solenopsis.metadata.diff.DiffPackageGeneratorTest" time="0.003">
+    <system-out><![CDATA[14:36:32.219 [main] INFO  o.s.m.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+14:36:32.220 [main] INFO  o.s.m.diff.DiffPackageGenerator - Generated package with 2 types
+]]></system-out>
+  </testcase>
+  <testcase name="testGenerateDeployPackage" classname="org.solenopsis.metadata.diff.DiffPackageGeneratorTest" time="0.002">
+    <system-out><![CDATA[14:36:32.223 [main] INFO  o.s.m.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+14:36:32.223 [main] INFO  o.s.m.diff.DiffPackageGenerator - Generated package with 1 types
+]]></system-out>
+  </testcase>
+  <testcase name="testGenerateDestructiveChanges" classname="org.solenopsis.metadata.diff.DiffPackageGeneratorTest" time="0.002">
+    <system-out><![CDATA[14:36:32.226 [main] INFO  o.s.m.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+14:36:32.226 [main] INFO  o.s.m.diff.DiffPackageGenerator - Generated package with 1 types
+]]></system-out>
+  </testcase>
+  <testcase name="testGeneratePackage_SingleType" classname="org.solenopsis.metadata.diff.DiffPackageGeneratorTest" time="0.002">
+    <system-out><![CDATA[14:36:32.229 [main] INFO  o.s.m.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+14:36:32.229 [main] INFO  o.s.m.diff.DiffPackageGenerator - Generated package with 1 types
+]]></system-out>
+  </testcase>
+  <testcase name="testCountByType" classname="org.solenopsis.metadata.diff.DiffPackageGeneratorTest" time="0.001"/>
+  <testcase name="testCountByType_Empty" classname="org.solenopsis.metadata.diff.DiffPackageGeneratorTest" time="0.001"/>
+  <testcase name="testGeneratePackage_ExcludeDeleted" classname="org.solenopsis.metadata.diff.DiffPackageGeneratorTest" time="0.002">
+    <system-out><![CDATA[14:36:32.235 [main] INFO  o.s.m.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+14:36:32.235 [main] INFO  o.s.m.diff.DiffPackageGenerator - Generated package with 1 types
+]]></system-out>
+  </testcase>
+  <testcase name="testGeneratePackage_MultipleTypes" classname="org.solenopsis.metadata.diff.DiffPackageGeneratorTest" time="0.002">
+    <system-out><![CDATA[14:36:32.237 [main] INFO  o.s.m.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+14:36:32.238 [main] INFO  o.s.m.diff.DiffPackageGenerator - Generated package with 3 types
+]]></system-out>
+  </testcase>
+</testsuite>

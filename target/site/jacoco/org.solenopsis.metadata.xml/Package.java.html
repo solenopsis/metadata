@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Package.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">metadata</a> &gt; <a href="index.source.html" class="el_package">org.solenopsis.metadata.xml</a> &gt; <span class="el_source">Package.java</span></div><h1>Package.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (C) 2017 Scot P. Floess
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+ */
+package org.solenopsis.metadata.xml;
+
+import java.util.ArrayList;
+import java.util.List;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
+import org.solenopsis.soap.metadata.DescribeMetadataObject;
+import org.solenopsis.soap.metadata.DescribeMetadataResult;
+
+/**
+ * The package root element.
+ *
+ * @author Scot P. Floess
+ */
+@XmlRootElement(name = &quot;package&quot;)
+@XmlType(propOrder = {&quot;types, version&quot;})
+public class Package {
+    private List&lt;Types&gt; typesList;
+
+    private String version;
+
+    /**
+     * Default constructor. Initializes an empty types list.
+     */
+<span class="fc" id="L42">    public Package() {</span>
+<span class="fc" id="L43">        this.typesList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L44">    }</span>
+
+    /**
+     * Constructs a package from a list of metadata objects.
+     *
+     * @param metadataList list of Salesforce metadata objects
+     * @param version the Salesforce API version
+     */
+<span class="fc" id="L52">    public Package(final List&lt;DescribeMetadataObject&gt; metadataList, final String version) {</span>
+<span class="fc" id="L53">        this.typesList = Types.createTypes(metadataList);</span>
+<span class="fc" id="L54">        this.version = version;</span>
+<span class="fc" id="L55">    }</span>
+
+    /**
+     * Constructs a package from describe metadata result.
+     *
+     * @param describeMetadataResult the Salesforce metadata description
+     * @param version the Salesforce API version
+     */
+    public Package(final DescribeMetadataResult describeMetadataResult, final String version) {
+<span class="fc" id="L64">        this(describeMetadataResult.getMetadataObjects(), version);</span>
+<span class="fc" id="L65">    }</span>
+
+    /**
+     * Sets the types list for XML binding.
+     *
+     * @param typesList list of metadata types
+     */
+    @XmlElement(name = &quot;types&quot;)
+    public void setTypes(final List&lt;Types&gt; typesList) {
+<span class="fc" id="L74">        this.typesList = typesList;</span>
+<span class="fc" id="L75">    }</span>
+
+    /**
+     * Returns the types list.
+     *
+     * @return list of metadata types
+     */
+    public List&lt;Types&gt; getTypes() {
+<span class="fc" id="L83">        return typesList;</span>
+    }
+
+    /**
+     * Sets the Salesforce API version for XML binding.
+     *
+     * @param version the API version
+     */
+    @XmlElement(name = &quot;version&quot;)
+    public void setVersion(final String version) {
+<span class="fc" id="L93">        this.version = version;</span>
+<span class="fc" id="L94">    }</span>
+
+    /**
+     * Returns the Salesforce API version.
+     *
+     * @return the API version
+     */
+    public String getVersion() {
+<span class="fc" id="L102">        return version;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

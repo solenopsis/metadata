@@ -1,0 +1,16 @@
+org/solenopsis/metadata/stats/OrgStatsTest.class
+org/solenopsis/metadata/stats/MetadataStatisticsTest.class
+org/solenopsis/metadata/wsdl/ContextTest.class
+org/solenopsis/metadata/validation/ValidationResultTest.class
+org/solenopsis/metadata/xml/TypesTest.class
+org/solenopsis/metadata/xml/PackageTest.class
+org/solenopsis/metadata/diff/GitDiffParserTest.class
+org/solenopsis/metadata/diff/MetadataComponentTest.class
+org/solenopsis/metadata/wsdl/RetrieveWsdlsTest.class
+org/solenopsis/metadata/validation/PackageValidatorTest.class
+org/solenopsis/metadata/WsdlSubUrlEnumTest.class
+org/solenopsis/metadata/list/ListMetadataTest.class
+org/solenopsis/metadata/validation/ValidationErrorTest.class
+org/solenopsis/metadata/diff/DiffPackageGeneratorTest.class
+org/solenopsis/metadata/RetrieveMetadataTest.class
+org/solenopsis/metadata/diff/FilePathMapperTest.class

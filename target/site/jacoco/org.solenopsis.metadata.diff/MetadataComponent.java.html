@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MetadataComponent.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">metadata</a> &gt; <a href="index.source.html" class="el_package">org.solenopsis.metadata.diff</a> &gt; <span class="el_source">MetadataComponent.java</span></div><h1>MetadataComponent.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (C) 2026 Scot P. Floess
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+ */
+package org.solenopsis.metadata.diff;
+
+/**
+ * Represents a Salesforce metadata component identified from a file path.
+ *
+ * @author Scot P. Floess
+ */
+public class MetadataComponent {
+
+    private final String type;
+    private final String name;
+    private final String filePath;
+    private final boolean deleted;
+
+    /**
+     * Constructor for a metadata component.
+     *
+     * @param type the metadata type (e.g., &quot;ApexClass&quot;, &quot;CustomObject&quot;)
+     * @param name the component name (e.g., &quot;MyClass&quot;, &quot;Account.MyField__c&quot;)
+     * @param filePath the original file path
+     * @param deleted true if this component was deleted
+     */
+<span class="fc" id="L39">    public MetadataComponent(String type, String name, String filePath, boolean deleted) {</span>
+<span class="fc" id="L40">        this.type = type;</span>
+<span class="fc" id="L41">        this.name = name;</span>
+<span class="fc" id="L42">        this.filePath = filePath;</span>
+<span class="fc" id="L43">        this.deleted = deleted;</span>
+<span class="fc" id="L44">    }</span>
+
+    /**
+     * Constructor for a non-deleted component.
+     *
+     * @param type the metadata type
+     * @param name the component name
+     * @param filePath the original file path
+     */
+    public MetadataComponent(String type, String name, String filePath) {
+<span class="fc" id="L54">        this(type, name, filePath, false);</span>
+<span class="fc" id="L55">    }</span>
+
+    /**
+     * Get the metadata type.
+     *
+     * @return the type
+     */
+    public String getType() {
+<span class="fc" id="L63">        return type;</span>
+    }
+
+    /**
+     * Get the component name.
+     *
+     * @return the name
+     */
+    public String getName() {
+<span class="fc" id="L72">        return name;</span>
+    }
+
+    /**
+     * Get the original file path.
+     *
+     * @return the file path
+     */
+    public String getFilePath() {
+<span class="fc" id="L81">        return filePath;</span>
+    }
+
+    /**
+     * Check if this component was deleted.
+     *
+     * @return true if deleted
+     */
+    public boolean isDeleted() {
+<span class="fc" id="L90">        return deleted;</span>
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+<span class="fc bfc" id="L95" title="All 2 branches covered.">        if (this == obj) return true;</span>
+<span class="fc bfc" id="L96" title="All 4 branches covered.">        if (obj == null || getClass() != obj.getClass()) return false;</span>
+
+<span class="fc" id="L98">        MetadataComponent that = (MetadataComponent) obj;</span>
+<span class="fc bfc" id="L99" title="All 2 branches covered.">        return deleted == that.deleted &amp;&amp;</span>
+<span class="fc bfc" id="L100" title="All 2 branches covered.">               type.equals(that.type) &amp;&amp;</span>
+<span class="fc bfc" id="L101" title="All 2 branches covered.">               name.equals(that.name);</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L106">        int result = type.hashCode();</span>
+<span class="fc" id="L107">        result = 31 * result + name.hashCode();</span>
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">        result = 31 * result + (deleted ? 1 : 0);</span>
+<span class="fc" id="L109">        return result;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L114">        return &quot;MetadataComponent{&quot; +</span>
+               &quot;type='&quot; + type + '\'' +
+               &quot;, name='&quot; + name + '\'' +
+               &quot;, deleted=&quot; + deleted +
+               &quot;, filePath='&quot; + filePath + '\'' +
+               '}';
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

@@ -1,0 +1,16 @@
+/home/sfloess/Development/github/solenopsis/metadata/src/main/java/org/solenopsis/metadata/RetrieveMetadata.java
+/home/sfloess/Development/github/solenopsis/metadata/src/main/java/org/solenopsis/metadata/WsdlSubUrlEnum.java
+/home/sfloess/Development/github/solenopsis/metadata/src/main/java/org/solenopsis/metadata/diff/DiffPackageGenerator.java
+/home/sfloess/Development/github/solenopsis/metadata/src/main/java/org/solenopsis/metadata/diff/FilePathMapper.java
+/home/sfloess/Development/github/solenopsis/metadata/src/main/java/org/solenopsis/metadata/diff/GitDiffParser.java
+/home/sfloess/Development/github/solenopsis/metadata/src/main/java/org/solenopsis/metadata/diff/MetadataComponent.java
+/home/sfloess/Development/github/solenopsis/metadata/src/main/java/org/solenopsis/metadata/list/ListMetadata.java
+/home/sfloess/Development/github/solenopsis/metadata/src/main/java/org/solenopsis/metadata/stats/MetadataStatistics.java
+/home/sfloess/Development/github/solenopsis/metadata/src/main/java/org/solenopsis/metadata/stats/OrgStats.java
+/home/sfloess/Development/github/solenopsis/metadata/src/main/java/org/solenopsis/metadata/validation/PackageValidator.java
+/home/sfloess/Development/github/solenopsis/metadata/src/main/java/org/solenopsis/metadata/validation/ValidationError.java
+/home/sfloess/Development/github/solenopsis/metadata/src/main/java/org/solenopsis/metadata/validation/ValidationResult.java
+/home/sfloess/Development/github/solenopsis/metadata/src/main/java/org/solenopsis/metadata/wsdl/Context.java
+/home/sfloess/Development/github/solenopsis/metadata/src/main/java/org/solenopsis/metadata/wsdl/RetrieveWsdls.java
+/home/sfloess/Development/github/solenopsis/metadata/src/main/java/org/solenopsis/metadata/xml/Package.java
+/home/sfloess/Development/github/solenopsis/metadata/src/main/java/org/solenopsis/metadata/xml/Types.java

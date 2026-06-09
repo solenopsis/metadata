@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Context.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">metadata</a> &gt; <a href="index.source.html" class="el_package">org.solenopsis.metadata.wsdl</a> &gt; <span class="el_source">Context.java</span></div><h1>Context.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (C) 2017 Scot P. Floess
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+ */
+package org.solenopsis.metadata.wsdl;
+
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import org.flossware.jcommons.util.StringUtil;
+import org.solenopsis.session.Credentials;
+import org.solenopsis.session.SessionContext;
+import org.solenopsis.session.credentials.CredentialsUtil;
+import org.solenopsis.session.soap.PortEnum;
+import org.solenopsis.session.soap.login.LoginServiceEnum;
+import org.solenopsis.soap.metadata.MetadataService;
+import org.solenopsis.soap.metadata.MetadataPortType;
+
+/**
+ * Context for command line options.
+ *
+ * @author Scot P. Floess
+ */
+final class Context {
+    Credentials credentials;
+
+<span class="pc" id="L39">    String outputDir = System.getProperty(&quot;user.home&quot;);</span>
+
+<span class="pc" id="L41">    String prefix = &quot;&quot;;</span>
+
+    MetadataPortType port;
+
+    SessionContext sessionContext;
+
+    /**
+     * Package-private no-args constructor for testing.
+     */
+<span class="fc" id="L50">    Context() {</span>
+<span class="fc" id="L51">    }</span>
+
+    void setCredentials(final String fileName) {
+<span class="nc" id="L54">        credentials = CredentialsUtil.fromFile(fileName);</span>
+<span class="nc" id="L55">        sessionContext = LoginServiceEnum.DEFAULT_LOGIN_SERVICE.getLoginService().login(credentials);</span>
+<span class="nc" id="L56">        port = PortEnum.METADATA.createPortForService(MetadataService.class, sessionContext);</span>
+<span class="nc" id="L57">    }</span>
+
+    void setSolenopsisCredentials(final String env) {
+<span class="nc" id="L60">        final Path credPath = Paths.get(System.getProperty(&quot;user.home&quot;), &quot;.solenopsis&quot;, &quot;credentials&quot;, env + &quot;.properties&quot;);</span>
+<span class="nc" id="L61">        setCredentials(credPath.toString());</span>
+<span class="nc" id="L62">    }</span>
+
+    void ensureCredentials() {
+<span class="nc bnc" id="L65" title="All 2 branches missed.">        if (null == credentials) {</span>
+<span class="nc" id="L66">            System.err.println(&quot;\nYou must provide either --solenopsis or --creds parameters!\n&quot;);</span>
+<span class="nc" id="L67">            System.exit(1);</span>
+        }
+<span class="nc" id="L69">    }</span>
+
+<span class="nc" id="L71">    Context(final String[] args) {</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">        for (int argIndex = 0; argIndex &lt; args.length; argIndex++) {</span>
+<span class="nc bnc" id="L73" title="All 5 branches missed.">            switch (args[argIndex]) {</span>
+                case &quot;--solenopsis&quot;:
+<span class="nc" id="L75">                    setSolenopsisCredentials(args[++argIndex]);</span>
+<span class="nc" id="L76">                    break;</span>
+
+                case &quot;--creds&quot;:
+<span class="nc" id="L79">                    setCredentials(args[++argIndex]);</span>
+<span class="nc" id="L80">                    break;</span>
+
+                case &quot;--prefix&quot;:
+<span class="nc" id="L83">                    prefix = args[++argIndex];</span>
+<span class="nc" id="L84">                    break;</span>
+
+                case &quot;--dir&quot;:
+<span class="nc" id="L87">                    outputDir = args[++argIndex];</span>
+<span class="nc" id="L88">                    new File(outputDir).mkdirs();</span>
+                    break;
+            }
+        }
+
+<span class="nc" id="L93">        ensureCredentials();</span>
+<span class="nc" id="L94">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

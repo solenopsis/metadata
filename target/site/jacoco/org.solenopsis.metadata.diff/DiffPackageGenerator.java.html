@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DiffPackageGenerator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">metadata</a> &gt; <a href="index.source.html" class="el_package">org.solenopsis.metadata.diff</a> &gt; <span class="el_source">DiffPackageGenerator.java</span></div><h1>DiffPackageGenerator.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (C) 2026 Scot P. Floess
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+ */
+package org.solenopsis.metadata.diff;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.solenopsis.soap.metadata.Package;
+import org.solenopsis.soap.metadata.PackageTypeMembers;
+
+/**
+ * Generates package.xml and destructiveChanges.xml from git diff results.
+ *
+ * @author Scot P. Floess
+ */
+<span class="nc" id="L33">public class DiffPackageGenerator {</span>
+
+<span class="fc" id="L35">    private static final Logger logger = LoggerFactory.getLogger(DiffPackageGenerator.class);</span>
+
+    /**
+     * Generate a package from changed metadata components.
+     *
+     * @param components list of metadata components
+     * @param apiVersion the Salesforce API version
+     * @return the package
+     */
+    public static Package generatePackage(List&lt;MetadataComponent&gt; components, String apiVersion) {
+<span class="fc" id="L45">        return generatePackage(components, apiVersion, false);</span>
+    }
+
+    /**
+     * Generate a package from metadata components.
+     *
+     * @param components list of metadata components
+     * @param apiVersion the Salesforce API version
+     * @param includeDeleted if true, include deleted components; if false, exclude them
+     * @return the package
+     */
+    public static Package generatePackage(List&lt;MetadataComponent&gt; components, String apiVersion, boolean includeDeleted) {
+<span class="fc" id="L57">        logger.info(&quot;Generating package from {} components (API {})&quot;, components.size(), apiVersion);</span>
+
+        // Group components by type
+<span class="fc" id="L60">        Map&lt;String, List&lt;String&gt;&gt; componentsByType = new HashMap&lt;&gt;();</span>
+
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        for (MetadataComponent component : components) {</span>
+            // Skip deleted components if not including them
+<span class="fc bfc" id="L64" title="All 4 branches covered.">            if (component.isDeleted() &amp;&amp; !includeDeleted) {</span>
+<span class="fc" id="L65">                continue;</span>
+            }
+
+            // Skip non-deleted if only including deleted
+<span class="fc bfc" id="L69" title="All 4 branches covered.">            if (!component.isDeleted() &amp;&amp; includeDeleted) {</span>
+<span class="fc" id="L70">                continue;</span>
+            }
+
+<span class="fc" id="L73">            componentsByType</span>
+<span class="fc" id="L74">                .computeIfAbsent(component.getType(), k -&gt; new ArrayList&lt;&gt;())</span>
+<span class="fc" id="L75">                .add(component.getName());</span>
+<span class="fc" id="L76">        }</span>
+
+<span class="fc" id="L78">        Package pkg = new Package();</span>
+<span class="fc" id="L79">        pkg.setVersion(apiVersion);</span>
+
+<span class="fc bfc" id="L81" title="All 2 branches covered.">        for (Map.Entry&lt;String, List&lt;String&gt;&gt; entry : componentsByType.entrySet()) {</span>
+<span class="fc" id="L82">            PackageTypeMembers typeMembers = new PackageTypeMembers();</span>
+<span class="fc" id="L83">            typeMembers.setName(entry.getKey());</span>
+<span class="fc" id="L84">            typeMembers.getMembers().addAll(entry.getValue());</span>
+
+<span class="fc" id="L86">            pkg.getTypes().add(typeMembers);</span>
+
+<span class="fc" id="L88">            logger.debug(&quot;Added type {} with {} members&quot;, entry.getKey(), entry.getValue().size());</span>
+<span class="fc" id="L89">        }</span>
+
+<span class="fc" id="L91">        logger.info(&quot;Generated package with {} types&quot;, pkg.getTypes().size());</span>
+<span class="fc" id="L92">        return pkg;</span>
+    }
+
+    /**
+     * Generate package for added/modified components only.
+     *
+     * @param components list of all components
+     * @param apiVersion the API version
+     * @return package containing only non-deleted components
+     */
+    public static Package generateDeployPackage(List&lt;MetadataComponent&gt; components, String apiVersion) {
+<span class="fc" id="L103">        return generatePackage(components, apiVersion, false);</span>
+    }
+
+    /**
+     * Generate destructiveChanges package for deleted components only.
+     *
+     * @param components list of all components
+     * @param apiVersion the API version
+     * @return package containing only deleted components
+     */
+    public static Package generateDestructiveChanges(List&lt;MetadataComponent&gt; components, String apiVersion) {
+<span class="fc" id="L114">        return generatePackage(components, apiVersion, true);</span>
+    }
+
+    /**
+     * Generate package from git diff.
+     *
+     * @param fromRef the starting git reference
+     * @param toRef the ending git reference
+     * @param apiVersion the API version
+     * @return package for deployment
+     * @throws Exception if git parsing fails
+     */
+    public static Package generateFromGitDiff(String fromRef, String toRef, String apiVersion) throws Exception {
+<span class="nc" id="L127">        List&lt;MetadataComponent&gt; components = GitDiffParser.parseChangedComponents(fromRef, toRef);</span>
+<span class="nc" id="L128">        return generateDeployPackage(components, apiVersion);</span>
+    }
+
+    /**
+     * Generate both deploy and destructive packages from git diff.
+     *
+     * @param fromRef the starting git reference
+     * @param toRef the ending git reference
+     * @param apiVersion the API version
+     * @return array with [deployPackage, destructivePackage]
+     * @throws Exception if git parsing fails
+     */
+    public static Package[] generateBothFromGitDiff(String fromRef, String toRef, String apiVersion) throws Exception {
+<span class="nc" id="L141">        List&lt;MetadataComponent&gt; components = GitDiffParser.parseChangedComponents(fromRef, toRef);</span>
+
+<span class="nc" id="L143">        Package deployPackage = generateDeployPackage(components, apiVersion);</span>
+<span class="nc" id="L144">        Package destructivePackage = generateDestructiveChanges(components, apiVersion);</span>
+
+<span class="nc" id="L146">        return new Package[]{deployPackage, destructivePackage};</span>
+    }
+
+    /**
+     * Check if there are any deleted components.
+     *
+     * @param components list of components
+     * @return true if any component is deleted
+     */
+    public static boolean hasDeletedComponents(List&lt;MetadataComponent&gt; components) {
+<span class="fc" id="L156">        return components.stream().anyMatch(MetadataComponent::isDeleted);</span>
+    }
+
+    /**
+     * Count components by type.
+     *
+     * @param components list of components
+     * @return map of type to count
+     */
+    public static Map&lt;String, Integer&gt; countByType(List&lt;MetadataComponent&gt; components) {
+<span class="fc" id="L166">        Map&lt;String, Integer&gt; counts = new HashMap&lt;&gt;();</span>
+
+<span class="fc bfc" id="L168" title="All 2 branches covered.">        for (MetadataComponent component : components) {</span>
+<span class="fc" id="L169">            counts.merge(component.getType(), 1, Integer::sum);</span>
+<span class="fc" id="L170">        }</span>
+
+<span class="fc" id="L172">        return counts;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

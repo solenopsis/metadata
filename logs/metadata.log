@@ -364,3 +364,808 @@
 2026-05-20 10:46:12.594 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Discovered 2 web service class(es)
 2026-05-20 10:46:15.610 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Retrieving Custom WSDLs for org
 2026-05-20 10:46:18.611 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Discovered 0 web service class(es)
+2026-05-21 13:38:18.790 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 0 components (API 60.0)
+2026-05-21 13:38:18.795 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 0 types
+2026-05-21 13:38:18.800 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+2026-05-21 13:38:18.801 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 2 types
+2026-05-21 13:38:18.802 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+2026-05-21 13:38:18.802 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 13:38:18.804 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+2026-05-21 13:38:18.804 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 13:38:18.805 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+2026-05-21 13:38:18.805 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 13:38:18.809 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+2026-05-21 13:38:18.809 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 13:38:18.810 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+2026-05-21 13:38:18.810 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 3 types
+2026-05-21 13:38:18.918 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: Layout
+2026-05-21 13:38:18.921 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listing 2 metadata types
+2026-05-21 13:38:18.922 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 13:38:18.922 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexTrigger
+2026-05-21 13:38:18.954 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listing all metadata types from org
+2026-05-21 13:38:18.954 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 13:38:18.955 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: CustomObject
+2026-05-21 13:38:18.955 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listed 2 total components across 2 metadata types
+2026-05-21 13:38:18.958 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 2 components for type: ApexClass
+2026-05-21 13:38:18.961 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: Report in folder: MyFolder
+2026-05-21 13:38:18.964 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 0 components for type: ApexTrigger
+2026-05-21 13:38:18.967 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listing all metadata types from org
+2026-05-21 13:38:18.968 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 13:38:18.969 [main] WARN  org.solenopsis.metadata.list.ListMetadata - Failed to list metadata type: BadType - Type not found
+2026-05-21 13:38:18.970 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listed 1 total components across 2 metadata types
+2026-05-21 13:38:18.972 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 0 components for type: CustomObject
+2026-05-21 13:38:18.983 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating statistics for 2 metadata types
+2026-05-21 13:38:18.985 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 5 components for type: ApexClass
+2026-05-21 13:38:18.986 [main] WARN  org.solenopsis.metadata.stats.MetadataStatistics - Failed to list metadata type: BadType - Type not found
+2026-05-21 13:38:18.988 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 5 components across 2 types
+2026-05-21 13:38:19.020 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 13:38:19.021 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 100 components for type: ApexClass
+2026-05-21 13:38:19.022 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 75 components for type: Layout
+2026-05-21 13:38:19.023 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 50 components for type: CustomObject
+2026-05-21 13:38:19.024 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 225 components across 3 types
+2026-05-21 13:38:19.027 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating statistics for 0 metadata types
+2026-05-21 13:38:19.028 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 0 components across 0 types
+2026-05-21 13:38:19.031 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 13:38:19.032 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 5 components for type: ApexClass
+2026-05-21 13:38:19.033 [main] WARN  org.solenopsis.metadata.stats.MetadataStatistics - Failed to list metadata type: BadType - Type not found
+2026-05-21 13:38:19.034 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 5 components across 2 types
+2026-05-21 13:38:19.044 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 13:38:19.045 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 10 components for type: Type1
+2026-05-21 13:38:19.045 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 20 components for type: Type2
+2026-05-21 13:38:19.046 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 5 components for type: Type3
+2026-05-21 13:38:19.046 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 15 components for type: Type4
+2026-05-21 13:38:19.047 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 8 components for type: Type5
+2026-05-21 13:38:19.047 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 58 components across 5 types
+2026-05-21 13:38:19.051 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 13:38:19.052 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 0 components across 0 types
+2026-05-21 13:38:19.056 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 13:38:19.057 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 2 components for type: ApexClass
+2026-05-21 13:38:19.057 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: CustomObject
+2026-05-21 13:38:19.058 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 3 components across 2 types
+2026-05-21 13:38:19.062 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating statistics for 2 metadata types
+2026-05-21 13:38:19.063 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 10 components for type: ApexClass
+2026-05-21 13:38:19.063 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 20 components for type: CustomObject
+2026-05-21 13:38:19.064 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 30 components across 2 types
+2026-05-21 13:38:19.086 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 13:38:19.089 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 13:38:19.092 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 13:38:19.093 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 13:38:19.094 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 1 warnings
+2026-05-21 13:38:19.096 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 13:38:19.098 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 13:38:19.102 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 13:38:19.104 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 13:38:19.105 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 1 warnings
+2026-05-21 13:38:19.111 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 13:38:19.111 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 13:38:19.112 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 0 components for type: ApexClass
+2026-05-21 13:38:19.112 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 1 warnings
+2026-05-21 13:38:19.115 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 13:38:19.115 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 13:38:19.116 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 0 warnings
+2026-05-21 13:38:19.118 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 13:38:19.125 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 13:38:19.125 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 13:38:19.126 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 1 errors, 0 warnings
+2026-05-21 13:38:19.131 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 13:38:19.132 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 13:38:19.132 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 13:38:19.133 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 0 warnings
+2026-05-21 13:38:19.458 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Retrieving Custom WSDLs for org
+2026-05-21 13:38:22.460 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Discovered 0 web service class(es)
+2026-05-21 13:38:22.467 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Retrieving Custom WSDLs for org
+2026-05-21 13:38:25.468 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Found web service class: MyService
+2026-05-21 13:38:25.468 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Found web service class: AnotherService
+2026-05-21 13:38:25.469 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Discovered 2 web service class(es)
+2026-05-21 13:38:28.478 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Retrieving Custom WSDLs for org
+2026-05-21 13:38:31.479 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Discovered 0 web service class(es)
+2026-05-21 13:40:15.753 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD~1 HEAD
+2026-05-21 13:40:15.773 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD~1 HEAD
+2026-05-21 13:40:15.776 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Parsed 0 metadata components from git diff
+2026-05-21 13:40:15.792 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM invalid-ref-12345 invalid-ref-67890
+2026-05-21 13:40:15.801 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only HEAD HEAD
+2026-05-21 13:40:15.807 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 13:40:15.812 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 13:40:15.814 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 13:40:15.817 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Parsed 0 metadata components from git diff
+2026-05-21 13:40:15.819 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D invalid-ref-12345 invalid-ref-67890
+2026-05-21 13:40:15.824 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 13:40:15.826 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 13:40:15.829 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Parsed 0 metadata components from git diff
+2026-05-21 13:40:15.831 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM invalid-ref-12345 invalid-ref-67890
+2026-05-21 13:40:15.835 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only HEAD HEAD
+2026-05-21 13:40:15.838 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 13:40:15.842 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only HEAD~1 HEAD
+2026-05-21 13:40:15.846 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 13:40:15.849 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 13:40:15.853 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only invalid-ref-12345 invalid-ref-67890
+2026-05-21 13:40:25.376 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 0 components (API 60.0)
+2026-05-21 13:40:25.383 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 0 types
+2026-05-21 13:40:25.388 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+2026-05-21 13:40:25.389 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 2 types
+2026-05-21 13:40:25.391 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+2026-05-21 13:40:25.391 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 13:40:25.392 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+2026-05-21 13:40:25.392 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 13:40:25.393 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+2026-05-21 13:40:25.394 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 13:40:25.397 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+2026-05-21 13:40:25.398 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 13:40:25.399 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+2026-05-21 13:40:25.400 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 3 types
+2026-05-21 13:40:25.448 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD~1 HEAD
+2026-05-21 13:40:25.454 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD~1 HEAD
+2026-05-21 13:40:25.457 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Parsed 0 metadata components from git diff
+2026-05-21 13:40:25.460 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM invalid-ref-12345 invalid-ref-67890
+2026-05-21 13:40:25.470 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only HEAD HEAD
+2026-05-21 13:40:25.476 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 13:40:25.481 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 13:40:25.484 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 13:40:25.487 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Parsed 0 metadata components from git diff
+2026-05-21 13:40:25.490 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D invalid-ref-12345 invalid-ref-67890
+2026-05-21 13:40:25.496 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 13:40:25.499 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 13:40:25.501 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Parsed 0 metadata components from git diff
+2026-05-21 13:40:25.504 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM invalid-ref-12345 invalid-ref-67890
+2026-05-21 13:40:25.508 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only HEAD HEAD
+2026-05-21 13:40:25.513 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 13:40:25.517 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only HEAD~1 HEAD
+2026-05-21 13:40:25.523 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 13:40:25.529 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 13:40:25.533 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only invalid-ref-12345 invalid-ref-67890
+2026-05-21 13:40:25.633 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: Layout
+2026-05-21 13:40:25.636 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listing 2 metadata types
+2026-05-21 13:40:25.637 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 13:40:25.637 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexTrigger
+2026-05-21 13:40:25.680 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listing all metadata types from org
+2026-05-21 13:40:25.681 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 13:40:25.682 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: CustomObject
+2026-05-21 13:40:25.682 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listed 2 total components across 2 metadata types
+2026-05-21 13:40:25.685 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 2 components for type: ApexClass
+2026-05-21 13:40:25.689 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: Report in folder: MyFolder
+2026-05-21 13:40:25.691 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 0 components for type: ApexTrigger
+2026-05-21 13:40:25.694 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listing all metadata types from org
+2026-05-21 13:40:25.695 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 13:40:25.696 [main] WARN  org.solenopsis.metadata.list.ListMetadata - Failed to list metadata type: BadType - Type not found
+2026-05-21 13:40:25.696 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listed 1 total components across 2 metadata types
+2026-05-21 13:40:25.698 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 0 components for type: CustomObject
+2026-05-21 13:40:25.706 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating statistics for 2 metadata types
+2026-05-21 13:40:25.707 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 5 components for type: ApexClass
+2026-05-21 13:40:25.708 [main] WARN  org.solenopsis.metadata.stats.MetadataStatistics - Failed to list metadata type: BadType - Type not found
+2026-05-21 13:40:25.709 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 5 components across 2 types
+2026-05-21 13:40:25.740 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 13:40:25.741 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 100 components for type: ApexClass
+2026-05-21 13:40:25.742 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 75 components for type: Layout
+2026-05-21 13:40:25.743 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 50 components for type: CustomObject
+2026-05-21 13:40:25.744 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 225 components across 3 types
+2026-05-21 13:40:25.747 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating statistics for 0 metadata types
+2026-05-21 13:40:25.747 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 0 components across 0 types
+2026-05-21 13:40:25.751 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 13:40:25.752 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 5 components for type: ApexClass
+2026-05-21 13:40:25.753 [main] WARN  org.solenopsis.metadata.stats.MetadataStatistics - Failed to list metadata type: BadType - Type not found
+2026-05-21 13:40:25.754 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 5 components across 2 types
+2026-05-21 13:40:25.765 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 13:40:25.766 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 10 components for type: Type1
+2026-05-21 13:40:25.767 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 20 components for type: Type2
+2026-05-21 13:40:25.767 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 5 components for type: Type3
+2026-05-21 13:40:25.768 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 15 components for type: Type4
+2026-05-21 13:40:25.768 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 8 components for type: Type5
+2026-05-21 13:40:25.769 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 58 components across 5 types
+2026-05-21 13:40:25.773 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 13:40:25.773 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 0 components across 0 types
+2026-05-21 13:40:25.776 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 13:40:25.777 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 2 components for type: ApexClass
+2026-05-21 13:40:25.778 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: CustomObject
+2026-05-21 13:40:25.778 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 3 components across 2 types
+2026-05-21 13:40:25.783 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating statistics for 2 metadata types
+2026-05-21 13:40:25.784 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 10 components for type: ApexClass
+2026-05-21 13:40:25.785 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 20 components for type: CustomObject
+2026-05-21 13:40:25.785 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 30 components across 2 types
+2026-05-21 13:40:25.801 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 13:40:25.803 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 13:40:25.805 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 13:40:25.805 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 13:40:25.806 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 1 warnings
+2026-05-21 13:40:25.807 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 13:40:25.808 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 13:40:25.811 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 13:40:25.813 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 13:40:25.816 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 1 warnings
+2026-05-21 13:40:25.822 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 13:40:25.822 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 13:40:25.823 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 0 components for type: ApexClass
+2026-05-21 13:40:25.823 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 1 warnings
+2026-05-21 13:40:25.825 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 13:40:25.826 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 13:40:25.826 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 0 warnings
+2026-05-21 13:40:25.828 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 13:40:25.838 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 13:40:25.839 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 13:40:25.839 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 1 errors, 0 warnings
+2026-05-21 13:40:25.843 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 13:40:25.844 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 13:40:25.844 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 13:40:25.845 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 0 warnings
+2026-05-21 13:40:26.212 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Retrieving Custom WSDLs for org
+2026-05-21 13:40:29.214 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Discovered 0 web service class(es)
+2026-05-21 13:40:29.221 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Retrieving Custom WSDLs for org
+2026-05-21 13:40:32.222 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Found web service class: MyService
+2026-05-21 13:40:32.222 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Found web service class: AnotherService
+2026-05-21 13:40:32.222 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Discovered 2 web service class(es)
+2026-05-21 13:40:35.231 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Retrieving Custom WSDLs for org
+2026-05-21 13:40:38.232 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Discovered 0 web service class(es)
+2026-05-21 13:42:11.129 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 0 components (API 60.0)
+2026-05-21 13:42:11.138 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 0 types
+2026-05-21 13:42:11.143 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+2026-05-21 13:42:11.144 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 2 types
+2026-05-21 13:42:11.146 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+2026-05-21 13:42:11.147 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 13:42:11.148 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+2026-05-21 13:42:11.149 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 13:42:11.151 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+2026-05-21 13:42:11.151 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 13:42:11.155 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+2026-05-21 13:42:11.155 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 13:42:11.157 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+2026-05-21 13:42:11.157 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 3 types
+2026-05-21 13:42:11.203 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD~1 HEAD
+2026-05-21 13:42:11.209 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD~1 HEAD
+2026-05-21 13:42:11.212 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Parsed 0 metadata components from git diff
+2026-05-21 13:42:11.214 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM invalid-ref-12345 invalid-ref-67890
+2026-05-21 13:42:11.222 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only HEAD HEAD
+2026-05-21 13:42:11.227 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 13:42:11.232 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 13:42:11.235 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 13:42:11.237 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Parsed 0 metadata components from git diff
+2026-05-21 13:42:11.239 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D invalid-ref-12345 invalid-ref-67890
+2026-05-21 13:42:11.244 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 13:42:11.247 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 13:42:11.249 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Parsed 0 metadata components from git diff
+2026-05-21 13:42:11.251 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM invalid-ref-12345 invalid-ref-67890
+2026-05-21 13:42:11.256 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only HEAD HEAD
+2026-05-21 13:42:11.262 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 13:42:11.267 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only HEAD~1 HEAD
+2026-05-21 13:42:11.271 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 13:42:11.276 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 13:42:11.280 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only invalid-ref-12345 invalid-ref-67890
+2026-05-21 13:42:11.385 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: Layout
+2026-05-21 13:42:11.388 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listing 2 metadata types
+2026-05-21 13:42:11.389 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 13:42:11.390 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexTrigger
+2026-05-21 13:42:11.432 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listing all metadata types from org
+2026-05-21 13:42:11.432 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 13:42:11.433 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: CustomObject
+2026-05-21 13:42:11.433 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listed 2 total components across 2 metadata types
+2026-05-21 13:42:11.435 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 2 components for type: ApexClass
+2026-05-21 13:42:11.437 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: Report in folder: MyFolder
+2026-05-21 13:42:11.439 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 0 components for type: ApexTrigger
+2026-05-21 13:42:11.443 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listing all metadata types from org
+2026-05-21 13:42:11.443 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 13:42:11.444 [main] WARN  org.solenopsis.metadata.list.ListMetadata - Failed to list metadata type: BadType - Type not found
+2026-05-21 13:42:11.444 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listed 1 total components across 2 metadata types
+2026-05-21 13:42:11.446 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 0 components for type: CustomObject
+2026-05-21 13:42:11.453 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating statistics for 2 metadata types
+2026-05-21 13:42:11.455 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 5 components for type: ApexClass
+2026-05-21 13:42:11.455 [main] WARN  org.solenopsis.metadata.stats.MetadataStatistics - Failed to list metadata type: BadType - Type not found
+2026-05-21 13:42:11.456 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 5 components across 2 types
+2026-05-21 13:42:11.480 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 13:42:11.481 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 100 components for type: ApexClass
+2026-05-21 13:42:11.482 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 75 components for type: Layout
+2026-05-21 13:42:11.482 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 50 components for type: CustomObject
+2026-05-21 13:42:11.483 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 225 components across 3 types
+2026-05-21 13:42:11.485 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating statistics for 0 metadata types
+2026-05-21 13:42:11.486 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 0 components across 0 types
+2026-05-21 13:42:11.489 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 13:42:11.489 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 5 components for type: ApexClass
+2026-05-21 13:42:11.490 [main] WARN  org.solenopsis.metadata.stats.MetadataStatistics - Failed to list metadata type: BadType - Type not found
+2026-05-21 13:42:11.490 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 5 components across 2 types
+2026-05-21 13:42:11.498 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 13:42:11.499 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 10 components for type: Type1
+2026-05-21 13:42:11.500 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 20 components for type: Type2
+2026-05-21 13:42:11.500 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 5 components for type: Type3
+2026-05-21 13:42:11.501 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 15 components for type: Type4
+2026-05-21 13:42:11.501 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 8 components for type: Type5
+2026-05-21 13:42:11.502 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 58 components across 5 types
+2026-05-21 13:42:11.505 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 13:42:11.506 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 0 components across 0 types
+2026-05-21 13:42:11.508 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 13:42:11.509 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 2 components for type: ApexClass
+2026-05-21 13:42:11.510 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: CustomObject
+2026-05-21 13:42:11.510 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 3 components across 2 types
+2026-05-21 13:42:11.514 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating statistics for 2 metadata types
+2026-05-21 13:42:11.515 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 10 components for type: ApexClass
+2026-05-21 13:42:11.515 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 20 components for type: CustomObject
+2026-05-21 13:42:11.516 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 30 components across 2 types
+2026-05-21 13:42:11.535 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 13:42:11.538 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 13:42:11.541 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 13:42:11.541 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 13:42:11.542 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 1 warnings
+2026-05-21 13:42:11.544 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 13:42:11.545 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 13:42:11.549 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 13:42:11.550 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 13:42:11.551 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 1 warnings
+2026-05-21 13:42:11.555 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 13:42:11.556 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 13:42:11.556 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 0 components for type: ApexClass
+2026-05-21 13:42:11.556 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 1 warnings
+2026-05-21 13:42:11.559 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 13:42:11.559 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 13:42:11.559 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 0 warnings
+2026-05-21 13:42:11.561 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 13:42:11.567 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 13:42:11.567 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 13:42:11.567 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 1 errors, 0 warnings
+2026-05-21 13:42:11.571 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 13:42:11.571 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 13:42:11.572 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 13:42:11.572 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 0 warnings
+2026-05-21 13:42:11.937 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Retrieving Custom WSDLs for org
+2026-05-21 13:42:14.939 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Discovered 0 web service class(es)
+2026-05-21 13:42:14.947 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Retrieving Custom WSDLs for org
+2026-05-21 13:42:17.948 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Found web service class: MyService
+2026-05-21 13:42:17.948 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Found web service class: AnotherService
+2026-05-21 13:42:17.948 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Discovered 2 web service class(es)
+2026-05-21 13:42:20.957 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Retrieving Custom WSDLs for org
+2026-05-21 13:42:23.958 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Discovered 0 web service class(es)
+2026-05-21 14:22:00.733 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 0 components (API 60.0)
+2026-05-21 14:22:00.741 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 0 types
+2026-05-21 14:22:00.746 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+2026-05-21 14:22:00.747 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 2 types
+2026-05-21 14:22:00.749 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+2026-05-21 14:22:00.750 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 14:22:00.752 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+2026-05-21 14:22:00.752 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 14:22:00.754 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+2026-05-21 14:22:00.754 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 14:22:00.758 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+2026-05-21 14:22:00.759 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 14:22:00.760 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+2026-05-21 14:22:00.761 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 3 types
+2026-05-21 14:22:00.805 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD~1 HEAD
+2026-05-21 14:22:00.810 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD~1 HEAD
+2026-05-21 14:22:00.813 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Parsed 0 metadata components from git diff
+2026-05-21 14:22:00.816 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM invalid-ref-12345 invalid-ref-67890
+2026-05-21 14:22:00.823 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only HEAD HEAD
+2026-05-21 14:22:00.829 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 14:22:00.834 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 14:22:00.837 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 14:22:00.841 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Parsed 0 metadata components from git diff
+2026-05-21 14:22:00.843 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D invalid-ref-12345 invalid-ref-67890
+2026-05-21 14:22:00.849 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 14:22:00.852 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 14:22:00.855 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Parsed 0 metadata components from git diff
+2026-05-21 14:22:00.857 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM invalid-ref-12345 invalid-ref-67890
+2026-05-21 14:22:00.862 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only HEAD HEAD
+2026-05-21 14:22:00.866 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 14:22:00.871 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only HEAD~1 HEAD
+2026-05-21 14:22:00.875 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 14:22:00.879 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 14:22:00.884 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only invalid-ref-12345 invalid-ref-67890
+2026-05-21 14:22:00.982 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: Layout
+2026-05-21 14:22:00.985 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listing 2 metadata types
+2026-05-21 14:22:00.985 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 14:22:00.986 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexTrigger
+2026-05-21 14:22:01.032 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listing all metadata types from org
+2026-05-21 14:22:01.033 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 14:22:01.034 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: CustomObject
+2026-05-21 14:22:01.035 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listed 2 total components across 2 metadata types
+2026-05-21 14:22:01.038 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 2 components for type: ApexClass
+2026-05-21 14:22:01.042 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: Report in folder: MyFolder
+2026-05-21 14:22:01.044 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 0 components for type: ApexTrigger
+2026-05-21 14:22:01.047 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listing all metadata types from org
+2026-05-21 14:22:01.048 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 14:22:01.049 [main] WARN  org.solenopsis.metadata.list.ListMetadata - Failed to list metadata type: BadType - Type not found
+2026-05-21 14:22:01.049 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listed 1 total components across 2 metadata types
+2026-05-21 14:22:01.051 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 0 components for type: CustomObject
+2026-05-21 14:22:01.060 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating statistics for 2 metadata types
+2026-05-21 14:22:01.062 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 5 components for type: ApexClass
+2026-05-21 14:22:01.063 [main] WARN  org.solenopsis.metadata.stats.MetadataStatistics - Failed to list metadata type: BadType - Type not found
+2026-05-21 14:22:01.064 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 5 components across 2 types
+2026-05-21 14:22:01.089 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 14:22:01.090 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 100 components for type: ApexClass
+2026-05-21 14:22:01.090 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 75 components for type: Layout
+2026-05-21 14:22:01.091 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 50 components for type: CustomObject
+2026-05-21 14:22:01.092 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 225 components across 3 types
+2026-05-21 14:22:01.095 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating statistics for 0 metadata types
+2026-05-21 14:22:01.096 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 0 components across 0 types
+2026-05-21 14:22:01.099 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 14:22:01.100 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 5 components for type: ApexClass
+2026-05-21 14:22:01.101 [main] WARN  org.solenopsis.metadata.stats.MetadataStatistics - Failed to list metadata type: BadType - Type not found
+2026-05-21 14:22:01.101 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 5 components across 2 types
+2026-05-21 14:22:01.110 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 14:22:01.111 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 10 components for type: Type1
+2026-05-21 14:22:01.112 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 20 components for type: Type2
+2026-05-21 14:22:01.112 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 5 components for type: Type3
+2026-05-21 14:22:01.113 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 15 components for type: Type4
+2026-05-21 14:22:01.113 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 8 components for type: Type5
+2026-05-21 14:22:01.114 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 58 components across 5 types
+2026-05-21 14:22:01.118 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 14:22:01.119 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 0 components across 0 types
+2026-05-21 14:22:01.121 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 14:22:01.122 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 2 components for type: ApexClass
+2026-05-21 14:22:01.123 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: CustomObject
+2026-05-21 14:22:01.123 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 3 components across 2 types
+2026-05-21 14:22:01.127 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating statistics for 2 metadata types
+2026-05-21 14:22:01.128 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 10 components for type: ApexClass
+2026-05-21 14:22:01.128 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 20 components for type: CustomObject
+2026-05-21 14:22:01.128 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 30 components across 2 types
+2026-05-21 14:22:01.145 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:22:01.147 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:22:01.150 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 14:22:01.150 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:22:01.151 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 1 warnings
+2026-05-21 14:22:01.153 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:22:01.155 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:22:01.158 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:22:01.160 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:22:01.162 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 1 warnings
+2026-05-21 14:22:01.168 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 14:22:01.168 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:22:01.169 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 0 components for type: ApexClass
+2026-05-21 14:22:01.169 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 1 warnings
+2026-05-21 14:22:01.172 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 14:22:01.172 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:22:01.172 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 0 warnings
+2026-05-21 14:22:01.174 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:22:01.180 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 14:22:01.180 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:22:01.180 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 1 errors, 0 warnings
+2026-05-21 14:22:01.184 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 14:22:01.185 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:22:01.185 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 14:22:01.185 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 0 warnings
+2026-05-21 14:22:01.548 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Retrieving Custom WSDLs for org
+2026-05-21 14:22:04.549 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Discovered 0 web service class(es)
+2026-05-21 14:22:04.557 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Retrieving Custom WSDLs for org
+2026-05-21 14:22:07.559 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Found web service class: MyService
+2026-05-21 14:22:07.559 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Found web service class: AnotherService
+2026-05-21 14:22:07.559 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Discovered 2 web service class(es)
+2026-05-21 14:22:10.570 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Retrieving Custom WSDLs for org
+2026-05-21 14:22:13.572 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Discovered 0 web service class(es)
+2026-05-21 14:29:00.739 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 0 components (API 60.0)
+2026-05-21 14:29:00.746 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 0 types
+2026-05-21 14:29:00.752 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+2026-05-21 14:29:00.753 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 2 types
+2026-05-21 14:29:00.757 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+2026-05-21 14:29:00.757 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 14:29:00.760 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+2026-05-21 14:29:00.760 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 14:29:00.761 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+2026-05-21 14:29:00.762 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 14:29:00.766 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+2026-05-21 14:29:00.766 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 14:29:00.767 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+2026-05-21 14:29:00.768 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 3 types
+2026-05-21 14:29:00.824 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD~1 HEAD
+2026-05-21 14:29:00.830 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD~1 HEAD
+2026-05-21 14:29:00.835 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Parsed 0 metadata components from git diff
+2026-05-21 14:29:00.839 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM invalid-ref-12345 invalid-ref-67890
+2026-05-21 14:29:00.845 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only HEAD HEAD
+2026-05-21 14:29:00.850 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 14:29:00.855 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 14:29:00.858 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 14:29:00.861 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Parsed 0 metadata components from git diff
+2026-05-21 14:29:00.864 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D invalid-ref-12345 invalid-ref-67890
+2026-05-21 14:29:00.869 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 14:29:00.872 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 14:29:00.875 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Parsed 0 metadata components from git diff
+2026-05-21 14:29:00.879 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM invalid-ref-12345 invalid-ref-67890
+2026-05-21 14:29:00.884 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only HEAD HEAD
+2026-05-21 14:29:00.890 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 14:29:00.895 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only HEAD~1 HEAD
+2026-05-21 14:29:00.901 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 14:29:00.907 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 14:29:00.912 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only invalid-ref-12345 invalid-ref-67890
+2026-05-21 14:29:01.041 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: Layout
+2026-05-21 14:29:01.044 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listing 2 metadata types
+2026-05-21 14:29:01.044 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 14:29:01.045 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexTrigger
+2026-05-21 14:29:01.082 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listing all metadata types from org
+2026-05-21 14:29:01.082 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 14:29:01.083 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: CustomObject
+2026-05-21 14:29:01.083 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listed 2 total components across 2 metadata types
+2026-05-21 14:29:01.085 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 2 components for type: ApexClass
+2026-05-21 14:29:01.088 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: Report in folder: MyFolder
+2026-05-21 14:29:01.090 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 0 components for type: ApexTrigger
+2026-05-21 14:29:01.094 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listing all metadata types from org
+2026-05-21 14:29:01.095 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 14:29:01.096 [main] WARN  org.solenopsis.metadata.list.ListMetadata - Failed to list metadata type: BadType - Type not found
+2026-05-21 14:29:01.096 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listed 1 total components across 2 metadata types
+2026-05-21 14:29:01.098 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 0 components for type: CustomObject
+2026-05-21 14:29:01.111 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating statistics for 2 metadata types
+2026-05-21 14:29:01.112 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 5 components for type: ApexClass
+2026-05-21 14:29:01.113 [main] WARN  org.solenopsis.metadata.stats.MetadataStatistics - Failed to list metadata type: BadType - Type not found
+2026-05-21 14:29:01.114 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 5 components across 2 types
+2026-05-21 14:29:01.143 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 14:29:01.144 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 100 components for type: ApexClass
+2026-05-21 14:29:01.145 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 75 components for type: Layout
+2026-05-21 14:29:01.146 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 50 components for type: CustomObject
+2026-05-21 14:29:01.147 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 225 components across 3 types
+2026-05-21 14:29:01.151 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating statistics for 0 metadata types
+2026-05-21 14:29:01.152 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 0 components across 0 types
+2026-05-21 14:29:01.157 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 14:29:01.158 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 5 components for type: ApexClass
+2026-05-21 14:29:01.161 [main] WARN  org.solenopsis.metadata.stats.MetadataStatistics - Failed to list metadata type: BadType - Type not found
+2026-05-21 14:29:01.162 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 5 components across 2 types
+2026-05-21 14:29:01.174 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 14:29:01.175 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 10 components for type: Type1
+2026-05-21 14:29:01.176 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 20 components for type: Type2
+2026-05-21 14:29:01.177 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 5 components for type: Type3
+2026-05-21 14:29:01.177 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 15 components for type: Type4
+2026-05-21 14:29:01.178 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 8 components for type: Type5
+2026-05-21 14:29:01.179 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 58 components across 5 types
+2026-05-21 14:29:01.183 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 14:29:01.184 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 0 components across 0 types
+2026-05-21 14:29:01.187 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 14:29:01.188 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 2 components for type: ApexClass
+2026-05-21 14:29:01.188 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: CustomObject
+2026-05-21 14:29:01.189 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 3 components across 2 types
+2026-05-21 14:29:01.194 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating statistics for 2 metadata types
+2026-05-21 14:29:01.195 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 10 components for type: ApexClass
+2026-05-21 14:29:01.195 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 20 components for type: CustomObject
+2026-05-21 14:29:01.195 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 30 components across 2 types
+2026-05-21 14:29:01.213 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:29:01.216 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:29:01.218 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 14:29:01.219 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:29:01.219 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 1 warnings
+2026-05-21 14:29:01.221 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:29:01.223 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:29:01.226 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:29:01.228 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:29:01.229 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 1 warnings
+2026-05-21 14:29:01.235 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 14:29:01.235 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:29:01.236 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 0 components for type: ApexClass
+2026-05-21 14:29:01.236 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 1 warnings
+2026-05-21 14:29:01.239 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 14:29:01.239 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:29:01.239 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 0 warnings
+2026-05-21 14:29:01.241 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:29:01.249 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 14:29:01.249 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:29:01.250 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 1 errors, 0 warnings
+2026-05-21 14:29:01.255 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 14:29:01.256 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:29:01.256 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 14:29:01.257 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 0 warnings
+2026-05-21 14:29:01.649 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Retrieving Custom WSDLs for org
+2026-05-21 14:29:04.651 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Discovered 0 web service class(es)
+2026-05-21 14:29:04.658 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Retrieving Custom WSDLs for org
+2026-05-21 14:29:07.659 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Found web service class: MyService
+2026-05-21 14:29:07.660 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Found web service class: AnotherService
+2026-05-21 14:29:07.660 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Discovered 2 web service class(es)
+2026-05-21 14:29:10.669 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Retrieving Custom WSDLs for org
+2026-05-21 14:29:13.671 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Discovered 0 web service class(es)
+2026-05-21 14:35:26.897 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 0 components (API 60.0)
+2026-05-21 14:35:26.903 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 0 types
+2026-05-21 14:35:26.908 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+2026-05-21 14:35:26.909 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 2 types
+2026-05-21 14:35:26.911 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+2026-05-21 14:35:26.912 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 14:35:26.913 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+2026-05-21 14:35:26.914 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 14:35:26.915 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+2026-05-21 14:35:26.916 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 14:35:26.920 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+2026-05-21 14:35:26.920 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 14:35:26.922 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+2026-05-21 14:35:26.922 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 3 types
+2026-05-21 14:35:26.967 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD~1 HEAD
+2026-05-21 14:35:26.972 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD~1 HEAD
+2026-05-21 14:35:26.975 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Parsed 0 metadata components from git diff
+2026-05-21 14:35:26.978 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM invalid-ref-12345 invalid-ref-67890
+2026-05-21 14:35:26.986 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only HEAD HEAD
+2026-05-21 14:35:26.991 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 14:35:26.997 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 14:35:27.000 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 14:35:27.003 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Parsed 0 metadata components from git diff
+2026-05-21 14:35:27.006 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D invalid-ref-12345 invalid-ref-67890
+2026-05-21 14:35:27.011 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 14:35:27.014 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 14:35:27.017 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Parsed 0 metadata components from git diff
+2026-05-21 14:35:27.019 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM invalid-ref-12345 invalid-ref-67890
+2026-05-21 14:35:27.024 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only HEAD HEAD
+2026-05-21 14:35:27.029 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 14:35:27.034 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only HEAD~1 HEAD
+2026-05-21 14:35:27.039 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 14:35:27.045 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 14:35:27.050 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only invalid-ref-12345 invalid-ref-67890
+2026-05-21 14:35:27.149 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: Layout
+2026-05-21 14:35:27.152 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listing 2 metadata types
+2026-05-21 14:35:27.153 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 14:35:27.153 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexTrigger
+2026-05-21 14:35:27.192 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listing all metadata types from org
+2026-05-21 14:35:27.193 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 14:35:27.193 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: CustomObject
+2026-05-21 14:35:27.194 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listed 2 total components across 2 metadata types
+2026-05-21 14:35:27.196 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 2 components for type: ApexClass
+2026-05-21 14:35:27.199 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: Report in folder: MyFolder
+2026-05-21 14:35:27.202 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 0 components for type: ApexTrigger
+2026-05-21 14:35:27.206 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listing all metadata types from org
+2026-05-21 14:35:27.207 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 14:35:27.208 [main] WARN  org.solenopsis.metadata.list.ListMetadata - Failed to list metadata type: BadType - Type not found
+2026-05-21 14:35:27.209 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listed 1 total components across 2 metadata types
+2026-05-21 14:35:27.211 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 0 components for type: CustomObject
+2026-05-21 14:35:27.221 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating statistics for 2 metadata types
+2026-05-21 14:35:27.223 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 5 components for type: ApexClass
+2026-05-21 14:35:27.224 [main] WARN  org.solenopsis.metadata.stats.MetadataStatistics - Failed to list metadata type: BadType - Type not found
+2026-05-21 14:35:27.226 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 5 components across 2 types
+2026-05-21 14:35:27.259 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 14:35:27.260 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 100 components for type: ApexClass
+2026-05-21 14:35:27.261 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 75 components for type: Layout
+2026-05-21 14:35:27.262 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 50 components for type: CustomObject
+2026-05-21 14:35:27.263 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 225 components across 3 types
+2026-05-21 14:35:27.265 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating statistics for 0 metadata types
+2026-05-21 14:35:27.266 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 0 components across 0 types
+2026-05-21 14:35:27.269 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 14:35:27.270 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 5 components for type: ApexClass
+2026-05-21 14:35:27.271 [main] WARN  org.solenopsis.metadata.stats.MetadataStatistics - Failed to list metadata type: BadType - Type not found
+2026-05-21 14:35:27.271 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 5 components across 2 types
+2026-05-21 14:35:27.278 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 14:35:27.279 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 10 components for type: Type1
+2026-05-21 14:35:27.279 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 20 components for type: Type2
+2026-05-21 14:35:27.280 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 5 components for type: Type3
+2026-05-21 14:35:27.280 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 15 components for type: Type4
+2026-05-21 14:35:27.281 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 8 components for type: Type5
+2026-05-21 14:35:27.281 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 58 components across 5 types
+2026-05-21 14:35:27.284 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 14:35:27.284 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 0 components across 0 types
+2026-05-21 14:35:27.287 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 14:35:27.287 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 2 components for type: ApexClass
+2026-05-21 14:35:27.288 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: CustomObject
+2026-05-21 14:35:27.288 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 3 components across 2 types
+2026-05-21 14:35:27.292 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating statistics for 2 metadata types
+2026-05-21 14:35:27.293 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 10 components for type: ApexClass
+2026-05-21 14:35:27.293 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 20 components for type: CustomObject
+2026-05-21 14:35:27.293 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 30 components across 2 types
+2026-05-21 14:35:27.309 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:35:27.311 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:35:27.313 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 14:35:27.314 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:35:27.314 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 1 warnings
+2026-05-21 14:35:27.316 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:35:27.317 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:35:27.319 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:35:27.321 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:35:27.322 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 1 warnings
+2026-05-21 14:35:27.327 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 14:35:27.327 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:35:27.328 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 0 components for type: ApexClass
+2026-05-21 14:35:27.328 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 1 warnings
+2026-05-21 14:35:27.330 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 14:35:27.330 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:35:27.331 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 0 warnings
+2026-05-21 14:35:27.332 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:35:27.338 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 14:35:27.338 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:35:27.339 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 1 errors, 0 warnings
+2026-05-21 14:35:27.343 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 14:35:27.343 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:35:27.344 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 14:35:27.344 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 0 warnings
+2026-05-21 14:35:27.708 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Retrieving Custom WSDLs for org
+2026-05-21 14:35:30.709 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Discovered 0 web service class(es)
+2026-05-21 14:35:30.717 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Retrieving Custom WSDLs for org
+2026-05-21 14:35:33.719 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Found web service class: MyService
+2026-05-21 14:35:33.719 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Found web service class: AnotherService
+2026-05-21 14:35:33.719 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Discovered 2 web service class(es)
+2026-05-21 14:35:36.729 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Retrieving Custom WSDLs for org
+2026-05-21 14:35:39.730 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Discovered 0 web service class(es)
+2026-05-21 14:36:32.204 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 0 components (API 60.0)
+2026-05-21 14:36:32.211 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 0 types
+2026-05-21 14:36:32.219 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+2026-05-21 14:36:32.220 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 2 types
+2026-05-21 14:36:32.223 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+2026-05-21 14:36:32.223 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 14:36:32.226 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+2026-05-21 14:36:32.226 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 14:36:32.229 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 2 components (API 60.0)
+2026-05-21 14:36:32.229 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 14:36:32.235 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+2026-05-21 14:36:32.235 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 1 types
+2026-05-21 14:36:32.237 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generating package from 3 components (API 60.0)
+2026-05-21 14:36:32.238 [main] INFO  org.solenopsis.metadata.diff.DiffPackageGenerator - Generated package with 3 types
+2026-05-21 14:36:32.291 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD~1 HEAD
+2026-05-21 14:36:32.297 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD~1 HEAD
+2026-05-21 14:36:32.300 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Parsed 0 metadata components from git diff
+2026-05-21 14:36:32.303 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM invalid-ref-12345 invalid-ref-67890
+2026-05-21 14:36:32.311 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only HEAD HEAD
+2026-05-21 14:36:32.316 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 14:36:32.321 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 14:36:32.324 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 14:36:32.327 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Parsed 0 metadata components from git diff
+2026-05-21 14:36:32.329 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D invalid-ref-12345 invalid-ref-67890
+2026-05-21 14:36:32.334 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 14:36:32.337 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 14:36:32.340 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Parsed 0 metadata components from git diff
+2026-05-21 14:36:32.342 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM invalid-ref-12345 invalid-ref-67890
+2026-05-21 14:36:32.347 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only HEAD HEAD
+2026-05-21 14:36:32.353 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 14:36:32.359 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only HEAD~1 HEAD
+2026-05-21 14:36:32.366 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=AM HEAD HEAD
+2026-05-21 14:36:32.371 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only --diff-filter=D HEAD HEAD
+2026-05-21 14:36:32.377 [main] INFO  org.solenopsis.metadata.diff.GitDiffParser - Executing: git diff --name-only invalid-ref-12345 invalid-ref-67890
+2026-05-21 14:36:32.471 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: Layout
+2026-05-21 14:36:32.475 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listing 2 metadata types
+2026-05-21 14:36:32.476 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 14:36:32.476 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexTrigger
+2026-05-21 14:36:32.515 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listing all metadata types from org
+2026-05-21 14:36:32.516 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 14:36:32.517 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: CustomObject
+2026-05-21 14:36:32.517 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listed 2 total components across 2 metadata types
+2026-05-21 14:36:32.519 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 2 components for type: ApexClass
+2026-05-21 14:36:32.522 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: Report in folder: MyFolder
+2026-05-21 14:36:32.524 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 0 components for type: ApexTrigger
+2026-05-21 14:36:32.527 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listing all metadata types from org
+2026-05-21 14:36:32.528 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 14:36:32.529 [main] WARN  org.solenopsis.metadata.list.ListMetadata - Failed to list metadata type: BadType - Type not found
+2026-05-21 14:36:32.529 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Listed 1 total components across 2 metadata types
+2026-05-21 14:36:32.531 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 0 components for type: CustomObject
+2026-05-21 14:36:32.540 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating statistics for 2 metadata types
+2026-05-21 14:36:32.542 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 5 components for type: ApexClass
+2026-05-21 14:36:32.543 [main] WARN  org.solenopsis.metadata.stats.MetadataStatistics - Failed to list metadata type: BadType - Type not found
+2026-05-21 14:36:32.544 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 5 components across 2 types
+2026-05-21 14:36:32.571 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 14:36:32.572 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 100 components for type: ApexClass
+2026-05-21 14:36:32.573 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 75 components for type: Layout
+2026-05-21 14:36:32.573 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 50 components for type: CustomObject
+2026-05-21 14:36:32.574 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 225 components across 3 types
+2026-05-21 14:36:32.576 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating statistics for 0 metadata types
+2026-05-21 14:36:32.576 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 0 components across 0 types
+2026-05-21 14:36:32.579 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 14:36:32.580 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 5 components for type: ApexClass
+2026-05-21 14:36:32.581 [main] WARN  org.solenopsis.metadata.stats.MetadataStatistics - Failed to list metadata type: BadType - Type not found
+2026-05-21 14:36:32.581 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 5 components across 2 types
+2026-05-21 14:36:32.590 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 14:36:32.591 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 10 components for type: Type1
+2026-05-21 14:36:32.592 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 20 components for type: Type2
+2026-05-21 14:36:32.593 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 5 components for type: Type3
+2026-05-21 14:36:32.593 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 15 components for type: Type4
+2026-05-21 14:36:32.594 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 8 components for type: Type5
+2026-05-21 14:36:32.594 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 58 components across 5 types
+2026-05-21 14:36:32.599 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 14:36:32.600 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 0 components across 0 types
+2026-05-21 14:36:32.604 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating metadata statistics for API version 60.0
+2026-05-21 14:36:32.604 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 2 components for type: ApexClass
+2026-05-21 14:36:32.605 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: CustomObject
+2026-05-21 14:36:32.605 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 3 components across 2 types
+2026-05-21 14:36:32.610 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Generating statistics for 2 metadata types
+2026-05-21 14:36:32.610 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 10 components for type: ApexClass
+2026-05-21 14:36:32.611 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 20 components for type: CustomObject
+2026-05-21 14:36:32.611 [main] INFO  org.solenopsis.metadata.stats.MetadataStatistics - Statistics generated: 30 components across 2 types
+2026-05-21 14:36:32.632 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:36:32.635 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:36:32.639 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 14:36:32.639 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:36:32.639 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 1 warnings
+2026-05-21 14:36:32.642 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:36:32.643 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:36:32.647 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:36:32.649 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:36:32.651 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 1 warnings
+2026-05-21 14:36:32.658 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 14:36:32.659 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:36:32.660 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 0 components for type: ApexClass
+2026-05-21 14:36:32.660 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 1 warnings
+2026-05-21 14:36:32.663 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 14:36:32.663 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:36:32.664 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 0 warnings
+2026-05-21 14:36:32.667 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 1 errors, 0 warnings
+2026-05-21 14:36:32.676 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 14:36:32.676 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:36:32.676 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 1 errors, 0 warnings
+2026-05-21 14:36:32.682 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Validating package against org
+2026-05-21 14:36:32.683 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Structure validation complete: 0 errors, 0 warnings
+2026-05-21 14:36:32.684 [main] INFO  org.solenopsis.metadata.list.ListMetadata - Found 1 components for type: ApexClass
+2026-05-21 14:36:32.684 [main] INFO  o.solenopsis.metadata.validation.PackageValidator - Org validation complete: 0 errors, 0 warnings
+2026-05-21 14:36:33.036 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Retrieving Custom WSDLs for org
+2026-05-21 14:36:36.038 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Discovered 0 web service class(es)
+2026-05-21 14:36:36.046 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Retrieving Custom WSDLs for org
+2026-05-21 14:36:39.047 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Found web service class: MyService
+2026-05-21 14:36:39.047 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Found web service class: AnotherService
+2026-05-21 14:36:39.047 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Discovered 2 web service class(es)
+2026-05-21 14:36:42.057 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Retrieving Custom WSDLs for org
+2026-05-21 14:36:45.058 [main] INFO  org.solenopsis.metadata.wsdl.RetrieveWsdls - Discovered 0 web service class(es)

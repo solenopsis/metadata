@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MetadataStatistics.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">metadata</a> &gt; <a href="index.source.html" class="el_package">org.solenopsis.metadata.stats</a> &gt; <span class="el_source">MetadataStatistics.java</span></div><h1>MetadataStatistics.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (C) 2026 Scot P. Floess
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+ */
+package org.solenopsis.metadata.stats;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import java.util.stream.Collectors;
+import org.solenopsis.metadata.list.ListMetadata;
+import org.solenopsis.soap.metadata.DescribeMetadataObject;
+import org.solenopsis.soap.metadata.DescribeMetadataResult;
+import org.solenopsis.soap.metadata.FileProperties;
+import org.solenopsis.soap.metadata.MetadataPortType;
+
+/**
+ * Generates statistics about metadata in a Salesforce org.
+ *
+ * @author Scot P. Floess
+ */
+<span class="nc" id="L37">public class MetadataStatistics {</span>
+
+<span class="fc" id="L39">    private static final Logger logger = LoggerFactory.getLogger(MetadataStatistics.class);</span>
+
+    /**
+     * Default number of top types to include in statistics.
+     */
+    public static final int DEFAULT_TOP_COUNT = 10;
+
+    /**
+     * Generate comprehensive statistics about org metadata.
+     *
+     * @param port the metadata port
+     * @param apiVersion the Salesforce API version
+     * @return statistics about the org
+     * @throws Exception if statistics generation fails
+     */
+    public static OrgStats generateStats(
+        final MetadataPortType port,
+        final String apiVersion
+    ) throws Exception {
+<span class="fc" id="L58">        return generateStats(port, apiVersion, DEFAULT_TOP_COUNT);</span>
+    }
+
+    /**
+     * Generate comprehensive statistics about org metadata.
+     *
+     * @param port the metadata port
+     * @param apiVersion the Salesforce API version
+     * @param topCount number of top types to include
+     * @return statistics about the org
+     * @throws Exception if statistics generation fails
+     */
+    public static OrgStats generateStats(
+        final MetadataPortType port,
+        final String apiVersion,
+        final int topCount
+    ) throws Exception {
+<span class="fc" id="L75">        logger.info(&quot;Generating metadata statistics for API version {}&quot;, apiVersion);</span>
+
+<span class="fc" id="L77">        final double apiVersionDouble = Double.parseDouble(apiVersion);</span>
+<span class="fc" id="L78">        final DescribeMetadataResult describe = port.describeMetadata(apiVersionDouble);</span>
+
+<span class="fc" id="L80">        final OrgStats stats = new OrgStats();</span>
+<span class="fc" id="L81">        stats.setApiVersion(apiVersion);</span>
+<span class="fc" id="L82">        stats.setOrganizationNamespace(describe.getOrganizationNamespace());</span>
+
+        // Count components by type
+<span class="fc" id="L85">        final Map&lt;String, Integer&gt; typeCounts = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L86">        int totalComponents = 0;</span>
+
+<span class="fc bfc" id="L88" title="All 2 branches covered.">        for (DescribeMetadataObject obj : describe.getMetadataObjects()) {</span>
+            try {
+<span class="fc" id="L90">                final List&lt;FileProperties&gt; items = ListMetadata.listType(</span>
+                    port,
+<span class="fc" id="L92">                    obj.getXmlName(),</span>
+                    apiVersionDouble
+                );
+<span class="fc" id="L95">                final int count = items.size();</span>
+<span class="fc" id="L96">                typeCounts.put(obj.getXmlName(), count);</span>
+<span class="fc" id="L97">                totalComponents += count;</span>
+
+<span class="fc" id="L99">                logger.debug(&quot;Type {}: {} components&quot;, obj.getXmlName(), count);</span>
+<span class="fc" id="L100">            } catch (Exception e) {</span>
+<span class="fc" id="L101">                logger.warn(&quot;Failed to list metadata type: {} - {}&quot;, obj.getXmlName(), e.getMessage());</span>
+<span class="fc" id="L102">                typeCounts.put(obj.getXmlName(), 0);</span>
+<span class="fc" id="L103">            }</span>
+<span class="fc" id="L104">        }</span>
+
+<span class="fc" id="L106">        stats.setTypeCounts(typeCounts);</span>
+<span class="fc" id="L107">        stats.setTotalComponents(totalComponents);</span>
+<span class="fc" id="L108">        stats.setTotalTypes(typeCounts.size());</span>
+
+        // Calculate top types
+<span class="fc" id="L111">        final List&lt;OrgStats.TypeCount&gt; topTypes = typeCounts.entrySet().stream()</span>
+<span class="fc" id="L112">            .map(entry -&gt; new OrgStats.TypeCount(entry.getKey(), entry.getValue()))</span>
+<span class="fc" id="L113">            .sorted((a, b) -&gt; Integer.compare(b.getCount(), a.getCount()))</span>
+<span class="fc" id="L114">            .limit(topCount)</span>
+<span class="fc" id="L115">            .collect(Collectors.toList());</span>
+
+<span class="fc" id="L117">        stats.setTopTypes(topTypes);</span>
+
+<span class="fc" id="L119">        logger.info(&quot;Statistics generated: {} components across {} types&quot;, totalComponents, typeCounts.size());</span>
+
+<span class="fc" id="L121">        return stats;</span>
+    }
+
+    /**
+     * Generate statistics for specific metadata types only.
+     *
+     * @param port the metadata port
+     * @param metadataTypes list of metadata type names to include
+     * @param apiVersion the API version
+     * @return statistics for the specified types
+     * @throws Exception if statistics generation fails
+     */
+    public static OrgStats generateStatsForTypes(
+        final MetadataPortType port,
+        final List&lt;String&gt; metadataTypes,
+        final String apiVersion
+    ) throws Exception {
+<span class="fc" id="L138">        logger.info(&quot;Generating statistics for {} metadata types&quot;, metadataTypes.size());</span>
+
+<span class="fc" id="L140">        final double apiVersionDouble = Double.parseDouble(apiVersion);</span>
+<span class="fc" id="L141">        final DescribeMetadataResult describe = port.describeMetadata(apiVersionDouble);</span>
+
+<span class="fc" id="L143">        final OrgStats stats = new OrgStats();</span>
+<span class="fc" id="L144">        stats.setApiVersion(apiVersion);</span>
+<span class="fc" id="L145">        stats.setOrganizationNamespace(describe.getOrganizationNamespace());</span>
+
+        // Count components for specified types only
+<span class="fc" id="L148">        final Map&lt;String, Integer&gt; typeCounts = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L149">        int totalComponents = 0;</span>
+
+<span class="fc bfc" id="L151" title="All 2 branches covered.">        for (String typeName : metadataTypes) {</span>
+            try {
+<span class="fc" id="L153">                final List&lt;FileProperties&gt; items = ListMetadata.listType(</span>
+                    port,
+                    typeName,
+                    apiVersionDouble
+                );
+<span class="fc" id="L158">                final int count = items.size();</span>
+<span class="fc" id="L159">                typeCounts.put(typeName, count);</span>
+<span class="fc" id="L160">                totalComponents += count;</span>
+
+<span class="fc" id="L162">                logger.debug(&quot;Type {}: {} components&quot;, typeName, count);</span>
+<span class="fc" id="L163">            } catch (Exception e) {</span>
+<span class="fc" id="L164">                logger.warn(&quot;Failed to list metadata type: {} - {}&quot;, typeName, e.getMessage());</span>
+<span class="fc" id="L165">                typeCounts.put(typeName, 0);</span>
+<span class="fc" id="L166">            }</span>
+<span class="fc" id="L167">        }</span>
+
+<span class="fc" id="L169">        stats.setTypeCounts(typeCounts);</span>
+<span class="fc" id="L170">        stats.setTotalComponents(totalComponents);</span>
+<span class="fc" id="L171">        stats.setTotalTypes(typeCounts.size());</span>
+
+        // All types are included in topTypes since we're filtering
+<span class="fc" id="L174">        final List&lt;OrgStats.TypeCount&gt; topTypes = typeCounts.entrySet().stream()</span>
+<span class="fc" id="L175">            .map(entry -&gt; new OrgStats.TypeCount(entry.getKey(), entry.getValue()))</span>
+<span class="fc" id="L176">            .sorted((a, b) -&gt; Integer.compare(b.getCount(), a.getCount()))</span>
+<span class="fc" id="L177">            .collect(Collectors.toList());</span>
+
+<span class="fc" id="L179">        stats.setTopTypes(topTypes);</span>
+
+<span class="fc" id="L181">        logger.info(&quot;Statistics generated: {} components across {} types&quot;, totalComponents, typeCounts.size());</span>
+
+<span class="fc" id="L183">        return stats;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

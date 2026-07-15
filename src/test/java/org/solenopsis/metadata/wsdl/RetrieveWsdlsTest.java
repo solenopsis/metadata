@@ -46,6 +46,7 @@ import org.solenopsis.soap.metadata.Package;
 import org.solenopsis.soap.metadata.RetrieveRequest;
 import org.solenopsis.soap.metadata.RetrieveResult;
 import org.solenopsis.soap.metadata.StatusCode;
+import org.solenopsis.metadata.WsdlSubUrlEnum;
 import org.solenopsis.session.SessionContext;
 
 /**
@@ -674,30 +675,30 @@ class RetrieveWsdlsTest {
     }
 
     @Test
-    void testRetrieveWsdls_WithCustomWsdls(@TempDir Path tempDir) {
-        Context context = new Context();
-        context.outputDir = tempDir.toString();
-        context.sessionContext = mock(SessionContext.class);
-        when(context.sessionContext.serverUrl()).thenReturn("https://test.salesforce.com");
-
+    void testRetrieveWsdls_CustomUrlConstructionPerClass() {
+        String serverUrl = "https://test.salesforce.com";
         List<String> customWsdls = Arrays.asList("MyService", "AnotherService");
 
-        // Verify the method handles custom WSDL list
-        assertEquals(2, customWsdls.size(), "Should have 2 custom WSDLs");
-        assertTrue(customWsdls.contains("MyService"), "Should contain MyService");
-        assertTrue(customWsdls.contains("AnotherService"), "Should contain AnotherService");
+        for (String wsdl : customWsdls) {
+            String url = WsdlSubUrlEnum.CUSTOM.computeUrl(serverUrl) + "/" + wsdl;
+            assertTrue(url.contains(wsdl),
+                "URL should contain class name: " + wsdl);
+            assertTrue(url.contains("/services/wsdl/class/"),
+                "URL should contain custom WSDL path");
+        }
     }
 
     @Test
-    void testRetrieveWsdls_StandardWsdlCount() {
-        // Verify the correct number of standard WSDLs are retrieved
-        // Based on the code: apex, enterprise, metadata, partner (tooling is commented out)
-        int expectedStandardWsdls = 4;
+    void testRetrieveWsdls_StandardWsdlEnumsExist() {
+        assertNotNull(WsdlSubUrlEnum.APEX, "APEX enum should exist");
+        assertNotNull(WsdlSubUrlEnum.ENTERPRISE, "ENTERPRISE enum should exist");
+        assertNotNull(WsdlSubUrlEnum.METADATA, "METADATA enum should exist");
+        assertNotNull(WsdlSubUrlEnum.PARTNER, "PARTNER enum should exist");
 
-        // This tests our understanding of the code logic
-        String[] standardWsdls = {"apex.wsdl", "enterprise.wsdl", "metadata.wsdl", "partner.wsdl"};
-        assertEquals(expectedStandardWsdls, standardWsdls.length,
-            "Should retrieve 4 standard WSDLs");
+        assertFalse(WsdlSubUrlEnum.APEX.getSubUrl().isEmpty(), "APEX sub-URL should not be empty");
+        assertFalse(WsdlSubUrlEnum.ENTERPRISE.getSubUrl().isEmpty(), "ENTERPRISE sub-URL should not be empty");
+        assertFalse(WsdlSubUrlEnum.METADATA.getSubUrl().isEmpty(), "METADATA sub-URL should not be empty");
+        assertFalse(WsdlSubUrlEnum.PARTNER.getSubUrl().isEmpty(), "PARTNER sub-URL should not be empty");
     }
 
     @Test
@@ -705,14 +706,14 @@ class RetrieveWsdlsTest {
         String serverUrl = "https://test.salesforce.com";
         String customClassName = "MyService";
 
-        // Test the URL construction logic for custom WSDLs
-        String expectedUrl = serverUrl + "/services/wsdl/class/" + "/" + customClassName;
+        String customUrl = WsdlSubUrlEnum.CUSTOM.computeUrl(serverUrl) + "/" + customClassName;
 
-        // This verifies our understanding of how custom WSDL URLs are constructed
-        assertTrue(expectedUrl.contains("/services/wsdl/class/"),
+        assertTrue(customUrl.contains("/services/wsdl/class/"),
             "Custom WSDL URL should contain correct path");
-        assertTrue(expectedUrl.contains(customClassName),
-            "Custom WSDL URL should contain class name");
+        assertTrue(customUrl.endsWith("/" + customClassName),
+            "Custom WSDL URL should end with class name");
+        assertTrue(customUrl.startsWith(serverUrl),
+            "Custom WSDL URL should start with server URL");
     }
 
     // ========== Tests for main method ==========
@@ -733,25 +734,17 @@ class RetrieveWsdlsTest {
     }
 
     @Test
-    void testMain_CallsContextConstructor() {
-        // Test that main method would create Context with args
-        String[] args = {"--solenopsis", "production", "--dir", "/tmp/wsdls"};
-
-        // Verify args are in correct format for Context
-        assertEquals(4, args.length, "Should have 4 arguments");
-        assertEquals("--solenopsis", args[0], "First arg should be --solenopsis");
-        assertEquals("production", args[1], "Second arg should be env name");
+    void testMain_WithNoCredentialsThrows() {
+        assertThrows(IllegalArgumentException.class,
+            () -> RetrieveWsdls.main(new String[]{"--prefix", "test-"}),
+            "main() with no credentials should throw IllegalArgumentException from Context");
     }
 
     @Test
-    void testMain_WorkflowLogic() {
-        // Test the logical workflow of main method:
-        // 1. Create Context from args
-        // 2. Call findCustomWsdls(context) to get custom WSDLs
-        // 3. Call retrieveWsdls(context, customWsdls) to download all WSDLs
-
-        // Verify this is the expected workflow
-        assertTrue(true, "Main method should: create Context, find custom WSDLs, retrieve all WSDLs");
+    void testMain_WithEmptyArgsThrows() {
+        assertThrows(IllegalArgumentException.class,
+            () -> RetrieveWsdls.main(new String[]{}),
+            "main() with empty args should throw IllegalArgumentException");
     }
 
     // ========== Additional helper/utility tests ==========

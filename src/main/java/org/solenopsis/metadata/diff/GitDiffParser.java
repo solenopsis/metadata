@@ -55,7 +55,7 @@ public class GitDiffParser {
      * @throws Exception if git command fails
      */
     public static List<String> getChangedFiles(String fromRef, String toRef, File workingDir) throws Exception {
-        String command = "git diff --name-only " + fromRef + " " + toRef;
+        List<String> command = List.of("git", "diff", "--name-only", fromRef, toRef);
         logger.info("Executing: {}", command);
 
         return executeGitCommand(command, workingDir);
@@ -83,7 +83,7 @@ public class GitDiffParser {
      * @throws Exception if git command fails
      */
     public static List<String> getDeletedFiles(String fromRef, String toRef, File workingDir) throws Exception {
-        String command = "git diff --name-only --diff-filter=D " + fromRef + " " + toRef;
+        List<String> command = List.of("git", "diff", "--name-only", "--diff-filter=D", fromRef, toRef);
         logger.info("Executing: {}", command);
 
         return executeGitCommand(command, workingDir);
@@ -111,7 +111,7 @@ public class GitDiffParser {
      * @throws Exception if git command fails
      */
     public static List<String> getAddedOrModifiedFiles(String fromRef, String toRef, File workingDir) throws Exception {
-        String command = "git diff --name-only --diff-filter=AM " + fromRef + " " + toRef;
+        List<String> command = List.of("git", "diff", "--name-only", "--diff-filter=AM", fromRef, toRef);
         logger.info("Executing: {}", command);
 
         return executeGitCommand(command, workingDir);
@@ -120,13 +120,13 @@ public class GitDiffParser {
     /**
      * Execute a git command and return the output lines.
      *
-     * @param command the git command to execute
+     * @param command the git command arguments as a list
      * @param workingDir the working directory, or null for current directory
      * @return list of output lines
      * @throws Exception if command fails
      */
-    private static List<String> executeGitCommand(String command, File workingDir) throws Exception {
-        ProcessBuilder builder = new ProcessBuilder(command.split("\\s+"));
+    private static List<String> executeGitCommand(List<String> command, File workingDir) throws Exception {
+        ProcessBuilder builder = new ProcessBuilder(command);
 
         if (workingDir != null) {
             builder.directory(workingDir);

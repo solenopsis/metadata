@@ -33,7 +33,7 @@ public enum WsdlSubUrlEnum {
     /** Metadata WSDL service endpoint. */
     METADATA("/services/wsdl/metadata"),
     /** Partner WSDL service endpoint. */
-    PARNTER("/soap/wsdl.jsp"),
+    PARTNER("/soap/wsdl.jsp"),
     /** Tooling WSDL service endpoint. */
     TOOLING("/services/wsdl/tooling");
 

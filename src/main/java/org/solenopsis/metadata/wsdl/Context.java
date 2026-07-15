@@ -63,8 +63,7 @@ final class Context {
 
     void ensureCredentials() {
         if (null == credentials) {
-            System.err.println("\nYou must provide either --solenopsis or --creds parameters!\n");
-            System.exit(1);
+            throw new IllegalArgumentException("You must provide either --solenopsis or --creds parameters!");
         }
     }
 
@@ -72,18 +71,30 @@ final class Context {
         for (int argIndex = 0; argIndex < args.length; argIndex++) {
             switch (args[argIndex]) {
                 case "--solenopsis":
+                    if (argIndex + 1 >= args.length) {
+                        throw new IllegalArgumentException("--solenopsis requires an environment argument");
+                    }
                     setSolenopsisCredentials(args[++argIndex]);
                     break;
 
                 case "--creds":
+                    if (argIndex + 1 >= args.length) {
+                        throw new IllegalArgumentException("--creds requires a file path argument");
+                    }
                     setCredentials(args[++argIndex]);
                     break;
 
                 case "--prefix":
+                    if (argIndex + 1 >= args.length) {
+                        throw new IllegalArgumentException("--prefix requires a value argument");
+                    }
                     prefix = args[++argIndex];
                     break;
 
                 case "--dir":
+                    if (argIndex + 1 >= args.length) {
+                        throw new IllegalArgumentException("--dir requires a directory argument");
+                    }
                     outputDir = args[++argIndex];
                     new File(outputDir).mkdirs();
                     break;

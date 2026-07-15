@@ -52,7 +52,7 @@ public class ListMetadata {
         final String metadataType,
         final double apiVersion
     ) throws Exception {
-        logger.debug("Listing metadata type: " + metadataType);
+        logger.debug("Listing metadata type: {}", metadataType);
 
         ListMetadataQuery query = new ListMetadataQuery();
         query.setType(metadataType);
@@ -163,7 +163,7 @@ public class ListMetadata {
         final String folder,
         final double apiVersion
     ) throws Exception {
-        logger.debug("Listing metadata type: " + metadataType + " in folder: " + folder);
+        logger.debug("Listing metadata type: {} in folder: {}", metadataType, folder);
 
         ListMetadataQuery query = new ListMetadataQuery();
         query.setType(metadataType);

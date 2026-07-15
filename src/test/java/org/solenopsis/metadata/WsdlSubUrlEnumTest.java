@@ -48,7 +48,7 @@ class WsdlSubUrlEnumTest {
 
     @Test
     void testPartnerSubUrl() {
-        assertEquals("/soap/wsdl.jsp", WsdlSubUrlEnum.PARNTER.getSubUrl());
+        assertEquals("/soap/wsdl.jsp", WsdlSubUrlEnum.PARTNER.getSubUrl());
     }
 
     @Test
@@ -95,7 +95,7 @@ class WsdlSubUrlEnumTest {
         assertNotNull(WsdlSubUrlEnum.valueOf("CUSTOM"));
         assertNotNull(WsdlSubUrlEnum.valueOf("ENTERPRISE"));
         assertNotNull(WsdlSubUrlEnum.valueOf("METADATA"));
-        assertNotNull(WsdlSubUrlEnum.valueOf("PARNTER"));
+        assertNotNull(WsdlSubUrlEnum.valueOf("PARTNER"));
         assertNotNull(WsdlSubUrlEnum.valueOf("TOOLING"));
     }
 }

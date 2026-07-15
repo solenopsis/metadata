@@ -130,19 +130,25 @@ public class RetrieveWsdls {
         throw new RuntimeException("Trouble retrieving apex classes:  " + result.getErrorMessage() + " -> " + result.getErrorStatusCode());
     }
 
+    private static final int MAX_POLL_ATTEMPTS = 100;
+
     static byte[] retrieveApexClasses(final MetadataPortType metadataPort, final String apiVersion) throws Exception {
         final AsyncResult asyncResult = metadataPort.retrieve(createRetrieveRequest(apiVersion));
 
         RetrieveResult result = null;
 
-        do {
+        for (int attempt = 0; attempt < MAX_POLL_ATTEMPTS; attempt++) {
             Thread.sleep(3000);
             result = metadataPort.checkRetrieveStatus(asyncResult.getId(), true);
 
-            logger.debug("Polling retrieve status for async ID: {}", asyncResult.getId());
-        } while (!result.isDone());
+            logger.debug("Polling retrieve status for async ID: {} (attempt {}/{})", asyncResult.getId(), attempt + 1, MAX_POLL_ATTEMPTS);
 
-        return ensureRetrieveSuccess(result).getZipFile();
+            if (result.isDone()) {
+                return ensureRetrieveSuccess(result).getZipFile();
+            }
+        }
+
+        throw new RuntimeException("Retrieve operation timed out after " + MAX_POLL_ATTEMPTS + " attempts for async ID: " + asyncResult.getId());
     }
 
     /**
@@ -238,23 +244,18 @@ public class RetrieveWsdls {
 
         logger.info("Retrieving WSDL: {}", outputFile);
 
-        CloseableHttpResponse loginResponse = HttpClients.createDefault().execute(httpGet, localContext);
-
-        final FileWriter writer = new FileWriter(outputFile);
-
-        IOUtils.copy(loginResponse.getEntity().getContent(), writer);
-
-        writer.close();
-
-        loginResponse.close();
-
+        try (var httpClient = HttpClients.createDefault();
+             CloseableHttpResponse loginResponse = httpClient.execute(httpGet, localContext);
+             FileWriter writer = new FileWriter(outputFile)) {
+            IOUtils.copy(loginResponse.getEntity().getContent(), writer);
+        }
     }
 
     static void retrieveWsdls(final Context context, final List<String> customWsdls) throws Exception {
         retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.APEX.computeUrl(context.sessionContext.serverUrl())), "apex.wsdl");
         retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.ENTERPRISE.computeUrl(context.sessionContext.serverUrl())), "enterprise.wsdl");
         retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.METADATA.computeUrl(context.sessionContext.serverUrl())), "metadata.wsdl");
-        retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.PARNTER.computeUrl(context.sessionContext.serverUrl())), "partner.wsdl");
+        retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.PARTNER.computeUrl(context.sessionContext.serverUrl())), "partner.wsdl");
 //        retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.TOOLING.computeUrl(context.sessionContext.serverUrl())), "tooling.wsdl");
 
         for (final String wsdl : customWsdls) {

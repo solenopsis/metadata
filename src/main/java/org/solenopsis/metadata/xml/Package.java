@@ -30,7 +30,7 @@ import org.solenopsis.soap.metadata.DescribeMetadataResult;
  * @author Scot P. Floess
  */
 @XmlRootElement(name = "package")
-@XmlType(propOrder = {"types, version"})
+@XmlType(propOrder = {"types", "version"})
 public class Package {
     private List<Types> typesList;
 

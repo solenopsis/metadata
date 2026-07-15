@@ -29,7 +29,7 @@ import org.solenopsis.soap.metadata.DescribeMetadataObject;
  * @author Scot P. Floess
  */
 @XmlRootElement(name = "types")
-@XmlType(propOrder = {"members, name"})
+@XmlType(propOrder = {"members", "name"})
 public class Types {
     private String name;
 

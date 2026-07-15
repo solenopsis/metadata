@@ -19,8 +19,6 @@ package org.solenopsis.metadata.wsdl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.nio.file.Path;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -32,129 +30,15 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class ContextTest {
 
-    @TempDir
-    Path tempDir;
-
-    private Path createTestCredentialsFile() throws IOException {
-        Path credFile = tempDir.resolve("test-creds.properties");
-        try (FileWriter writer = new FileWriter(credFile.toFile())) {
-            writer.write("url=https://login.salesforce.com\n");
-            writer.write("username=test@example.com\n");
-            writer.write("password=testPassword\n");
-            writer.write("token=testToken123\n");
-            writer.write("version=60.0\n");
-        }
-        return credFile;
-    }
-
-    @Test
-    void testContext_WithPrefixParameter() {
-        String[] args = {"--prefix", "myorg-"};
-
-        // This will fail ensureCredentials() and exit, so we'll test prefix setting separately
-        // by testing the individual components
-    }
-
-    @Test
-    void testContext_WithDirParameter() throws IOException {
-        Path outputPath = tempDir.resolve("output");
-        String[] args = {"--dir", outputPath.toString()};
-
-        // Directory creation is tested as part of the constructor
-        // We can't test the full constructor due to ensureCredentials() calling System.exit()
-    }
-
-    @Test
-    void testContext_DefaultValues() {
-        // Test that default values are set correctly
-        // We can't instantiate Context without credentials, but we can verify
-        // the default values would be set based on the class definition
-
-        String userHome = System.getProperty("user.home");
-        assertNotNull(userHome, "User home should be set");
-
-        // Default outputDir would be user.home
-        // Default prefix would be empty string
-    }
-
     @Test
     void testEnsureCredentials_WithNullCredentials() {
-        // Testing ensureCredentials() is challenging because it calls System.exit(1)
-        // In a real test harness, we'd need to mock System.exit or use a security manager
-        // For now, we document that this method exits the JVM when credentials are null
-
-        // This test documents the expected behavior rather than testing it directly
-        // due to the System.exit() call making it difficult to test in unit tests
-        assertTrue(true, "ensureCredentials() exits JVM when credentials are null");
-    }
-
-    @Test
-    void testSetCredentials_FileFormat() throws IOException {
-        // Test that the credentials file format is correctly documented
-        Path credFile = createTestCredentialsFile();
-
-        // Verify file was created
-        assertTrue(credFile.toFile().exists(), "Credentials file should be created");
-
-        // Verify file is readable
-        assertTrue(credFile.toFile().canRead(), "Credentials file should be readable");
-    }
-
-    @Test
-    void testSolenopsisCredentials_PathConstruction() {
-        // Test that the solenopsis credentials path is constructed correctly
-        String userHome = System.getProperty("user.home");
-        String env = "production";
-        String expectedPath = userHome + "/.solenopsis/credentials/" + env + ".properties";
-
-        // This tests the path construction logic used in setSolenopsisCredentials()
-        Path constructedPath = Path.of(userHome, ".solenopsis", "credentials", env + ".properties");
-        assertEquals(expectedPath, constructedPath.toString(),
-            "Solenopsis credentials path should be constructed correctly");
-    }
-
-    @Test
-    void testArgumentParsing_PrefixParameter() {
-        // Test prefix parameter would be parsed
-        String[] args = {"--prefix", "test-"};
-        assertEquals("test-", args[1], "Prefix argument should be at index 1");
-    }
-
-    @Test
-    void testArgumentParsing_DirParameter() {
-        // Test dir parameter would be parsed
-        String[] args = {"--dir", "/tmp/output"};
-        assertEquals("/tmp/output", args[1], "Dir argument should be at index 1");
-    }
-
-    @Test
-    void testArgumentParsing_CredsParameter() {
-        // Test creds parameter would be parsed
-        String[] args = {"--creds", "/path/to/creds.properties"};
-        assertEquals("/path/to/creds.properties", args[1], "Creds argument should be at index 1");
-    }
-
-    @Test
-    void testArgumentParsing_SolenopsisParameter() {
-        // Test solenopsis parameter would be parsed
-        String[] args = {"--solenopsis", "production"};
-        assertEquals("production", args[1], "Solenopsis argument should be at index 1");
-    }
-
-    @Test
-    void testArgumentParsing_MultipleParameters() {
-        // Test multiple parameters would be parsed
-        String[] args = {"--prefix", "org-", "--dir", "/tmp/wsdls"};
-        assertEquals(4, args.length, "Should have 4 arguments");
-        assertEquals("--prefix", args[0]);
-        assertEquals("org-", args[1]);
-        assertEquals("--dir", args[2]);
-        assertEquals("/tmp/wsdls", args[3]);
+        Context context = new Context();
+        assertThrows(IllegalArgumentException.class, () -> context.ensureCredentials(),
+            "ensureCredentials() should throw when credentials are null");
     }
 
     @Test
     void testContext_NoArgsConstructor() {
-        // Test that Context can be instantiated with no-args constructor for testing
         Context context = new Context();
         assertNotNull(context, "Context should be instantiated");
         assertEquals("", context.prefix, "Default prefix should be empty");
@@ -181,7 +65,6 @@ class ContextTest {
 
     @Test
     void testContext_FieldsArePackagePrivate() throws NoSuchFieldException {
-        // Verify fields have package-private access for testing
         Class<?> contextClass = Context.class;
 
         java.lang.reflect.Field credentialsField = contextClass.getDeclaredField("credentials");
@@ -198,73 +81,74 @@ class ContextTest {
     }
 
     @Test
-    void testContext_DirectoryCreation(@TempDir Path tempDir) {
-        // Test that directory creation works as expected
-        Path newDir = tempDir.resolve("test-output");
-        assertFalse(newDir.toFile().exists(), "Directory should not exist yet");
-
-        // Create the directory
-        newDir.toFile().mkdirs();
-        assertTrue(newDir.toFile().exists(), "Directory should be created");
-        assertTrue(newDir.toFile().isDirectory(), "Should be a directory");
+    void testContext_SolenopsisMissingValue() {
+        assertThrows(IllegalArgumentException.class,
+            () -> new Context(new String[]{"--solenopsis"}),
+            "--solenopsis without a value should throw");
     }
 
     @Test
-    void testContext_ConstructorWithPrefix(@TempDir Path tempDir) throws IOException {
-        // Create a valid credentials file
-        Path credFile = createTestCredentialsFile();
-
-        // Test constructor with prefix parameter
-        // Note: This will try to login, so we can't fully test it
-        // But we can verify the parameter parsing logic
-        String[] args = {"--prefix", "myorg-", "--creds", credFile.toString()};
-
-        // Verify args structure
-        assertEquals("--prefix", args[0]);
-        assertEquals("myorg-", args[1]);
-        assertEquals("--creds", args[2]);
-        assertTrue(args[3].endsWith("test-creds.properties"));
+    void testContext_CredsMissingValue() {
+        assertThrows(IllegalArgumentException.class,
+            () -> new Context(new String[]{"--creds"}),
+            "--creds without a value should throw");
     }
 
     @Test
-    void testContext_ConstructorWithDir(@TempDir Path tempDir) throws IOException {
-        Path credFile = createTestCredentialsFile();
+    void testContext_PrefixMissingValue() {
+        assertThrows(IllegalArgumentException.class,
+            () -> new Context(new String[]{"--prefix"}),
+            "--prefix without a value should throw");
+    }
+
+    @Test
+    void testContext_DirMissingValue() {
+        assertThrows(IllegalArgumentException.class,
+            () -> new Context(new String[]{"--dir"}),
+            "--dir without a value should throw");
+    }
+
+    @Test
+    void testContext_NoCredentials() {
+        assertThrows(IllegalArgumentException.class,
+            () -> new Context(new String[]{"--prefix", "test-"}),
+            "Constructor without credentials should throw");
+    }
+
+    @Test
+    void testContext_EmptyArgs() {
+        assertThrows(IllegalArgumentException.class,
+            () -> new Context(new String[]{}),
+            "Empty args should throw due to missing credentials");
+    }
+
+    @Test
+    void testContext_DirCreatedBeforeCredentialCheck(@TempDir Path tempDir) {
+        Path outputPath = tempDir.resolve("wsdl-output");
+        assertFalse(outputPath.toFile().exists(), "Directory should not exist yet");
+
+        assertThrows(IllegalArgumentException.class,
+            () -> new Context(new String[]{"--dir", outputPath.toString()}));
+
+        assertTrue(outputPath.toFile().exists(),
+            "Directory should be created even when credentials are missing");
+    }
+
+    @Test
+    void testContext_UnknownFlagsIgnored() {
+        assertThrows(IllegalArgumentException.class,
+            () -> new Context(new String[]{"--unknown", "value", "--another"}),
+            "Unknown flags should be ignored, then ensureCredentials throws");
+    }
+
+    @Test
+    void testContext_MultipleFlagsBeforeCredentialCheck(@TempDir Path tempDir) {
         Path outputPath = tempDir.resolve("output");
 
-        String[] args = {"--dir", outputPath.toString(), "--creds", credFile.toString()};
+        assertThrows(IllegalArgumentException.class,
+            () -> new Context(new String[]{"--prefix", "org-", "--dir", outputPath.toString()}));
 
-        assertEquals("--dir", args[0]);
-        assertEquals(outputPath.toString(), args[1]);
-        assertEquals("--creds", args[2]);
-    }
-
-    @Test
-    void testContext_ConstructorWithAllParameters(@TempDir Path tempDir) throws IOException {
-        Path credFile = createTestCredentialsFile();
-        Path outputPath = tempDir.resolve("output");
-
-        String[] args = {
-            "--prefix", "org-",
-            "--dir", outputPath.toString(),
-            "--creds", credFile.toString()
-        };
-
-        assertEquals(6, args.length, "Should have 6 arguments");
-        assertEquals("--prefix", args[0]);
-        assertEquals("org-", args[1]);
-        assertEquals("--dir", args[2]);
-        assertEquals(outputPath.toString(), args[3]);
-        assertEquals("--creds", args[4]);
-        assertTrue(args[5].endsWith("test-creds.properties"));
-    }
-
-    @Test
-    void testContext_SwitchCaseLogic() {
-        // Test that all switch cases are covered
-        String[] validArgs = {"--solenopsis", "--creds", "--prefix", "--dir"};
-
-        for (String arg : validArgs) {
-            assertTrue(arg.startsWith("--"), "All valid args should start with --");
-        }
+        assertTrue(outputPath.toFile().exists(),
+            "Directory should be created even with multiple flags and no credentials");
     }
 }

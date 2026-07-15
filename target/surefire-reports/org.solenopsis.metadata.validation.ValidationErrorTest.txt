@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: org.solenopsis.metadata.validation.ValidationErrorTest
--------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in org.solenopsis.metadata.validation.ValidationErrorTest

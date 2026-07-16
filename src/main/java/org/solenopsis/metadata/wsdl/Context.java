@@ -19,7 +19,9 @@ package org.solenopsis.metadata.wsdl;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import org.flossware.jcommons.util.StringUtil;
+import java.util.EnumSet;
+import java.util.Set;
+import org.solenopsis.metadata.WsdlSubUrlEnum;
 import org.solenopsis.session.Credentials;
 import org.solenopsis.session.SessionContext;
 import org.solenopsis.session.credentials.CredentialsUtil;
@@ -45,9 +47,52 @@ final class Context {
     SessionContext sessionContext;
 
     /**
+     * Explicit set of standard WSDLs to retrieve, or null for default behavior.
+     * Populated by the --wsdl flag.
+     */
+    Set<WsdlSubUrlEnum> wsdls;
+
+    /**
+     * When true, skip custom Apex web service WSDL discovery.
+     * Set by the --skip-custom flag.
+     */
+    boolean skipCustom = false;
+
+    /**
+     * When true and wsdls is null, include the tooling WSDL in the default set.
+     * Set by the --include-tooling flag.
+     */
+    boolean includeTooling = false;
+
+    /**
      * Package-private no-args constructor for testing.
      */
     Context() {
+    }
+
+    /**
+     * Returns the set of standard WSDLs to retrieve. If an explicit set was
+     * provided via --wsdl, that set is returned. Otherwise, the default set
+     * (apex, enterprise, metadata, partner) is returned, optionally including
+     * tooling if --include-tooling was specified.
+     *
+     * @return the set of standard WSDLs to retrieve
+     */
+    Set<WsdlSubUrlEnum> getStandardWsdls() {
+        if (wsdls != null) {
+            return wsdls;
+        }
+
+        final Set<WsdlSubUrlEnum> defaults = EnumSet.of(
+            WsdlSubUrlEnum.APEX, WsdlSubUrlEnum.ENTERPRISE,
+            WsdlSubUrlEnum.METADATA, WsdlSubUrlEnum.PARTNER
+        );
+
+        if (includeTooling) {
+            defaults.add(WsdlSubUrlEnum.TOOLING);
+        }
+
+        return defaults;
     }
 
     void setCredentials(final String fileName) {
@@ -97,6 +142,38 @@ final class Context {
                     }
                     outputDir = args[++argIndex];
                     new File(outputDir).mkdirs();
+                    break;
+
+                case "--wsdl":
+                    if (argIndex + 1 >= args.length) {
+                        throw new IllegalArgumentException("--wsdl requires a comma-separated list of WSDL names");
+                    }
+                    wsdls = EnumSet.noneOf(WsdlSubUrlEnum.class);
+                    for (final String name : args[++argIndex].split(",")) {
+                        final String trimmed = name.trim();
+                        if (trimmed.isEmpty()) {
+                            continue;
+                        }
+                        try {
+                            final WsdlSubUrlEnum wsdlType = WsdlSubUrlEnum.valueOf(trimmed.toUpperCase());
+                            if (wsdlType != WsdlSubUrlEnum.CUSTOM) {
+                                wsdls.add(wsdlType);
+                            }
+                        } catch (final IllegalArgumentException e) {
+                            throw new IllegalArgumentException(
+                                "Unknown WSDL type: " + trimmed
+                                + ". Valid types: apex, enterprise, metadata, partner, tooling"
+                            );
+                        }
+                    }
+                    break;
+
+                case "--skip-custom":
+                    skipCustom = true;
+                    break;
+
+                case "--include-tooling":
+                    includeTooling = true;
                     break;
             }
         }

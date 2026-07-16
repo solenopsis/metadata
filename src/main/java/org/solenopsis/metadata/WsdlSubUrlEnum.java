@@ -16,7 +16,7 @@
  */
 package org.solenopsis.metadata;
 
-import org.flossware.jcommons.util.StringUtil;
+import org.flossware.commons.util.StringUtil;
 
 /**
  * The sub URL to use when gathering WSDLs.

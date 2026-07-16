@@ -22,7 +22,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.regex.Matcher;
@@ -38,7 +40,7 @@ import org.apache.http.cookie.ClientCookie;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.cookie.BasicClientCookie;
-import org.flossware.jcommons.util.StringUtil;
+import org.flossware.commons.util.StringUtil;
 import org.solenopsis.soap.metadata.AsyncResult;
 import org.solenopsis.soap.metadata.MetadataPortType;
 import org.solenopsis.soap.metadata.Package;
@@ -252,11 +254,12 @@ public class RetrieveWsdls {
     }
 
     static void retrieveWsdls(final Context context, final List<String> customWsdls) throws Exception {
-        retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.APEX.computeUrl(context.sessionContext.serverUrl())), "apex.wsdl");
-        retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.ENTERPRISE.computeUrl(context.sessionContext.serverUrl())), "enterprise.wsdl");
-        retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.METADATA.computeUrl(context.sessionContext.serverUrl())), "metadata.wsdl");
-        retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.PARTNER.computeUrl(context.sessionContext.serverUrl())), "partner.wsdl");
-//        retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.TOOLING.computeUrl(context.sessionContext.serverUrl())), "tooling.wsdl");
+        final Set<WsdlSubUrlEnum> standardWsdls = context.getStandardWsdls();
+
+        for (final WsdlSubUrlEnum wsdlType : standardWsdls) {
+            retrieveWsdl(context, new HttpGet(wsdlType.computeUrl(context.sessionContext.serverUrl())),
+                wsdlType.name().toLowerCase() + ".wsdl");
+        }
 
         for (final String wsdl : customWsdls) {
             retrieveWsdl(context, new HttpGet(WsdlSubUrlEnum.CUSTOM.computeUrl(context.sessionContext.serverUrl()) + "/" + wsdl), wsdl + ".wsdl");
@@ -265,15 +268,17 @@ public class RetrieveWsdls {
 
     /**
      * Main entry point for WSDL retrieval utility.
-     * Retrieves all standard Salesforce WSDLs (Apex, Enterprise, Metadata, Partner)
-     * and custom Apex class WSDLs from the org.
+     * Retrieves standard Salesforce WSDLs and custom Apex class WSDLs from the org.
      *
-     * @param args command-line arguments (--solenopsis, --creds, --prefix, --dir)
+     * @param args command-line arguments: --solenopsis, --creds, --prefix, --dir,
+     *             --wsdl (comma-separated WSDL names), --skip-custom, --include-tooling
      * @throws Exception if WSDL retrieval fails
      */
     public static void main(final String[] args) throws Exception {
         final Context context = new Context(args);
 
-        retrieveWsdls(context, findCustomWsdls(context));
+        final List<String> customWsdls = context.skipCustom ? Collections.emptyList() : findCustomWsdls(context);
+
+        retrieveWsdls(context, customWsdls);
     }
 }

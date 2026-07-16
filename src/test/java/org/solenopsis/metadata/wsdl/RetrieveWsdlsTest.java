@@ -30,7 +30,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.EnumSet;
 import java.util.List;
+import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -38,6 +41,9 @@ import org.apache.http.HttpEntity;
 import org.apache.http.StatusLine;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.protocol.HttpClientContext;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import org.solenopsis.soap.metadata.AsyncResult;
@@ -589,69 +595,132 @@ class RetrieveWsdlsTest {
         assertTrue(webServiceClasses.isEmpty(), "Should return empty list for empty zip");
     }
 
-    // ========== Tests for retrieveWsdl ==========
+    // ========== Tests for retrieveWsdl with MockedStatic HttpClients ==========
 
     @Test
     void testRetrieveWsdl_Success(@TempDir Path tempDir) throws Exception {
-        // Setup mock context
         Context context = new Context();
         context.outputDir = tempDir.toString();
         context.prefix = "test-";
         context.sessionContext = mock(SessionContext.class);
         when(context.sessionContext.sessionId()).thenReturn("test-session-id");
-        when(context.sessionContext.serverUrl()).thenReturn("https://test.salesforce.com");
 
-        // Create a test WSDL content
         String wsdlContent = "<?xml version=\"1.0\"?><definitions>Test WSDL</definitions>";
         ByteArrayInputStream wsdlStream = new ByteArrayInputStream(wsdlContent.getBytes(StandardCharsets.UTF_8));
 
-        // Mock HttpGet and response
+        CloseableHttpClient mockHttpClient = mock(CloseableHttpClient.class);
+        CloseableHttpResponse mockResponse = mock(CloseableHttpResponse.class);
+        HttpEntity mockEntity = mock(HttpEntity.class);
+
+        when(mockHttpClient.execute(any(HttpGet.class), any(HttpClientContext.class))).thenReturn(mockResponse);
+        when(mockResponse.getEntity()).thenReturn(mockEntity);
+        when(mockEntity.getContent()).thenReturn(wsdlStream);
+
         HttpGet httpGet = new HttpGet("https://test.salesforce.com/services/wsdl/apex");
 
-        // Note: retrieveWsdl uses HttpClients.createDefault().execute() which is hard to mock
-        // without PowerMock. For now, we'll test the method exists and has correct signature
-        // A full integration test would require a mock HTTP server
+        try (MockedStatic<HttpClients> httpClientsMock = mockStatic(HttpClients.class)) {
+            httpClientsMock.when(HttpClients::createDefault).thenReturn(mockHttpClient);
 
-        // Verify the method exists and can be called
-        assertDoesNotThrow(() -> {
-            // We can't easily test this without a mock HTTP framework
-            // so we verify the method signature is correct
-            java.lang.reflect.Method method = RetrieveWsdls.class.getDeclaredMethod(
-                "retrieveWsdl", Context.class, HttpGet.class, String.class);
-            assertNotNull(method);
-            assertEquals(void.class, method.getReturnType());
-        });
+            RetrieveWsdls.retrieveWsdl(context, httpGet, "apex.wsdl");
+
+            httpClientsMock.verify(HttpClients::createDefault);
+            verify(mockHttpClient).execute(any(HttpGet.class), any(HttpClientContext.class));
+        }
+
+        File outputFile = new File(tempDir.toString(), "test-apex.wsdl");
+        assertTrue(outputFile.exists(), "WSDL file should be created");
+        String fileContent = Files.readString(outputFile.toPath());
+        assertTrue(fileContent.contains("Test WSDL"), "File should contain WSDL content");
     }
 
     @Test
-    void testRetrieveWsdl_CreatesOutputFile(@TempDir Path tempDir) {
-        // Test that output file path is constructed correctly
+    void testRetrieveWsdl_CreatesOutputFile(@TempDir Path tempDir) throws Exception {
         Context context = new Context();
         context.outputDir = tempDir.toString();
         context.prefix = "myorg-";
+        context.sessionContext = mock(SessionContext.class);
+        when(context.sessionContext.sessionId()).thenReturn("session-123");
 
-        String separator = System.getProperty("file.separator");
-        String expectedPath = tempDir.toString() + separator + "myorg-apex.wsdl";
+        String wsdlContent = "<definitions>Enterprise WSDL</definitions>";
+        ByteArrayInputStream wsdlStream = new ByteArrayInputStream(wsdlContent.getBytes(StandardCharsets.UTF_8));
 
-        // Verify path construction logic
-        String actualPath = context.outputDir + separator + context.prefix + "apex.wsdl";
-        assertEquals(expectedPath, actualPath, "Output file path should be constructed correctly");
+        CloseableHttpClient mockHttpClient = mock(CloseableHttpClient.class);
+        CloseableHttpResponse mockResponse = mock(CloseableHttpResponse.class);
+        HttpEntity mockEntity = mock(HttpEntity.class);
+
+        when(mockHttpClient.execute(any(HttpGet.class), any(HttpClientContext.class))).thenReturn(mockResponse);
+        when(mockResponse.getEntity()).thenReturn(mockEntity);
+        when(mockEntity.getContent()).thenReturn(wsdlStream);
+
+        try (MockedStatic<HttpClients> httpClientsMock = mockStatic(HttpClients.class)) {
+            httpClientsMock.when(HttpClients::createDefault).thenReturn(mockHttpClient);
+
+            RetrieveWsdls.retrieveWsdl(context, new HttpGet("https://example.com/wsdl"), "enterprise.wsdl");
+        }
+
+        File outputFile = new File(tempDir.toString(), "myorg-enterprise.wsdl");
+        assertTrue(outputFile.exists(), "Output file with prefix should be created");
+        String content = Files.readString(outputFile.toPath());
+        assertTrue(content.contains("Enterprise WSDL"), "File should contain expected content");
     }
 
     @Test
-    void testRetrieveWsdl_WithEmptyPrefix(@TempDir Path tempDir) {
+    void testRetrieveWsdl_WithEmptyPrefix(@TempDir Path tempDir) throws Exception {
         Context context = new Context();
         context.outputDir = tempDir.toString();
         context.prefix = "";
+        context.sessionContext = mock(SessionContext.class);
+        when(context.sessionContext.sessionId()).thenReturn("session-456");
 
-        String separator = System.getProperty("file.separator");
-        String expectedPath = tempDir.toString() + separator + "apex.wsdl";
-        String actualPath = context.outputDir + separator + context.prefix + "apex.wsdl";
+        String wsdlContent = "<definitions>Partner WSDL</definitions>";
+        ByteArrayInputStream wsdlStream = new ByteArrayInputStream(wsdlContent.getBytes(StandardCharsets.UTF_8));
 
-        assertEquals(expectedPath, actualPath, "Output file path should work with empty prefix");
+        CloseableHttpClient mockHttpClient = mock(CloseableHttpClient.class);
+        CloseableHttpResponse mockResponse = mock(CloseableHttpResponse.class);
+        HttpEntity mockEntity = mock(HttpEntity.class);
+
+        when(mockHttpClient.execute(any(HttpGet.class), any(HttpClientContext.class))).thenReturn(mockResponse);
+        when(mockResponse.getEntity()).thenReturn(mockEntity);
+        when(mockEntity.getContent()).thenReturn(wsdlStream);
+
+        try (MockedStatic<HttpClients> httpClientsMock = mockStatic(HttpClients.class)) {
+            httpClientsMock.when(HttpClients::createDefault).thenReturn(mockHttpClient);
+
+            RetrieveWsdls.retrieveWsdl(context, new HttpGet("https://example.com/wsdl"), "partner.wsdl");
+        }
+
+        File outputFile = new File(tempDir.toString(), "partner.wsdl");
+        assertTrue(outputFile.exists(), "Output file without prefix should be created");
     }
 
-    // ========== Tests for retrieveWsdls ==========
+    @Test
+    void testRetrieveWsdl_SetsCookieWithSessionId(@TempDir Path tempDir) throws Exception {
+        Context context = new Context();
+        context.outputDir = tempDir.toString();
+        context.prefix = "";
+        context.sessionContext = mock(SessionContext.class);
+        when(context.sessionContext.sessionId()).thenReturn("special-session-id");
+
+        ByteArrayInputStream emptyStream = new ByteArrayInputStream("".getBytes(StandardCharsets.UTF_8));
+
+        CloseableHttpClient mockHttpClient = mock(CloseableHttpClient.class);
+        CloseableHttpResponse mockResponse = mock(CloseableHttpResponse.class);
+        HttpEntity mockEntity = mock(HttpEntity.class);
+
+        when(mockHttpClient.execute(any(HttpGet.class), any(HttpClientContext.class))).thenReturn(mockResponse);
+        when(mockResponse.getEntity()).thenReturn(mockEntity);
+        when(mockEntity.getContent()).thenReturn(emptyStream);
+
+        try (MockedStatic<HttpClients> httpClientsMock = mockStatic(HttpClients.class)) {
+            httpClientsMock.when(HttpClients::createDefault).thenReturn(mockHttpClient);
+
+            RetrieveWsdls.retrieveWsdl(context, new HttpGet("https://example.com"), "test.wsdl");
+
+            verify(context.sessionContext).sessionId();
+        }
+    }
+
+    // ========== Tests for retrieveWsdls with MockedStatic HttpClients ==========
 
     @Test
     void testRetrieveWsdls_WithEmptyCustomList(@TempDir Path tempDir) throws Exception {
@@ -662,16 +731,104 @@ class RetrieveWsdlsTest {
         when(context.sessionContext.sessionId()).thenReturn("test-session");
         when(context.sessionContext.serverUrl()).thenReturn("https://test.salesforce.com");
 
-        List<String> customWsdls = new ArrayList<>();
+        CloseableHttpClient mockHttpClient = mock(CloseableHttpClient.class);
+        CloseableHttpResponse mockResponse = mock(CloseableHttpResponse.class);
+        HttpEntity mockEntity = mock(HttpEntity.class);
 
-        // Verify method can be called with empty list
-        // Note: This will fail without mocking HTTP, but we verify the signature
-        assertDoesNotThrow(() -> {
-            java.lang.reflect.Method method = RetrieveWsdls.class.getDeclaredMethod(
-                "retrieveWsdls", Context.class, List.class);
-            assertNotNull(method);
-            assertEquals(void.class, method.getReturnType());
-        });
+        when(mockHttpClient.execute(any(HttpGet.class), any(HttpClientContext.class))).thenReturn(mockResponse);
+        when(mockResponse.getEntity()).thenReturn(mockEntity);
+        when(mockEntity.getContent())
+            .thenReturn(new ByteArrayInputStream("<wsdl>apex</wsdl>".getBytes(StandardCharsets.UTF_8)))
+            .thenReturn(new ByteArrayInputStream("<wsdl>enterprise</wsdl>".getBytes(StandardCharsets.UTF_8)))
+            .thenReturn(new ByteArrayInputStream("<wsdl>metadata</wsdl>".getBytes(StandardCharsets.UTF_8)))
+            .thenReturn(new ByteArrayInputStream("<wsdl>partner</wsdl>".getBytes(StandardCharsets.UTF_8)));
+
+        try (MockedStatic<HttpClients> httpClientsMock = mockStatic(HttpClients.class)) {
+            httpClientsMock.when(HttpClients::createDefault).thenReturn(mockHttpClient);
+
+            RetrieveWsdls.retrieveWsdls(context, new ArrayList<>());
+
+            verify(mockHttpClient, times(4)).execute(any(HttpGet.class), any(HttpClientContext.class));
+        }
+
+        assertTrue(new File(tempDir.toString(), "apex.wsdl").exists(), "apex.wsdl should exist");
+        assertTrue(new File(tempDir.toString(), "enterprise.wsdl").exists(), "enterprise.wsdl should exist");
+        assertTrue(new File(tempDir.toString(), "metadata.wsdl").exists(), "metadata.wsdl should exist");
+        assertTrue(new File(tempDir.toString(), "partner.wsdl").exists(), "partner.wsdl should exist");
+    }
+
+    @Test
+    void testRetrieveWsdls_WithCustomWsdls(@TempDir Path tempDir) throws Exception {
+        Context context = new Context();
+        context.outputDir = tempDir.toString();
+        context.prefix = "";
+        context.sessionContext = mock(SessionContext.class);
+        when(context.sessionContext.sessionId()).thenReturn("test-session");
+        when(context.sessionContext.serverUrl()).thenReturn("https://test.salesforce.com");
+
+        CloseableHttpClient mockHttpClient = mock(CloseableHttpClient.class);
+        CloseableHttpResponse mockResponse = mock(CloseableHttpResponse.class);
+        HttpEntity mockEntity = mock(HttpEntity.class);
+
+        when(mockHttpClient.execute(any(HttpGet.class), any(HttpClientContext.class))).thenReturn(mockResponse);
+        when(mockResponse.getEntity()).thenReturn(mockEntity);
+        when(mockEntity.getContent())
+            .thenReturn(new ByteArrayInputStream("<wsdl>1</wsdl>".getBytes(StandardCharsets.UTF_8)))
+            .thenReturn(new ByteArrayInputStream("<wsdl>2</wsdl>".getBytes(StandardCharsets.UTF_8)))
+            .thenReturn(new ByteArrayInputStream("<wsdl>3</wsdl>".getBytes(StandardCharsets.UTF_8)))
+            .thenReturn(new ByteArrayInputStream("<wsdl>4</wsdl>".getBytes(StandardCharsets.UTF_8)))
+            .thenReturn(new ByteArrayInputStream("<wsdl>custom1</wsdl>".getBytes(StandardCharsets.UTF_8)))
+            .thenReturn(new ByteArrayInputStream("<wsdl>custom2</wsdl>".getBytes(StandardCharsets.UTF_8)));
+
+        List<String> customWsdls = Arrays.asList("MyService", "AnotherService");
+
+        try (MockedStatic<HttpClients> httpClientsMock = mockStatic(HttpClients.class)) {
+            httpClientsMock.when(HttpClients::createDefault).thenReturn(mockHttpClient);
+
+            RetrieveWsdls.retrieveWsdls(context, customWsdls);
+
+            verify(mockHttpClient, times(6)).execute(any(HttpGet.class), any(HttpClientContext.class));
+        }
+
+        assertTrue(new File(tempDir.toString(), "apex.wsdl").exists(), "apex.wsdl should exist");
+        assertTrue(new File(tempDir.toString(), "enterprise.wsdl").exists(), "enterprise.wsdl should exist");
+        assertTrue(new File(tempDir.toString(), "metadata.wsdl").exists(), "metadata.wsdl should exist");
+        assertTrue(new File(tempDir.toString(), "partner.wsdl").exists(), "partner.wsdl should exist");
+        assertTrue(new File(tempDir.toString(), "MyService.wsdl").exists(), "MyService.wsdl should exist");
+        assertTrue(new File(tempDir.toString(), "AnotherService.wsdl").exists(), "AnotherService.wsdl should exist");
+    }
+
+    @Test
+    void testRetrieveWsdls_WithPrefix(@TempDir Path tempDir) throws Exception {
+        Context context = new Context();
+        context.outputDir = tempDir.toString();
+        context.prefix = "org-";
+        context.sessionContext = mock(SessionContext.class);
+        when(context.sessionContext.sessionId()).thenReturn("test-session");
+        when(context.sessionContext.serverUrl()).thenReturn("https://test.salesforce.com");
+
+        CloseableHttpClient mockHttpClient = mock(CloseableHttpClient.class);
+        CloseableHttpResponse mockResponse = mock(CloseableHttpResponse.class);
+        HttpEntity mockEntity = mock(HttpEntity.class);
+
+        when(mockHttpClient.execute(any(HttpGet.class), any(HttpClientContext.class))).thenReturn(mockResponse);
+        when(mockResponse.getEntity()).thenReturn(mockEntity);
+        when(mockEntity.getContent())
+            .thenReturn(new ByteArrayInputStream("<wsdl/>".getBytes(StandardCharsets.UTF_8)))
+            .thenReturn(new ByteArrayInputStream("<wsdl/>".getBytes(StandardCharsets.UTF_8)))
+            .thenReturn(new ByteArrayInputStream("<wsdl/>".getBytes(StandardCharsets.UTF_8)))
+            .thenReturn(new ByteArrayInputStream("<wsdl/>".getBytes(StandardCharsets.UTF_8)));
+
+        try (MockedStatic<HttpClients> httpClientsMock = mockStatic(HttpClients.class)) {
+            httpClientsMock.when(HttpClients::createDefault).thenReturn(mockHttpClient);
+
+            RetrieveWsdls.retrieveWsdls(context, new ArrayList<>());
+        }
+
+        assertTrue(new File(tempDir.toString(), "org-apex.wsdl").exists(), "Prefixed apex.wsdl should exist");
+        assertTrue(new File(tempDir.toString(), "org-enterprise.wsdl").exists(), "Prefixed enterprise.wsdl should exist");
+        assertTrue(new File(tempDir.toString(), "org-metadata.wsdl").exists(), "Prefixed metadata.wsdl should exist");
+        assertTrue(new File(tempDir.toString(), "org-partner.wsdl").exists(), "Prefixed partner.wsdl should exist");
     }
 
     @Test
@@ -720,7 +877,6 @@ class RetrieveWsdlsTest {
 
     @Test
     void testMain_MethodExists() {
-        // Verify main method exists with correct signature
         assertDoesNotThrow(() -> {
             java.lang.reflect.Method mainMethod = RetrieveWsdls.class.getDeclaredMethod(
                 "main", String[].class);
@@ -751,7 +907,6 @@ class RetrieveWsdlsTest {
 
     @Test
     void testContext_CanBeInstantiatedForTesting() {
-        // Verify we can create a Context object for testing
         Context context = new Context();
         assertNotNull(context, "Should be able to create Context object");
         assertEquals("", context.prefix, "Default prefix should be empty");
@@ -769,7 +924,6 @@ class RetrieveWsdlsTest {
         assertEquals("mock-session-id-12345", sessionId,
             "Session ID should be retrieved from SessionContext");
 
-        // This session ID would be used in the Salesforce cookie
         assertTrue(sessionId.length() > 0, "Session ID should not be empty");
     }
 
@@ -783,7 +937,135 @@ class RetrieveWsdlsTest {
         assertEquals("https://na1.salesforce.com", serverUrl,
             "Server URL should be retrieved from SessionContext");
 
-        // This would be used to construct WSDL URLs
         assertTrue(serverUrl.startsWith("https://"), "Server URL should use HTTPS");
+    }
+
+    // ========== Tests for WSDL selection (--wsdl, --skip-custom, --include-tooling) ==========
+
+    @Test
+    void testRetrieveWsdls_DefaultStandardWsdlSet() {
+        Context context = new Context();
+        Set<WsdlSubUrlEnum> wsdls = context.getStandardWsdls();
+
+        assertEquals(4, wsdls.size(), "Default should include 4 standard WSDLs");
+        assertTrue(wsdls.contains(WsdlSubUrlEnum.APEX));
+        assertTrue(wsdls.contains(WsdlSubUrlEnum.ENTERPRISE));
+        assertTrue(wsdls.contains(WsdlSubUrlEnum.METADATA));
+        assertTrue(wsdls.contains(WsdlSubUrlEnum.PARTNER));
+        assertFalse(wsdls.contains(WsdlSubUrlEnum.TOOLING));
+    }
+
+    @Test
+    void testRetrieveWsdls_WithToolingIncluded() {
+        Context context = new Context();
+        context.includeTooling = true;
+        Set<WsdlSubUrlEnum> wsdls = context.getStandardWsdls();
+
+        assertTrue(wsdls.contains(WsdlSubUrlEnum.TOOLING),
+            "Tooling WSDL should be included when includeTooling is true");
+    }
+
+    @Test
+    void testRetrieveWsdls_SkipCustomSkipsDiscovery() {
+        Context context = new Context();
+        context.skipCustom = true;
+
+        List<String> customWsdls = context.skipCustom ? Collections.emptyList() : Arrays.asList("MyService");
+        assertTrue(customWsdls.isEmpty(),
+            "Custom WSDLs list should be empty when skipCustom is true");
+    }
+
+    @Test
+    void testRetrieveWsdls_CustomWsdlsPassedWhenNotSkipped() {
+        Context context = new Context();
+        context.skipCustom = false;
+
+        List<String> customWsdls = context.skipCustom ? Collections.emptyList() : Arrays.asList("MyService", "AnotherService");
+        assertEquals(2, customWsdls.size(),
+            "Custom WSDLs should be passed when skipCustom is false");
+    }
+
+    @Test
+    void testRetrieveWsdls_ExplicitWsdlSelection() {
+        Context context = new Context();
+        context.wsdls = EnumSet.of(WsdlSubUrlEnum.APEX, WsdlSubUrlEnum.METADATA);
+        Set<WsdlSubUrlEnum> wsdls = context.getStandardWsdls();
+
+        assertEquals(2, wsdls.size(), "Should return only selected WSDLs");
+        assertTrue(wsdls.contains(WsdlSubUrlEnum.APEX));
+        assertTrue(wsdls.contains(WsdlSubUrlEnum.METADATA));
+        assertFalse(wsdls.contains(WsdlSubUrlEnum.ENTERPRISE));
+        assertFalse(wsdls.contains(WsdlSubUrlEnum.PARTNER));
+    }
+
+    @Test
+    void testRetrieveWsdls_ToolingUrlConstruction() {
+        String serverUrl = "https://test.salesforce.com";
+        String toolingUrl = WsdlSubUrlEnum.TOOLING.computeUrl(serverUrl);
+
+        assertTrue(toolingUrl.contains("/services/wsdl/tooling"),
+            "Tooling URL should contain correct path");
+        assertTrue(toolingUrl.startsWith(serverUrl),
+            "Tooling URL should start with server URL");
+    }
+
+    @Test
+    void testRetrieveWsdls_ToolingEnumExists() {
+        assertNotNull(WsdlSubUrlEnum.TOOLING, "TOOLING enum should exist");
+        assertFalse(WsdlSubUrlEnum.TOOLING.getSubUrl().isEmpty(),
+            "TOOLING sub-URL should not be empty");
+        assertEquals("/services/wsdl/tooling", WsdlSubUrlEnum.TOOLING.getSubUrl(),
+            "TOOLING sub-URL should be correct");
+    }
+
+    @Test
+    void testRetrieveWsdls_WsdlFileNaming() {
+        assertEquals("apex", WsdlSubUrlEnum.APEX.name().toLowerCase());
+        assertEquals("enterprise", WsdlSubUrlEnum.ENTERPRISE.name().toLowerCase());
+        assertEquals("metadata", WsdlSubUrlEnum.METADATA.name().toLowerCase());
+        assertEquals("partner", WsdlSubUrlEnum.PARTNER.name().toLowerCase());
+        assertEquals("tooling", WsdlSubUrlEnum.TOOLING.name().toLowerCase());
+    }
+
+    @Test
+    void testRetrieveWsdls_MethodStillAcceptsList() {
+        assertDoesNotThrow(() -> {
+            java.lang.reflect.Method method = RetrieveWsdls.class.getDeclaredMethod(
+                "retrieveWsdls", Context.class, List.class);
+            assertNotNull(method);
+            assertEquals(void.class, method.getReturnType());
+        });
+    }
+
+    @Test
+    void testMain_WithSkipCustomFlagStillNeedsCredentials() {
+        assertThrows(IllegalArgumentException.class,
+            () -> RetrieveWsdls.main(new String[]{"--skip-custom"}),
+            "main() with --skip-custom but no credentials should still throw");
+    }
+
+    @Test
+    void testMain_WithIncludeToolingFlagStillNeedsCredentials() {
+        assertThrows(IllegalArgumentException.class,
+            () -> RetrieveWsdls.main(new String[]{"--include-tooling"}),
+            "main() with --include-tooling but no credentials should still throw");
+    }
+
+    @Test
+    void testMain_WithWsdlFlagStillNeedsCredentials() {
+        assertThrows(IllegalArgumentException.class,
+            () -> RetrieveWsdls.main(new String[]{"--wsdl", "apex,metadata"}),
+            "main() with --wsdl but no credentials should still throw");
+    }
+
+    @Test
+    void testMain_WithAllNewFlagsStillNeedsCredentials() {
+        assertThrows(IllegalArgumentException.class,
+            () -> RetrieveWsdls.main(new String[]{
+                "--wsdl", "apex,partner",
+                "--skip-custom",
+                "--include-tooling"
+            }),
+            "main() with all new flags but no credentials should still throw");
     }
 }

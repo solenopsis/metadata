@@ -42,9 +42,9 @@
         <org.apache.httpcomponents_httpclient>4.5.14</org.apache.httpcomponents_httpclient>
         <commons-io_commons-io>2.22.0</commons-io_commons-io>
 
-        <org.solenopsis_session>1.21</org.solenopsis_session>
+        <org.solenopsis_session>1.25</org.solenopsis_session>
         <org.solenopsis_soap>1.16</org.solenopsis_soap>
-        <org.flossware_jcommons>1.14</org.flossware_jcommons>
+        <org.flossware_commons-java>1.38</org.flossware_commons-java>
 
         <jakarta.xml.bind_jakarta.xml.bind-api>4.0.2</jakarta.xml.bind_jakarta.xml.bind-api>
         <org.glassfish.jaxb_jaxb-runtime>4.0.8</org.glassfish.jaxb_jaxb-runtime>
@@ -364,8 +364,8 @@
 
         <dependency>
             <groupId>org.flossware</groupId>
-            <artifactId>jcommons</artifactId>
-            <version>${org.flossware_jcommons}</version>
+            <artifactId>commons-java</artifactId>
+            <version>${org.flossware_commons-java}</version>
         </dependency>
 
         <dependency>

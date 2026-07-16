@@ -43,7 +43,7 @@
         <commons-io_commons-io>2.22.0</commons-io_commons-io>
 
         <org.solenopsis_session>1.25</org.solenopsis_session>
-        <org.solenopsis_soap>1.16</org.solenopsis_soap>
+        <org.solenopsis_soap>1.23</org.solenopsis_soap>
         <org.flossware_commons-java>1.38</org.flossware_commons-java>
 
         <jakarta.xml.bind_jakarta.xml.bind-api>4.0.2</jakarta.xml.bind_jakarta.xml.bind-api>
